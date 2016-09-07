@@ -11917,7 +11917,7 @@ index 2c11c0e..156c4c5 100644
    - else
      %p
 -      Cant find HEAD commit for this tag
-+      Cant find HEAD commit for this タグ
++      이 태그에 대한 HEAD commit를 찾을 수 없습니다.
    - if release && release.description.present?
      .description.prepend-top-default
        .wiki
@@ -11935,13 +11935,13 @@ index 368231e..16d88fa 100644
    .top-area
      .nav-text
 -      Tags give the ability to mark specific points in history as being important
-+      タグを使うと、コミット履歴上で重要なポイントをマークすることができます。
++      태그를 사용하면 커밋 히스토리에서 중요한 포인트를 표시 할 수 있습니다.
  
      .nav-controls
        - if can? current_user, :push_code, @project
          = link_to new_namespace_project_tag_path(@project.namespace, @project), class: 'btn btn-create new-tag-btn' do
 -          New tag
-+          新しいタグ
++          새로운 태그
        .dropdown.inline
          %button.dropdown-toggle.btn{ type: 'button', data: { toggle: 'dropdown'} }
            %span.light= @sort.humanize
@@ -11950,7 +11950,7 @@ index 368231e..16d88fa 100644
            %li
              = link_to namespace_project_tags_path(sort: nil) do
 -              Name
-+              名前
++              Name
              = link_to namespace_project_tags_path(sort: sort_value_recently_updated) do
                = sort_title_recently_updated
              = link_to namespace_project_tags_path(sort: sort_value_oldest_updated) do
@@ -11960,7 +11960,7 @@ index 3a09775..a3bc6d7 100644
 +++ b/app/views/projects/tags/new.html.haml
 @@ -1,4 +1,4 @@
 -- page_title "New Tag"
-+- page_title "新しいタグ"
++- page_title "새로운 태그"
  
  - if @error
    .alert.alert-danger
@@ -11969,7 +11969,7 @@ index 3a09775..a3bc6d7 100644
  
  %h3.page-title
 -  New Tag
-+  新しいタグ
++  새로운 태그
  %hr
  
  = form_tag namespace_project_tags_path, method: :post, id: "new-tag-form", class: "form-horizontal common-note-form tag-form js-quick-submit js-requires-input" do
@@ -14833,7 +14833,7 @@ index 72ec99b..8cf36e9 100644
  
  The endpoints documented above are available for Notes as well. Notes
 -are a sub-resource of Issues and Merge Requests. The examples below
-+are a sub-resource of Issues and マージリクエスト. The examples below
++are a sub-resource of Issues and 머지 요청. The examples below
  describe working with Award Emoji on notes for an Issue, but can be
  easily adapted for notes on a Merge Request.
  
@@ -14843,7 +14843,7 @@ index ca44afb..6fce063 100644
 +++ b/doc/api/deploy_keys.md
 @@ -1,4 +1,4 @@
 -# Deploy Keys
-+# デプロイキー
++# 배포 키
  
  ## List all deploy keys
  
@@ -14853,7 +14853,7 @@ index a898387..d81afc8 100644
 +++ b/doc/api/groups.md
 @@ -1,4 +1,4 @@
 -# Groups
-+# グループ
++# 그룹
  
  ## List groups
  
@@ -14863,7 +14863,7 @@ index a665645..60f1d08 100644
 +++ b/doc/api/issues.md
 @@ -1,4 +1,4 @@
 -# Issues
-+# 課題
++# 이슈
  
  Every API call to issues must be authenticated.
  
@@ -14873,7 +14873,7 @@ index 3653ccf..07abb9f 100644
 +++ b/doc/api/labels.md
 @@ -1,4 +1,4 @@
 -# Labels
-+# ラベル
++# 라벨
  
  ## List labels
  
@@ -14904,7 +14904,7 @@ index 3e88a75..678811b 100644
  ```
  
 -## Accept MR
-+## マージリクエストの承認
++## 머지 요청 승인
  
  Merge changes submitted with MR using this API.
  
@@ -14914,7 +14914,7 @@ index ae7d22a..dcfe8d8 100644
 +++ b/doc/api/milestones.md
 @@ -1,4 +1,4 @@
 -# Milestones
-+# マイルストーン
++# 마일스톤
  
  ## List project milestones
  
@@ -14927,7 +14927,7 @@ index 85d140d..7febb96 100644
  Notes are comments on snippets, issues or merge requests.
  
 -## Issues
-+## 課題
++## 이슈
  
  ### List project issue notes
  
@@ -14936,7 +14936,7 @@ index 85d140d..7febb96 100644
  - `note_id` (required) - The ID of an issue note
  
 -### Create new issue note
-+### 課題に新しいコメントを作成する
++### 이슈에 새 댓글을 작성할
  
  Creates a new note to a single project issue.
  
@@ -14945,7 +14945,7 @@ index 85d140d..7febb96 100644
  ```
  
 -## Snippets
-+## スニペット
++## 스니펫
  
  ### List all snippet notes
  
@@ -14954,7 +14954,7 @@ index 85d140d..7febb96 100644
  ```
  
 -## Merge Requests
-+## マージリクエスト
++## 머지 요청
  
  ### List all merge request notes
  
@@ -14963,7 +14963,7 @@ index 85d140d..7febb96 100644
  ```
  
 -### Create new merge request note
-+### マージリクエストコメントに新しいコメントを作成する
++### 머지 요청 댓글에 새 댓글을 작성
  
  Creates a new note for a single merge request.
  
@@ -14976,7 +14976,7 @@ index 37d97b2..867ca02 100644
  ```
  
 -**Note**: The returned `url` is relative to the project path.
-+**注意**: The returned `url` is relative to the project path.
++**노트**: The returned `url` is relative to the project path.
  In Markdown contexts, the link is automatically expanded when the format in `markdown` is used.
  
  
@@ -14985,7 +14985,7 @@ index 37d97b2..867ca02 100644
  - `enable_ssl_verification` - Do SSL verification when triggering the hook
  
 -### Edit project hook
-+### プロジェクトフックを編集する
++### 프로젝트 후크 편집
  
  Edits a hook for a specified project.
  
@@ -14995,7 +14995,7 @@ index 579fdc0..5360378 100644
 +++ b/doc/api/services.md
 @@ -1,4 +1,4 @@
 -# Services
-+# サービス
++# 서비스
  
  ## Asana
  
@@ -15005,7 +15005,7 @@ index 1802fae..ba4ceaa 100644
 +++ b/doc/api/system_hooks.md
 @@ -1,4 +1,4 @@
 -# System hooks
-+# システムフック
++# 시스템 후크
  
  All methods require administrator authorization.
  
@@ -15018,7 +15018,7 @@ index 7e84858..1c3f35d 100644
  ```
  
 -For example:
-+例:
++예:
  
  ```
  GET /users?username=jack_smith
@@ -15031,7 +15031,7 @@ index 10ce4ac..f475a9f 100644
  - [Trigger builds through the API](triggers/README.md)
  - [Build artifacts](../user/project/builds/artifacts.md)
 -- [User permissions](../user/permissions.md#gitlab-ci)
-+- [ユーザ権限](../user/permissions.md#gitlab-ci)
++- [사용자 권한](../user/permissions.md#gitlab-ci)
  - [API](../api/ci/README.md)
  - [CI services (linked docker containers)](services/README.md)
 diff --git a/doc/ci/docker/README.md b/doc/ci/docker/README.md
@@ -15044,15 +15044,15 @@ index 84eaf29..e6991eb 100644
 -+ [Using Docker Images](using_docker_images.md)
 -+ [Using Docker Build](using_docker_build.md)
 \ No newline at end of file
-++ [Dockerイメージの利用](using_docker_images.md)
-++ [Docker Buildの利用](using_docker_build.md)
+++ [Docker이미지 사용](using_docker_images.md)
+++ [Docker Build이용](using_docker_build.md)
 diff --git a/doc/ci/docker/using_docker_build.md b/doc/ci/docker/using_docker_build.md
 index 0f64137..493b5e4 100644
 --- a/doc/ci/docker/using_docker_build.md
 +++ b/doc/ci/docker/using_docker_build.md
 @@ -1,4 +1,4 @@
 -# Using Docker Build
-+# Docker Buildの利用
++# Docker Build이용
  
  GitLab CI allows you to use Docker Engine to build and test docker-based projects.
  
@@ -15062,7 +15062,7 @@ index a849905..047492e 100644
 +++ b/doc/ci/docker/using_docker_images.md
 @@ -1,4 +1,4 @@
 -# Using Docker Images
-+# Dockerイメージの利用
++# Docker이미지 사용
  
  GitLab CI in conjunction with [GitLab Runner](../runners/README.md) can use
  [Docker Engine](https://www.docker.com/) to test and build any application.
@@ -15075,7 +15075,7 @@ index c10f820..6c80057 100644
  The setting to enable or disable GitLab CI can be found with the name **Builds**
  under the **Features** area of a project's settings along with **Issues**,
 -**Merge Requests**, **Wiki** and **Snippets**. Select or deselect the checkbox
-+**マージリクエスト**, **Wiki** and **Snippets**. Select or deselect the checkbox
++**머지 요청**, **워키** and **스니펫**. Select or deselect the checkbox
  and hit **Save** for the settings to take effect.
  
  ![Features settings](img/features_settings.png)
@@ -15085,7 +15085,7 @@ index 42eb59f..dfa6005 100644
 +++ b/doc/ci/permissions/README.md
 @@ -1,3 +1,3 @@
 -# Users Permissions
-+# Users アクセス権
++# Users 권한
  
  This document was moved to [user/permissions.md](../../user/permissions.md#gitlab-ci).
 diff --git a/doc/ci/quick_start/README.md b/doc/ci/quick_start/README.md
@@ -15094,7 +15094,7 @@ index c835ebc..fb37c07 100644
 +++ b/doc/ci/quick_start/README.md
 @@ -1,4 +1,4 @@
 -# Quick Start
-+# クイックスタート
++# 빠른 시작
  
  >**Note:** Starting from version 8.0, GitLab [Continuous Integration][ci] (CI)
  is fully integrated into GitLab itself and is [enabled] by default on all
@@ -15103,7 +15103,7 @@ index c835ebc..fb37c07 100644
  
  You are also able to view the status of any commit in the various pages in
 -GitLab, such as **Commits** and **Merge Requests**.
-+GitLab, such as **Commits** and **マージリクエスト**.
++GitLab, such as **Commits** and **머지 요청**.
  
  ## Enabling build emails
  
@@ -15113,7 +15113,7 @@ index 7c0fb22..c31b2a9 100644
 +++ b/doc/ci/ssh_keys/README.md
 @@ -1,4 +1,4 @@
 -# Using SSH keys
-+# SSHキーの利用
++# SSH키 이용
  
  GitLab currently doesn't have built-in support for managing SSH keys in a build
  environment.
@@ -15126,7 +15126,7 @@ index 4a7c21f..873b5e5 100644
  Variables can be defined at a global level, but also at a job level.
  
 -More information about Docker integration can be found in [Using Docker Images](../docker/using_docker_images.md).
-+More information about Docker integration can be found in [Dockerイメージの利用](../docker/using_docker_images.md).
++More information about Docker integration can be found in [Docker이미지 사용](../docker/using_docker_images.md).
  
  ### User-defined variables (Secure Variables)
  **This feature requires GitLab Runner 0.4.0 or higher**
@@ -15140,8 +15140,8 @@ index 01d7108..d198806 100644
  | script        | yes | Defines a shell script which is executed by Runner |
 -| image         | no | Use docker image, covered in [Using Docker Images](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
 -| services      | no | Use docker services, covered in [Using Docker Images](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
-+| image         | no | Use docker image, covered in [Dockerイメージの利用](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
-+| services      | no | Use docker services, covered in [Dockerイメージの利用](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
++| image         | no | Use docker image, covered in [Docker이미지 사용](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
++| services      | no | Use docker services, covered in [Docker이미지 사용](../docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml) |
  | stage         | no | Defines a build stage (default: `test`) |
  | type          | no | Alias for `stage` |
  | variables     | no | Define build variables on a job level |
@@ -15150,7 +15150,7 @@ index 01d7108..d198806 100644
  ### script
  
 -`script` is a shell script which is executed by the Runner. For example:
-+`script` is a shell script which is executed by the Runner. 例:
++`script` is a shell script which is executed by the Runner. 예:
  
  ```yaml
  job:
@@ -15159,7 +15159,7 @@ index 01d7108..d198806 100644
      [manual actions](#manual-actions) below.
  
 -For example:
-+例:
++예:
  
  ```yaml
  stages:
@@ -15185,7 +15185,7 @@ index 14c4a7d..84a2a02 100644
  
  Now that we have mitmproxy and Docker running, we can attempt to login and push
 -a container image. You may need to run as root to do this. For example:
-+a container image. You may need to run as root to do this. 例:
++a container image. You may need to run as root to do this. 예:
  
  ```sh
  docker login s3-testing.myregistry.com:4567
@@ -15198,7 +15198,7 @@ index 4620bb2..445f3d8 100644
  Here, `%{issue_ref}` is a complex regular expression defined inside GitLab, that matches a reference to a local issue (`#123`), cross-project issue (`group/project#123`) or a link to an issue (`https://gitlab.example.com/group/project/issues/123`).
  
 -For example:
-+例:
++예:
  
  ```
  git commit -m "Awesome commit message (Fix #20, Fixes #21 and Closes group/otherproject#22). This commit is also related to #17 and fixes #18, #19 and https://gitlab.example.com/group/otherproject/issues/23."
@@ -15211,7 +15211,7 @@ index 927a187..58a68f7 100644
  - Leave exactly one newline after a heading
  
 -## Links
-+## リンク
++## 링크
  
  - If a link makes the paragraph to span across multiple lines, do not use
    the regular Markdown approach: `[Text](https://example.com)`. Instead use
@@ -15220,7 +15220,7 @@ index 927a187..58a68f7 100644
    that appears when hovering your mouse on a link
  
 -## Images
-+## 画像
++## 이미지
  
  - Place images in a separate directory named `img/` in the same directory where
    the `.md` document that you're working on is located. Always prepend their
@@ -15229,7 +15229,7 @@ index 927a187..58a68f7 100644
    - `params` for the method params (this acts as description **and** validation
      of the params)
 -- Every method must have the REST API request. For example:
-+- Every method must have the REST API request. 例:
++- Every method must have the REST API request. 예:
  
      ```
      GET /projects/:id/repository/branches
@@ -15242,7 +15242,7 @@ index c2272ab..81a4f06 100644
  
  The easiest way to check if a method has been instrumented is to check its
 -source location. For example:
-+source location. 例:
++source location. 예:
  
  ```
  method = Rugged::TagCollection.instance_method(:[])
@@ -15251,7 +15251,7 @@ index c2272ab..81a4f06 100644
  
  Measuring blocks of Ruby code is done by calling `Gitlab::Metrics.measure` and
 -passing it a block. For example:
-+passing it a block. 例:
++passing it a block. 예:
  
  ```ruby
  Gitlab::Metrics.measure(:foo) do
@@ -15264,7 +15264,7 @@ index b8fab3a..7cb928c 100644
    downtime. This constant **must** be set when `DOWNTIME` is set to `true`.
  
 -For example:
-+例:
++예:
  
  ```ruby
  class MyMigration < ActiveRecord::Migration
@@ -15277,7 +15277,7 @@ index 7ff603e..a008bd9 100644
  consistent performance of GitLab.
  
 -## Workflow
-+## ワークフロー
++## 워크 플로우
  
  The process of solving performance problems is roughly as follows:
  
@@ -15299,7 +15299,7 @@ index e244ad4..ce3c28c 100644
  Bullet adds quite a bit of logging noise it's disabled by default. To enable
  Bullet, set the environment variable `ENABLE_BULLET` to a non-empty value before
 -starting GitLab. For example:
-+starting GitLab. 例:
++starting GitLab. 예:
  
      ENABLE_BULLET=true bundle exec rails s
  
@@ -15312,7 +15312,7 @@ index 23fd760..2a90c21 100644
  ```
  
 -For example:
-+例:
++예:
  
  ```ruby
  class AddUsersLowerUsernameEmailIndexes < ActiveRecord::Migration
@@ -15338,7 +15338,7 @@ index 57136ac..4ea6e17 100644
  ![Commit changes](basicsimages/commit_changes.png)
  
 -### Note
-+### 注意
++### 노트
  Besides its regular files, every directory needs a README.md or README.html file which works like an index, telling
  what the directory is about. It's the first document you'll find when you open a directory.
 diff --git a/doc/gitlab-basics/add-merge-request.md b/doc/gitlab-basics/add-merge-request.md
@@ -15349,7 +15349,7 @@ index 236b424..57567cf 100644
  # How to create a merge request
  
 -Merge Requests are useful to integrate separate changes that you've made to a project, on different branches.
-+マージリクエスト are useful to integrate separate changes that you've made to a project, on different branches.
++머지 요청 are useful to integrate separate changes that you've made to a project, on different branches.
  
  To create a new Merge Request, sign in to GitLab.
  
@@ -15358,7 +15358,7 @@ index 236b424..57567cf 100644
  ![Select a project](basicsimages/select_project.png)
  
 -Click on "Merge Requests" on the left side of your screen:
-+Click on "マージリクエスト" on the left side of your screen:
++Click on "머지 요청" on the left side of your screen:
  
  ![Merge requests](basicsimages/merge_requests.png)
  
@@ -15367,7 +15367,7 @@ index 236b424..57567cf 100644
  Your Merge Request will be ready to be approved and published.
  
 -### Note
-+### 注意
++### 노트
  
  After you created a new branch, you'll immediately find a "create a Merge Request" button at the top of your screen.
  You may automatically create a Merge Request from your recently created branch when clicking on this button:
@@ -15380,7 +15380,7 @@ index f80ae62..f0cebec 100644
  Sign in to [GitLab.com](https://gitlab.com).
  
 -When you are on your Dashboard, click on "Groups" on the left menu of your screen:
-+When you are on your Dashboard, click on "グループ" on the left menu of your screen:
++When you are on your Dashboard, click on "그룹" on the left menu of your screen:
  
  ![Go to groups](basicsimages/select-group2.png)
  
@@ -15400,7 +15400,7 @@ index 5a9a158..af8c4ec 100644
 +++ b/doc/incoming_email/README.md
 @@ -1,4 +1,4 @@
 -# Reply by email
-+# メールで返信
++# 이메일로 회신
  
  GitLab can be set up to allow users to comment on issues and merge requests by
  replying to notification emails.
@@ -15412,7 +15412,7 @@ index e8093f0..3e1de8a 100644
  # Database MySQL
  
 -## Note
-+## 注意
++## 노트
  
  We do not recommend using MySQL due to various issues. For example, case [(in)sensitivity](https://dev.mysql.com/doc/refman/5.0/en/case-sensitivity.html) and [problems](https://bugs.mysql.com/bug.php?id=65830) that [suggested](https://bugs.mysql.com/bug.php?id=50909) [fixes](https://bugs.mysql.com/bug.php?id=65830) [have](https://bugs.mysql.com/bug.php?id=63164).
  
@@ -15425,7 +15425,7 @@ index d4b89fa..ad761ae 100644
  [MySQL setup guide](database_mysql.md).
  
 -> **Note**: because we need to make use of extensions you need at least pgsql 9.1.
-+> **注意**: because we need to make use of extensions you need at least pgsql 9.1.
++> **노트**: because we need to make use of extensions you need at least pgsql 9.1.
  
  1. Install the database packages:
  
@@ -15439,8 +15439,8 @@ index e524708..c0189eb 100644
  
 -1. Once created, you should see the Quick Start options. Disregard them and
 -select 'Settings' above the Quick Start options.
-+1. Once created, you should see the クイックスタート options. Disregard them and
-+select 'Settings' above the クイックスタート options.
++1. Once created, you should see the 빠른 시작 options. Disregard them and
++select 'Settings' above the 빠른 시작 options.
  
  1. At the top of the Settings screen, you should see your Domain, Client ID and
  Client Secret. Take note of these as you'll need to put them in the
@@ -15458,7 +15458,7 @@ index 77bb75c..79b3f6e 100644
  1. Choose "Next"
  
 -1. Choose "Skip Quick Start" in the upper right corner
-+1. Choose "Skip クイックスタート" in the upper right corner
++1. Choose "Skip 빠른 시작" in the upper right corner
  
  1. Choose "Settings" in the menu on the left
  
@@ -15468,7 +15468,7 @@ index 0c53584..273eaf6 100644
 +++ b/doc/integration/oauth_provider.md
 @@ -1,4 +1,4 @@
 -# GitLab as OAuth2 authentication service provider
-+# OAuth2認証サービスプロバイダとしてのGitLab
++# OAuth2인증 서비스 제공자로서 깃랩
  
  This document is about using GitLab as an OAuth authentication service provider
  to sign in to other services.
@@ -15477,7 +15477,7 @@ index 0c53584..273eaf6 100644
  
  In order to add a new application via your profile, navigate to
 -**Profile Settings > Applications** and select **New Application**.
-+**プロフィール設定 > Applications** and select **New Application**.
++**프로필 설정 > Applications** and select **New Application**.
  
  ![New OAuth application](img/oauth_provider_user_wide_applications.png)
  
@@ -15486,11 +15486,11 @@ index 0c53584..273eaf6 100644
  ---
  
 -## Authorized applications
-+## 認可済みアプリケーション
++## 승인 된 응용 프로그램
  
  Every application you authorized to use your GitLab credentials will be shown
 -in the **Authorized applications** section under **Profile Settings > Applications**.
-+in the **Authorized applications** section under **プロフィール設定 > Applications**.
++in the **Authorized applications** section under **프로필 설정 > Applications**.
  
  ![Authorized_applications](img/oauth_provider_authorized_application.png)
  
@@ -15503,7 +15503,7 @@ index f3b2a28..3c21d05 100644
  will be returned to GitLab and will be signed in.
  
 -## External Groups
-+## External グループ
++## External 그룹
  
  >**Note:**
  This setting is only available on GitLab 8.7 and above.
@@ -15512,7 +15512,7 @@ index f3b2a28..3c21d05 100644
  ```xml
  <saml:AttributeStatement>
 -  <saml:Attribute Name="Groups">
-+  <saml:Attribute Name="グループ">
++  <saml:Attribute Name="그룹">
      <saml:AttributeValue xsi:type="xs:string">SecurityGroup</saml:AttributeValue>
      <saml:AttributeValue xsi:type="xs:string">Developers</saml:AttributeValue>
      <saml:AttributeValue xsi:type="xs:string">Designers</saml:AttributeValue>
@@ -15521,7 +15521,7 @@ index f3b2a28..3c21d05 100644
  { name: 'saml',
    label: 'Our SAML Provider',
 -  groups_attribute: 'Groups',
-+  groups_attribute: 'グループ',
++  groups_attribute: '그룹',
    external_groups: ['Freelancers', 'Interns'],
    args: {
            assertion_consumer_service_url: 'https://gitlab.example.com/users/auth/saml/callback',
@@ -15534,7 +15534,7 @@ index 7715842..3642faa 100644
  
  ```bash
 -# For Omnibus installations
-+# オムニバスインストール
++# 옴니버스 설치
  sudo gitlab-ctl restart
  
  # For installations from source
@@ -15547,7 +15547,7 @@ index 7947b0f..6663965 100644
  for detailed steps.
  
 -> **Note**: Before starting Grafana for the first time, set the admin user
-+> **注意**: Before starting Grafana for the first time, set the admin user
++> **노트**: Before starting Grafana for the first time, set the admin user
  and password in `/etc/grafana/grafana.ini`. Otherwise, the default password
  will be `admin`.
  
@@ -15557,7 +15557,7 @@ index 78d67ae..deadfea 100644
 +++ b/doc/permissions/permissions.md
 @@ -1,3 +1,3 @@
 -# Permissions
-+# アクセス権
++# 권한
  
  This document was moved to [user/permissions.md](../user/permissions.md).
 diff --git a/doc/profile/README.md b/doc/profile/README.md
@@ -15566,22 +15566,22 @@ index 6f8359d..725c384 100644
 +++ b/doc/profile/README.md
 @@ -1,4 +1,4 @@
 -# Profile Settings
-+# プロフィール設定
++# 프로필 설정
  
 -- [Preferences](preferences.md)
 -- [Two-factor Authentication (2FA)](two_factor_authentication.md)
-+- [設定](preferences.md)
-+- [二段階認証 (2FA)](two_factor_authentication.md)
++- [설정](preferences.md)
++- [두 단계 인증 (2FA)](two_factor_authentication.md)
 diff --git a/doc/profile/preferences.md b/doc/profile/preferences.md
 index 073b879..203b5b7 100644
 --- a/doc/profile/preferences.md
 +++ b/doc/profile/preferences.md
 @@ -1,6 +1,6 @@
 -# Profile Preferences
-+# Profile 設定
++# Profile 설정
  
 -Settings in the **Profile > Preferences** page allow the user to customize
-+Settings in the **Profile > 設定** page allow the user to customize
++Settings in the **Profile > 설정** page allow the user to customize
  various aspects of the site to their liking.
  
  ## Application theme
@@ -15591,10 +15591,10 @@ index 82505b1..847eab1 100644
 +++ b/doc/profile/two_factor_authentication.md
 @@ -1,6 +1,6 @@
 -# Two-factor Authentication (2FA)
-+# 二段階認証 (2FA)
++# 두 단계 인증 (2FA)
  
 -Two-factor Authentication (2FA) provides an additional level of security to your
-+二段階認証 (2FA) provides an additional level of security to your
++두 단계 인증 (2FA) provides an additional level of security to your
  GitLab account. Once enabled, in addition to supplying your username and
  password to login, you'll be prompted for a code generated by an application on
  your phone.
@@ -15603,10 +15603,10 @@ index 82505b1..847eab1 100644
  
  1. Log in to your GitLab account.
 -1. Go to your **Profile Settings**.
-+1. Go to your **プロフィール設定**.
++1. Go to your **프로필 설정**.
  1. Go to **Account**.
 -1. Click **Enable Two-factor Authentication**.
-+1. Click **Enable 二段階認証**.
++1. Click **Enable 두 단계 인증**.
  
  ![Two-factor setup](2fa.png)
  
@@ -15615,7 +15615,7 @@ index 82505b1..847eab1 100644
  
  1. Log in to your GitLab account.
 -1. Go to your **Profile Settings**.
-+1. Go to your **プロフィール設定**.
++1. Go to your **프로필 설정**.
  1. Go to **Account**.
  1. Click **Enable Two-Factor Authentication**.
  1. Plug in your U2F device.
@@ -15624,7 +15624,7 @@ index 82505b1..847eab1 100644
  
  If you lose the recovery codes or just want to generate new ones, you can do so
 -from the **Profile Settings** > **Account** page where you first enabled 2FA.
-+from the **プロフィール設定** > **Account** page where you first enabled 2FA.
++from the **프로필 설정** > **Account** page where you first enabled 2FA.
  
  > **Note:** Recovery codes are not generated for U2F devices.
  
@@ -15633,7 +15633,7 @@ index 82505b1..847eab1 100644
  
  1. Log in to your GitLab account.
 -1. Go to your **Profile Settings**.
-+1. Go to your **プロフィール設定**.
++1. Go to your **프로필 설정**.
  1. Go to **Account**.
  1. Click **Disable**, under **Two-Factor Authentication**.
  
@@ -15646,7 +15646,7 @@ index 5166812..da5add0 100644
  1. Select the 'Miscellaneous' tab.
  1. Under 'Pattern Match Labelling' put '${bamboo.repository.revision.number}' 
 -in the 'Labels' box.
-+in the 'ラベル' box.
++in the '라벨' box.
  1. Save
  
  Bamboo is now ready to accept triggers from GitLab. Next, set up the Bamboo
@@ -15659,7 +15659,7 @@ index 2f9f36f..8adaf6e 100644
  You can configure any of the following settings depending on your preference.
  
 -+ **Push events** - Email will be triggered when a push event is recieved
-++ **プッシュイベント** - Email will be triggered when a push event is recieved
+++ **푸시 이벤트** - Email will be triggered when a push event is recieved
  + **Tag push events** - Email will be triggered when a tag is created and pushed
  + **Send from committer** - Send notifications from the committer's email address if the domain is part of the domain GitLab is running on (e.g. `user@gitlab.com`).
  + **Disable code diffs** - Don't include possibly sensitive code diffs in notification body.
@@ -15672,7 +15672,7 @@ index b626c74..8bed0e3 100644
  
  1. Now, let's create a `gitlab-developers` group which will have write access
 -   to projects in JIRA. Go to the **Groups** tab and select **Create group**.
-+   to projects in JIRA. Go to the **グループ** tab and select **Create group**.
++   to projects in JIRA. Go to the **그룹** tab and select **Create group**.
  
       ![JIRA create new user](img/jira_create_new_group.png)
  
@@ -15691,7 +15691,7 @@ index 4442b7c..e4329e1 100644
 +++ b/doc/project_services/project_services.md
 @@ -1,11 +1,11 @@
 -# Project Services
-+# プロジェクトサービス
++# 프로젝트 서비스
  
  Project services allow you to integrate GitLab with other applications. Below
  is list of the currently supported ones.
@@ -15699,7 +15699,7 @@ index 4442b7c..e4329e1 100644
  You can find these within GitLab in the Services page under Project Settings if
  you are at least a master on the project.
 -Project Services are a bit like plugins in that they allow a lot of freedom in
-+プロジェクトサービス are a bit like plugins in that they allow a lot of freedom in
++프로젝트 서비스 are a bit like plugins in that they allow a lot of freedom in
  adding functionality to GitLab. For example there is also a service that can
  send an email every time someone pushes new commits.
  
@@ -15708,7 +15708,7 @@ index 4442b7c..e4329e1 100644
  further configuration instructions and details. Contributions are welcome.
  
 -## Services
-+## サービス
++## 서비스
  
  | Service |	Description |
  | ------- | ----------- |
@@ -15718,56 +15718,56 @@ index a3921f1..38e737f 100644
 +++ b/doc/public_access/public_access.md
 @@ -1,41 +1,38 @@
 -# Public access
-+# 公開アクセス
++# 공개 액세스
  
 -GitLab allows you to change your projects' visibility in order be accessed
 -**publicly** or **internally**.
-+GitLabはあなたのプロジェクトを **公開** または **内部のみ** のアクセス権で開けるようにすることができます。
++깃랩은 당신의 프로젝트를 ** 공개 ** 또는 ** 내부 만 **의 권한으로 열 수 있도록 할 수 있습니다.
  
 -Projects with either of these visibility levels will be listed in the
 -public access directory (`/public` under your GitLab instance).
-+どちらかの可視性が設定されているプロジェクトは公開アクセスディレクトリ (GitLabインスタンスの`/public`) に一覧表示されています。
++어느 가시성이 설정되어있는 프로젝트는 공개 액세스 디렉토리 (깃랩 인스턴스의`/ public`)에 나열되어 있습니다.
  Here is the [GitLab.com example](https://gitlab.com/public).
  
 -Internal projects will only be available to authenticated users.
-+内部のみのプロジェクトは、ログインしたユーザだけが利用することができます。
++내부 전용 프로젝트는 로그인 한 사용자 만 사용할 수 있습니다.
  
  ## Visibility of projects
  
  ### Public projects
  
 -Public projects can be cloned **without any** authentication.
-+公開プロジェクトは **一切の認証なしで** クローンすることができます。
++공개 프로젝트는 ** 일체의 인증없이 ** 복제 할 수 있습니다.
  
 -They will also be listed on the public access directory (`/public`).
-+公開プロジェクトは公開アクセスディレクトリ (`/public`) にも一覧表示されます。
++공개 프로젝트는 공개 액세스 디렉토리 (`/ public`)에 나열됩니다.
  
  **Any logged in user** will have [Guest](../user/permissions.md)
  permissions on the repository.
  
 -### Internal projects
-+### 内部プロジェクト
++### 내부 프로젝트
  
 -Internal projects can be cloned by any logged in user.
-+内部プロジェクトはログインしたユーザであれば誰でもクローンすることができます。
++내부 프로젝트는 로그인 한 사용자라면 누구나 복제 할 수 있습니다.
  
 -They will also be listed on the public access directory (`/public`) for logged
 -in users.
-+内部プロジェクトは、ログインしたユーザの場合 公開アクセスディレクトリ(`/public`) にも表示されます。
++내부 프로젝트는 로그인 한 사용자의 경우 공개 액세스 디렉토리 (`/ public`)에 표시됩니다.
  
  Any logged in user will have [Guest](../user/permissions.md) permissions
  on the repository.
  
 -### How to change project visibility
-+### プロジェクトの可視性レベルの変更方法
++### 프로젝트의 가시성 수준을 변경하는 방법
  
 -1. Go to your project's **Settings**
 -1. Change "Visibility Level" to either Public, Internal or Private
-+1. プロジェクトの**設定**に移動します
-+1. "可視性レベル"を変更します to either Public, Internal or Private
++1. 프로젝트 ** 설정 **로 이동합니다
++1. "가시성 수준"을 변경합니다 to either Public, Internal or Private
  
 -## Visibility of groups
-+## グループの可視性
++## 그룹의 가시성
  
  >**Note:**
  [Starting with][3323] GitLab 8.6, the group visibility has changed and can be
@@ -15776,27 +15776,27 @@ index a3921f1..38e737f 100644
  [3323]: https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/3323
  
 -## Visibility of users
-+## ユーザの可視性
++## 사용자의 가시성
  
 -The public page of a user, located at `/u/username`, is always visible whether
 -you are logged in or not.
-+ユーザの公開ページは `/u/username` にあり、ログインしているかどうかによらず閲覧することができます。
++사용자의 공개 페이지는`/ u / username`에 로그인하고 있는지 여부에 관계없이 열람 할 수 있습니다.
  
 -When visiting the public page of a user, you can only see the projects which
 -you are privileged to.
-+ユーザの公開ページを表示したとき、あなたが権限のあるプロジェクトだけが一覧表示されます。
++사용자의 공개 페이지를 볼 때, 당신은 권한이있는 프로젝트 만 나열됩니다.
  
  If the public level is restricted, user profiles are only visible to logged in users.
  
  
 -## Restricting the use of public or internal projects
-+## 公開または内部プロジェクトの利用を制限する
++## 공개 또는 내부 프로젝트의 이용을 제한하는
  
 -In the Admin area under **Settings** (`/admin/application_settings`), you can
 -restrict the use of visibility levels for users when they create a project or a
 -snippet. This is useful to prevent people exposing their repositories to public
 -by accident. The restricted visibility settings do not apply to admin users.
-+**設定** (`/admin/application_settings`) の管理エリアでは、プロジェクトやスニペット作成時の可視性の利用を制限することができます。これはメンバーが誤ってリポジトリを公開してしまうのを防ぐのに有効です。制限された可視性設定は管理者ユーザには適用されません。
++**설정** (`/admin/application_settings`) 관리 구역 내에서 프로젝트 나 미리 작성시 가시성의 이용을 제한 할 수 있습니다. 이것은 멤버가 실수로 저장소를 공개하고 버리는 것을 방지하는 데 유용합니다. 제한된 가시성 설정은 관리자 사용자에게는 적용되지 않습니다.
 diff --git a/doc/raketasks/README.md b/doc/raketasks/README.md
 index a49c43b..202fb23 100644
 --- a/doc/raketasks/README.md
@@ -15806,7 +15806,7 @@ index a49c43b..202fb23 100644
  - [Features](features.md)
  - [Maintenance](maintenance.md) and self-checks
 -- [User management](user_management.md)
-+- [ユーザ管理](user_management.md)
++- [사용자 관리](user_management.md)
  - [Webhooks](web_hooks.md)
  - [Import](import.md) of git repositories in bulk
  - [Rebuild authorized_keys file](http://docs.gitlab.com/ce/raketasks/maintenance.html#rebuild-authorized_keys-file) task for administrators
@@ -15816,12 +15816,12 @@ index 835af54..0e72793 100644
 +++ b/doc/raketasks/backup_restore.md
 @@ -1,15 +1,13 @@
 -# Backup restore
-+# バックアップ・リストア
++# 백업 복원
  
  ![backup banner](backup_hrz.png)
  
 -## Create a backup of the GitLab system
-+## GitLabシステムのバックアップの作成
++## 깃랩 시스템의 백업 만들기
  
 -A backup creates an archive file that contains the database, all repositories and all attachments.
 -This archive will be saved in backup_path (see `config/gitlab.yml`).
@@ -15829,10 +15829,10 @@ index 835af54..0e72793 100644
 -You can only restore a backup to exactly the same version of GitLab that you created it
 -on, for example 7.2.1. The best way to migrate your repositories from one server to
 -another is through backup restore.
-+データベース、すべてのリポジトリ、すべての添付ファイルのバックアップアーカイブを作成します。
-+このアーカイブは backup_path ( `config/gitlab.yml` を参照)に保存されます。
-+ファイル名は `[TIMESTAMP]_gitlab_backup.tar` の形式です。このタイムスタンプはバックアップをリストアするときに使用されます。
-+バックアップは、それを取得したGitLabと同じバージョンにのみリストアできます。(例えば、7.2.1) あなたのリポジトリをあるサーバから別のサーバへ移行する最適な方法は、バックアップをリストアすることです。
++데이터베이스의 모든 리포지토리 모든 첨부 파일의 백업 아카이브를 만듭니다.
++이 아카이브는 backup_path (`config / gitlab.yml` 참조)에 저장됩니다.
++파일 이름은`[TIMESTAMP] _gitlab_backup.tar` 형식입니다. 이 타임 스탬프는 백업을 복원 할 때 사용됩니다.
++백업은 그것을 취득한 GitLab와 동일한 버전에만 복원 할 수 있습니다. (예 : 7.2.1) 당신의 저장소가있는 서버에서 다른 서버로 마이그레이션하는 가장 좋은 방법은 백업을 복원하는 것입니다.
  
  You need to keep separate copies of `/etc/gitlab/gitlab-secrets.json` and
  `/etc/gitlab/gitlab.rb` (for omnibus packages) or
@@ -15841,7 +15841,7 @@ index 835af54..0e72793 100644
  ```
  
 -Example output:
-+出力例:
++출력 예:
  
  ```
  Dumping database tables:
@@ -15850,16 +15850,16 @@ index 835af54..0e72793 100644
  ```
  
 -## Storing configuration files
-+## 設定ファイルの保存
++## 설정 파일 저장
  
 -Please be informed that a backup does not store your configuration
 -files.  One reason for this is that your database contains encrypted
 -information for two-factor authentication.  Storing encrypted
 -information along with its key in the same place defeats the purpose
 -of using encryption in the first place!
-+バックアップでは設定ファイルは保存されないことに注意してください。
-+理由の一つは、データベースは二段階認証のために暗号化された情報を含んでいることです。
-+暗号化の目的からすると、暗号化された情報とそのキーを同じ場所に保存すべきではありません。
++백업은 설정 파일이 저장되지 않는다는 점에 유의하십시오.
++이유 중 하나는 데이터베이스는 두 단계 인증을 위해 암호화 된 정보를 포함하는 것입니다.
++암호화의 목적에서하면 암호화 된 정보와 키를 같은 위치에 저장해서는 없습니다.
  
  If you use an Omnibus package please see the [instructions in the readme to backup your configuration](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#backup-and-restore-omnibus-gitlab-configuration).
  If you have a cookbook installation there should be a copy of your configuration in Chef.
@@ -15868,7 +15868,7 @@ index 835af54..0e72793 100644
  ```
  
 -Example output:
-+出力例:
++출력 예:
  
  ```
  Unpacking backup... [DONE]
@@ -15877,7 +15877,7 @@ index 835af54..0e72793 100644
  ```
  
 -### Omnibus installations
-+### オムニバスインストール
++### 옴니버스 설치
  
  This procedure assumes that:
  
@@ -15886,7 +15886,7 @@ index 835af54..0e72793 100644
  [correct GitLab version](https://www.gitlab.com/downloads/archives/) and try again.
  
 -## Configure cron to make daily backups
-+## 日次バックアップを行うためのcronの設定
++## 매일 백업을위한 cron 설정
  
  ### For installation from source:
  ```
@@ -15895,7 +15895,7 @@ index 835af54..0e72793 100644
  ```
  
 -Add the following lines at the bottom:
-+以下の行を末尾に追加します。:
++다음 행을 끝에 추가합니다.:
  
  ```
  # Create a full backup of the GitLab repositories and SQL database every day at 4am
@@ -15904,7 +15904,7 @@ index 835af54..0e72793 100644
  For more information see similar questions on postgresql issue tracker[here](http://www.postgresql.org/message-id/201110220712.30886.adrian.klaver@gmail.com) and [here](http://www.postgresql.org/message-id/2039.1177339749@sss.pgh.pa.us) as well as [stack overflow](http://stackoverflow.com/questions/4368789/error-must-be-owner-of-language-plpgsql).
  
 -## Note
-+## 注意
++## 노트
  This documentation is for GitLab CE.
  We backup GitLab.com and make sure your data is secure, but you can't use these methods to export / backup your data yourself from GitLab.com.
  
@@ -15917,7 +15917,7 @@ index 3ff3fee..f777cfc 100644
  ```
  
 -Example output:
-+出力例:
++출력 예:
  
  ![gitlab:user:check_repos output](check_repos_output.png)
 diff --git a/doc/raketasks/cleanup.md b/doc/raketasks/cleanup.md
@@ -15926,10 +15926,10 @@ index cf891cd..f4b0d26 100644
 +++ b/doc/raketasks/cleanup.md
 @@ -1,6 +1,6 @@
 -# Cleanup
-+# クリーンアップ
++# 클린업
  
 -## Remove garbage from filesystem. Important! Data loss!
-+## ファイルシステム上のゴミを削除。重要：データを損失します！
++## 파일 시스템의 쓰레기를 제거합니다. 중요 : 데이터를 상실합니다!
  
  Remove namespaces(dirs) from all repository storage paths if they don't exist in GitLab database.
  
@@ -15938,7 +15938,7 @@ index cf891cd..f4b0d26 100644
  
  Rename repositories from all repository storage paths if they don't exist in GitLab database.
 -The repositories get a `+orphaned+TIMESTAMP` suffix so that they cannot block new repositories from being created.
-+新しいリポジトリが作成できるように、リポジトリには `+orphaned+TIMESTAMP` の接尾辞がつけられます。
++새로운 저장소를 만들 수 있도록 저장소에`+ orphaned + TIMESTAMP` 접미사가 붙습니다.
  
  ```
  # omnibus-gitlab
@@ -15948,29 +15948,29 @@ index f9a4619..3f89f56 100644
 +++ b/doc/raketasks/features.md
 @@ -1,19 +1,19 @@
 -# Features
-+# フィーチャー
++# 피쳐
  
 -## Enable usernames and namespaces for user projects
-+## ユーザのプロジェクトでのユーザ名とネームスペースを有効化
++## 사용자의 프로젝트에서 사용자 이름과 네임 스페이스를 활성화
  
 -This command will enable the namespaces feature introduced in v4.0. It will move every project in its namespace folder.
-+このコマンドは、v4.0 で導入されたネームスペースの機能を有効にします。すべてのプロジェクトをネームスペースフォルダに移動します。
++이 명령은 v4.0에서 도입 된 네임 스페이스 기능을 활성화합니다. 모든 프로젝트 네임 스페이스 폴더로 이동합니다.
  
  Note:
  
 -- Because the **repository location will change**, you will need to **update all your git URLs** to point to the new location.
 -- Username can be changed at [Profile / Account](/profile/account)
-+- **リポジトリの場所が変更されるため** 、新しい場所を指すように **すべてのGitのURLを更新** する必要があります。
-+- ユーザ名は [プロフィール / アカウント設定](/profile/account) から変更することができます。
++- **저장소 위치가 변경되므로 ** 새 위치를 가리 키도록 ** 모든 Git URL을 업데이트 **해야합니다.
++- 사용자 이름은 [프로필 / 계정 설정 (/ profile / account)에서 변경할 수 있습니다.
  
 -**Example:**
-+**例:**
++**예:**
  
 -Old path: `git@example.org:myrepo.git`
-+古いパス: `git@example.org:myrepo.git`
++이전 경로: `git@example.org:myrepo.git`
  
 -New path: `git@example.org:username/myrepo.git` or `git@example.org:groupname/myrepo.git`
-+新しいパス: `git@example.org:username/myrepo.git` or `git@example.org:groupname/myrepo.git`
++새 경로: `git@example.org:username/myrepo.git` or `git@example.org:groupname/myrepo.git`
  
  ```
  bundle exec rake gitlab:enable_namespaces RAILS_ENV=production
@@ -15980,13 +15980,13 @@ index 315cb56..2a4068c 100644
 +++ b/doc/raketasks/maintenance.md
 @@ -1,8 +1,8 @@
 -# Maintenance
-+# メンテナンス
++# 유지 보수
  
 -## Gather information about GitLab and the system it runs on
-+## GitLabやシステムに関する情報の収集
++## 깃랩이나 시스템에 대한 정보 수집
  
 -This command gathers information about your GitLab installation and the System it runs on. These may be useful when asking for help or reporting issues.
-+このコマンドは、GitLabと、GitLabを実行するシステムの情報を収集します。これらはヘルプを求めたり問題をレポートするのに便利です。
++이 명령은 깃랩과 GitLa깃랩b를 실행하는 시스템의 정보를 수집합니다. 이들은 도움을 요청하거나 문제를보고하는 데 유용합니다.
  
  ```
  # omnibus-gitlab
@@ -15995,7 +15995,7 @@ index 315cb56..2a4068c 100644
  ```
  
 -Example output:
-+出力例:
++출력 예:
  
  ```
  System information
@@ -16004,20 +16004,20 @@ index 315cb56..2a4068c 100644
  ```
  
 -## Check GitLab configuration
-+## GitLab設定の確認
++## 깃랩 설정 확인
  
 -Runs the following rake tasks:
-+以下の rake タスクを実行します。:
++다음 rake 태스크를 실행합니다.:
  
  - `gitlab:gitlab_shell:check`
  - `gitlab:sidekiq:check`
  - `gitlab:app:check`
  
 -It will check that each component was setup according to the installation guide and suggest fixes for issues found.
-+各コンポーネントがインストールガイドの通りにインストールされたかどうかチェックし、問題があれば修正方法を提示します。
++각 구성 요소가 설치 가이드대로 설치되었는지 여부를 확인하고 문제가 있으면 해결 방법을 제시합니다.
  
 -You may also have a look at our [Trouble Shooting Guide](https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide).
-+[Trouble Shooting Guide](https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide) も確認しておいた方が良いでしょう。
++[Trouble Shooting Guide](https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide) 도 확인해 두는 것이 좋습니다.
  
  ```
  # omnibus-gitlab
@@ -16026,10 +16026,10 @@ index 315cb56..2a4068c 100644
  ```
  
 -NOTE: Use SANITIZE=true for gitlab:check if you want to omit project names from the output.
-+注意: プロジェクト名を出力しない場合は、 gitlab:check に対して SANITIZE=true を使用してください。
++참고 : 프로젝트 이름을 출력하지 않는 경우 gitlab : check에 SANITIZE = true를 사용하십시오.
  
 -Example output:
-+出力例:
++출력 예:
  
  ```
  Checking Environment ...
@@ -16039,10 +16039,10 @@ index 8a5e2d6..e49bac6 100644
 +++ b/doc/raketasks/user_management.md
 @@ -1,6 +1,6 @@
 -# User management
-+# ユーザ管理
++# 사용자 관리
  
 -## Add user as a developer to all projects
-+## ユーザを開発者としてすべてのプロジェクトに追加
++## 사용자를 개발자로 모든 프로젝트에 추가
  
  ```bash
  # omnibus-gitlab
@@ -16051,13 +16051,13 @@ index 8a5e2d6..e49bac6 100644
  ```
  
 -## Add all users to all projects
-+## すべてのユーザをすべてのプロジェクトへ追加
++## 모든 사용자를 모든 프로젝트에 추가
  
 -Notes:
-+注意:
++노트:
  
 -- admin users are added as masters
-+- 管理者ユーザは Master として追加されます
++- 관리자 사용자는 Master로 추가됩니다
  
  ```bash
  # omnibus-gitlab
@@ -16066,7 +16066,7 @@ index 8a5e2d6..e49bac6 100644
  ```
  
 -## Add user as a developer to all groups
-+## ユーザを開発者としてすべてのグループに追加
++## 사용자를 개발자로 모든 그룹에 추가
  
  ```bash
  # omnibus-gitlab
@@ -16075,13 +16075,13 @@ index 8a5e2d6..e49bac6 100644
  ```
  
 -## Add all users to all groups
-+## すべてのユーザをすべてのグループに追加
++## 모든 사용자를 모든 그룹에 추가
  
 -Notes:
-+注意:
++노트:
  
 -- admin users are added as owners so they can add additional users to the group
-+- 管理者ユーザは、グループにユーザを追加できるように所有者として追加されます
++- 관리자 사용자 그룹에 사용자를 추가 할 수 있도록 소유자로 추가됩니다
  
  ```bash
  # omnibus-gitlab
@@ -16090,7 +16090,7 @@ index 8a5e2d6..e49bac6 100644
  ```
  
 -## Disable Two-factor Authentication (2FA) for all users
-+## Disable 二段階認証 (2FA) for all users
++## Disable 두 단계 인증 (2FA) for all users
  
  This task will disable 2FA for all users that have it enabled. This can be
  useful if GitLab's `config/secrets.yml` file has been lost and users are unable
@@ -16100,7 +16100,7 @@ index 38706e4..50712b3 100644
 +++ b/doc/security/README.md
 @@ -1,4 +1,4 @@
 -# Security
-+# セキュリティ
++# 시큐리티
  
  - [Password length limits](password_length_limits.md)
  - [Rack attack](rack_attack.md)
@@ -16112,56 +16112,56 @@ index 9206699..539ca31 100644
  # Rack attack
  
 -To prevent abusive clients doing damage GitLab uses rack-attack gem.
-+クライアントからの大量アクセスによる被害を防ぐため、GitLabは rack-attack の gem を使っています。
++클라이언트에서 대량 접속에 의한 피해를 방지하기 위해 깃랩는 rack-attack의 gem을 사용하고 있습니다.
  
 -If you installed or upgraded GitLab by following the official guides this should be enabled by default.
-+公式ガイドに沿ってGitLabをインストールまたはアップデートしている場合は、デフォルトで有効になっています。
++공식 가이드에 따라 깃랩를 설치 또는 업데이트하는 경우 기본적으로 활성화되어 있습니다.
  
 -If you are missing `config/initializers/rack_attack.rb` the following steps need to be taken in order to enable protection for your GitLab instance:
-+もし `config/initializers/rack_attack.rb` が存在しない場合は、GitLabインスタンスの保護を有効にするために次のステップを実行する必要があります。
++만약`config / initializers / rack_attack.rb`가 존재하지 않는 경우는 GitLab 인스턴스의 보호를 활성화하기 위해 다음 단계를 수행해야합니다.
  
 -1.  In config/application.rb find and uncomment the following line:
-+1.  config/application.rb の中で次の行を探してコメントを外します：
++1.  config / application.rb에서 다음 줄을 찾아 주석을 제거하십시오 :
  
          config.middleware.use Rack::Attack
  
 -1.  Rename `config/initializers/rack_attack.rb.example` to `config/initializers/rack_attack.rb`.
-+1.  `config/initializers/rack_attack.rb.example` を `config/initializers/rack_attack.rb` にリネームします。
++1.  `config / initializers / rack_attack.rb.example`을`config / initializers / rack_attack.rb`에 이름을 바꿉니다.
  
 -1.  Review the `paths_to_be_protected` and add any other path you need protecting.
-+1.  `paths_to_be_protected` を確認し、他に保護すべきパスがあれば追加します。
++1.  `paths_to_be_protected` 확인하고 다른 유지해야 경로가 있으면 추가합니다.
  
 -1.  Restart GitLab instance.
-+1.  GitLabインスタンスを再起動します。
++1.  깃랩 인스턴스를 다시 시작합니다.
  
 -By default, user sign-in, user sign-up(if enabled) and user password reset is limited to 6 requests per minute. After trying for 6 times, client will have to wait for the next minute to be able to try again. These settings can be found in `config/initializers/rack_attack.rb`
-+デフォルトでは、ユーザのサインイン、サインアップ(有効な場合)、ユーザのパスワードリセットは 6 リクエスト/ 分 に制限されています。6 回試行すると、クライアントは次の1分間はアクセスできなくなります。この設定は `config/initializers/rack_attack.rb` にあります。
++또한 제한을 엄격 또는 느슨한 스로틀 규칙을 설정하려면`limit` 또는`period` 값을 변경합니다. 예를 들어, limit : 3, period : 1.second로 설정하면 더 느슨한 스로틀 규칙입니다 (이것은 초 3 요청 제한됩니다). 또 다른 경로를 보호 대상으로하고 싶다면`paths_to_be_protected` 변수에 경로를 추가합니다. 이러한 설정을 변경 한 후에는 GitLab 인스턴스를 다시 시작해야합니다.
  
 -If you want more restrictive/relaxed throttle rule change the `limit` or `period` values. For example, more relaxed throttle rule will be if you set limit: 3 and period: 1.second(this will allow 3 requests per second). You can also add other paths to the protected list by adding to `paths_to_be_protected` variable. If you change any of these settings do not forget to restart your GitLab instance.
 +さらに制限を厳しい、または緩いスロットル・ルールを設定したい場合は、 `limit` または `period` の値を変更します。例えば、 limit: 3 、 period: 1.second と設定するとより緩やかなスロットル・ルールになります(これは秒間 3 リクエストの制限になります)。 さらに他のパスを保護の対象としたい場合は `paths_to_be_protected` 変数にパスを追加します。これらの設定を変更した後は、GitLabインスタンスを再起動する必要があります。
  
 -In case you find throttling is not enough to protect you against abusive clients, rack-attack gem offers IP whitelisting, blacklisting, Fail2ban style filter and tracking.
-+大量アクセスするクライアントから保護するのにスロットルでは不十分な場合のために、 rack-attack gem はIPホワイトリスト、ブラックリスト、Fail2ban 形式のフィルターと追跡の機能も備えています。
++대량 액세스하는 클라이언트로부터 보호하기 위해 스로틀 부족한 경우를 위해 rack-attack gem은 IP 화이트리스트, 블랙리스트, Fail2ban 형식의 필터 및 추적 기능도 갖추고 있습니다.
  
 -For more information on how to use these options check out [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md).
-+これらのオプションに関するさらに詳細な情報については [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md) を参照してください。
++이러한 옵션에 대한 더 자세한 정보는 [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md) を参照してください。
 diff --git a/doc/security/two_factor_authentication.md b/doc/security/two_factor_authentication.md
 index c849938..88aff09 100644
 --- a/doc/security/two_factor_authentication.md
 +++ b/doc/security/two_factor_authentication.md
 @@ -1,12 +1,12 @@
 -# Enforce Two-factor Authentication (2FA)
-+# Enforce 二段階認証 (2FA)
++# Enforce 두 단계 인증 (2FA)
  
 -Two-factor Authentication (2FA) provides an additional level of security to your
-+二段階認証 (2FA) provides an additional level of security to your
++두 단계 인증 (2FA) provides an additional level of security to your
  users' GitLab account. Once enabled, in addition to supplying their username and
  password to login, they'll be prompted for a code generated by an application on
  their phone.
  
  You can read more about it here:
 -[Two-factor Authentication (2FA)](../profile/two_factor_authentication.md)
-+[二段階認証 (2FA)](../profile/two_factor_authentication.md)
++[두 단계 인증 (2FA)](../profile/two_factor_authentication.md)
  
  ## Enabling 2FA
  
@@ -16170,7 +16170,7 @@ index c849938..88aff09 100644
  
  ```
 -# Omnibus installations
-+# オムニバスインストール
++# 옴니버스 설치
  sudo gitlab-rake gitlab:two_factor:disable_for_all_users
  
  # Installations from source
@@ -16182,7 +16182,7 @@ index d6a0979..6bcfced 100644
  # SSH
  
 -## SSH keys
-+## SSHキー
++## SSH keys
  
  An SSH key allows you to establish a secure connection between your
  computer and GitLab. Before generating an SSH key in your shell, check if your system
@@ -16191,7 +16191,7 @@ index d6a0979..6bcfced 100644
  ```
  
 -## Deploy keys
-+## デプロイキー
++## 배포 키
  
  Deploy keys allow read-only access to multiple projects with a single SSH
  key.
@@ -16208,32 +16208,32 @@ index c44930a..d7bcd00 100644
 +++ b/doc/system_hooks/system_hooks.md
 @@ -1,24 +1,24 @@
 -# System hooks
-+# システムフック
++# 시스템 후크
  
  Your GitLab instance can perform HTTP POST requests on the following events: `project_create`, `project_destroy`, `project_rename`, `project_transfer`, `user_add_to_team`, `user_remove_from_team`, `user_create`, `user_destroy`, `key_create`, `key_destroy`, `group_create`, `group_destroy`, `user_add_to_group` and `user_remove_from_group`.
  
 -System hooks can be used, e.g. for logging or changing information in a LDAP server.
-+システムフック can be used, e.g. for logging or changing information in a LDAP server.
++시스템 후크 can be used, e.g. for logging or changing information in a LDAP server.
  
  > **Note:**
  >
 -> We follow the same structure from Webhooks for Push and Tag events, but we never display commits.
-+> We follow the same structure from Webhooks for Push and タグイベント, but we never display commits.
++> We follow the same structure from Webhooks for Push and 태그 이벤트, but we never display commits.
  >
  > Same deprecations from Webhooks are valid here.
  
 -## Hooks request example
-+## フックリクエストの例
++## 후크 요청의 예
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: System Hook
  ```
  
 -**Project created:**
-+**プロジェクトの作成:**
++**프로젝트 만들기:**
  
  ```json
  {
@@ -16242,7 +16242,7 @@ index c44930a..d7bcd00 100644
  ```
  
 -**Project destroyed:**
-+**プロジェクトの削除:**
++**프로젝트 삭제:**
  
  ```json
  {
@@ -16251,7 +16251,7 @@ index c44930a..d7bcd00 100644
  ```
  
 -**New Team Member:**
-+**新しいメンバーの追加:**
++**새 멤버 추가:**
  
  ```json
  {
@@ -16260,7 +16260,7 @@ index c44930a..d7bcd00 100644
  ```
  
 -**Team Member Removed:**
-+**メンバーの削除:**
++**멤버 삭제:**
  
  ```json
  {
@@ -16269,7 +16269,7 @@ index c44930a..d7bcd00 100644
  ```
  
 -**User created:**
-+**ユーザの作成:**
++**사용자 만들기:**
  
  ```json
  {
@@ -16278,7 +16278,7 @@ index c44930a..d7bcd00 100644
  ```
  
 -**User removed:**
-+**ユーザの削除:**
++**사용자 삭제:**
  
  ```json
  {
@@ -16287,20 +16287,20 @@ index c44930a..d7bcd00 100644
  ```
  
 -## Push events
-+## プッシュイベント
++## 푸시 이벤트
  
 -Triggered when you push to the repository except when pushing tags.
-+リポジトリへのタグ以外のプッシュで実行されます。
++저장소에 태그 이외의 푸시에서 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: System Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -16309,20 +16309,20 @@ index c44930a..d7bcd00 100644
  ```
  
 -## Tag events
-+## タグイベント
++## 태그 이벤트
  
 -Triggered when you create (or delete) tags to the repository.
-+リポジトリにタグを作成または削除したときに実行されます。
++저장소에 태그를 만들거나 제거 할 때 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: System Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -16332,7 +16332,7 @@ index fb70eaa..5493616 100644
 +++ b/doc/update/2.6-to-3.0.md
 @@ -1,4 +1,4 @@
 -# From 2.6 to 3.0
-+# 2.6から3.0へ
++# 2.6에서 3.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/2.6-to-3.0.md) for the most up to date instructions.*
  
  ## 1. Stop server & resque
@@ -16342,7 +16342,7 @@ index ce46b57..9f9bb16 100644
 +++ b/doc/update/2.9-to-3.0.md
 @@ -1,4 +1,4 @@
 -# From 2.9 to 3.0
-+# 2.9から3.0へ
++# 2.9에서 3.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/2.9-to-3.0.md) for the most up to date instructions.*
  
  ## 1. Stop server & resque
@@ -16352,7 +16352,7 @@ index 6ac83f3..34a0b97 100644
 +++ b/doc/update/3.0-to-3.1.md
 @@ -1,4 +1,4 @@
 -# From 3.0 to 3.1
-+# 3.0から3.1へ
++# 3.0에서 3.1로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/3.0-to-3.1.md) for the most up to date instructions.*
  
  **IMPORTANT!**
@@ -16362,7 +16362,7 @@ index df53ed6..119b326 100644
 +++ b/doc/update/3.1-to-4.0.md
 @@ -1,4 +1,4 @@
 -# From 3.1 to 4.0
-+# 3.1から4.0へ
++# 3.1에서 4.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/3.1-to-4.0.md) for the most up to date instructions.*
  
  ## Important changes
@@ -16372,7 +16372,7 @@ index c66c6dd..e48b5fd 100644
 +++ b/doc/update/4.0-to-4.1.md
 @@ -1,4 +1,4 @@
 -# From 4.0 to 4.1
-+# 4.0から4.1へ
++# 4.0에서 4.1로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/4.0-to-4.1.md) for the most up to date instructions.*
  
  ## Important changes
@@ -16382,7 +16382,7 @@ index 97367c5..a74cae2 100644
 +++ b/doc/update/4.1-to-4.2.md
 @@ -1,4 +1,4 @@
 -# From 4.1 to 4.2
-+# 4.1から4.2へ
++# 4.1에서 4.2로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/4.1-to-4.2.md) for the most up to date instructions.*
  
  ## 1. Stop server & Resque
@@ -16392,7 +16392,7 @@ index 7654f4a..bc9dd73 100644
 +++ b/doc/update/4.2-to-5.0.md
 @@ -1,4 +1,4 @@
 -# From 4.2 to 5.0
-+# 4.2から5.0へ
++# 4.2에서 5.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/4.2-to-5.0.md) for the most up to date instructions.*
  
  ## Warning
@@ -16402,7 +16402,7 @@ index c19a819..414ea6a 100644
 +++ b/doc/update/5.0-to-5.1.md
 @@ -1,4 +1,4 @@
 -# From 5.0 to 5.1
-+# 5.0から5.1へ
++# 5.0에서 5.1로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.0-to-5.1.md) for the most up to date instructions.*
  
  ## Warning
@@ -16412,7 +16412,7 @@ index 625fcc3..8e776c1 100644
 +++ b/doc/update/5.1-to-5.2.md
 @@ -1,4 +1,4 @@
 -# From 5.1 to 5.2
-+# 5.1から5.2へ
++# 5.1에서 5.2로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.1-to-5.2.md) for the most up to date instructions.*
  
  ## Warning
@@ -16422,7 +16422,7 @@ index 547d453..77919d2 100644
 +++ b/doc/update/5.1-to-5.4.md
 @@ -1,4 +1,4 @@
 -# From 5.1 to 5.4
-+# 5.1から5.4へ
++# 5.1에서 5.4로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.1-to-5.4.md) for the most up to date instructions.*
  
  Also works starting from 5.2.
@@ -16432,7 +16432,7 @@ index c992c69..acffa38 100644
 +++ b/doc/update/5.1-to-6.0.md
 @@ -1,4 +1,4 @@
 -# From 5.1 to 6.0
-+# 5.1から6.0へ
++# 5.1에서 6.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.1-to-6.0.md) for the most up to date instructions.*
  
  ## Warning
@@ -16442,7 +16442,7 @@ index fe8990b..687dd15 100644
 +++ b/doc/update/5.2-to-5.3.md
 @@ -1,4 +1,4 @@
 -# From 5.2 to 5.3
-+# 5.2から5.3へ
++# 5.2에서 5.3로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.2-to-5.3.md) for the most up to date instructions.*
  
  ## Warning
@@ -16452,7 +16452,7 @@ index 5f82ad7..9d406ef 100644
 +++ b/doc/update/5.3-to-5.4.md
 @@ -1,4 +1,4 @@
 -# From 5.3 to 5.4
-+# 5.3から5.4へ
++# 5.3에서 5.4로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.3-to-5.4.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16462,7 +16462,7 @@ index f0fee63..b012e38 100644
 +++ b/doc/update/5.4-to-6.0.md
 @@ -1,4 +1,4 @@
 -# From 5.4 to 6.0
-+# 5.4から6.0へ
++# 5.4에서 6.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/5.4-to-6.0.md) for the most up to date instructions.*
  
  ## Warning
@@ -16472,7 +16472,7 @@ index 409faf3..188d043 100644
 +++ b/doc/update/6.0-to-6.1.md
 @@ -1,4 +1,4 @@
 -# From 6.0 to 6.1
-+# 6.0から6.1へ
++# 6.0에서 6.1로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.0-to-6.1.md) for the most up to date instructions.*
  
  ## Warning
@@ -16482,7 +16482,7 @@ index 150c7ae..fb5c168 100644
 +++ b/doc/update/6.1-to-6.2.md
 @@ -1,4 +1,4 @@
 -# From 6.1 to 6.2
-+# 6.1から6.2へ
++# 6.1에서 6.2로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.1-to-6.2.md) for the most up to date instructions.*
  
  **You should update to 6.1 before installing 6.2 so all the necessary conversions are run.**
@@ -16492,7 +16492,7 @@ index b96dfb8..e9fce80 100644
 +++ b/doc/update/6.2-to-6.3.md
 @@ -1,4 +1,4 @@
 -# From 6.2 to 6.3
-+# 6.2から6.3へ
++# 6.2에서 6.3로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.2-to-6.3.md) for the most up to date instructions.*
  
  **Requires version: 6.1 or 6.2.**
@@ -16502,7 +16502,7 @@ index 37028be..ae00ba1 100644
 +++ b/doc/update/6.3-to-6.4.md
 @@ -1,4 +1,4 @@
 -# From 6.3 to 6.4
-+# 6.3から6.4へ
++# 6.3에서 6.4로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.3-to-6.4.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16512,7 +16512,7 @@ index 982381a..f93a6c0 100644
 +++ b/doc/update/6.4-to-6.5.md
 @@ -1,4 +1,4 @@
 -# From 6.4 to 6.5
-+# 6.4から6.5へ
++# 6.4에서 6.5로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.4-to-6.5.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16522,7 +16522,7 @@ index bbed2b3..b53051a 100644
 +++ b/doc/update/6.5-to-6.6.md
 @@ -1,4 +1,4 @@
 -# From 6.5 to 6.6
-+# 6.5から6.6へ
++# 6.5에서 6.6로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.5-to-6.6.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16532,7 +16532,7 @@ index 8e82942..7ab2d2d 100644
 +++ b/doc/update/6.6-to-6.7.md
 @@ -1,4 +1,4 @@
 -# From 6.6 to 6.7
-+# 6.6から6.7へ
++# 6.6에서 6.7로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.6-to-6.7.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16542,7 +16542,7 @@ index 4fb9063..914e0e7 100644
 +++ b/doc/update/6.7-to-6.8.md
 @@ -1,4 +1,4 @@
 -# From 6.7 to 6.8
-+# 6.7から6.8へ
++# 6.7에서 .8로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.7-to-6.8.md) for the most up to date instructions.*
  
  ## 0. Backup
@@ -16552,7 +16552,7 @@ index b9b8b63..6854cc9 100644
 +++ b/doc/update/6.8-to-6.9.md
 @@ -1,4 +1,4 @@
 -# From 6.8 to 6.9
-+# 6.8から6.9へ
++# 6.8에서 6.9로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.8-to-6.9.md) for the most up to date instructions.*
  
  ### 0. Backup
@@ -16562,7 +16562,7 @@ index 5352fd5..680111d 100644
 +++ b/doc/update/6.9-to-7.0.md
 @@ -1,4 +1,4 @@
 -# From 6.9 to 7.0
-+# 6.9から7.0へ
++# 6.9에서 7.0로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/6.9-to-7.0.md) for the most up to date instructions.*
  
  ### 0. Backup
@@ -16572,7 +16572,7 @@ index 71f39c4..1d18634 100644
 +++ b/doc/update/7.0-to-7.1.md
 @@ -1,4 +1,4 @@
 -# From 7.0 to 7.1
-+# 7.0から7.1へ
++# 7.0에서 7.1로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/7.0-to-7.1.md) for the most up to date instructions.*
  
  ### 0. Backup
@@ -16582,7 +16582,7 @@ index 88cb63d..825f5e8 100644
 +++ b/doc/update/7.1-to-7.2.md
 @@ -1,4 +1,4 @@
 -# From 7.1 to 7.2
-+# 7.1から7.2へ
++# 7.1에서 7.2로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/7.1-to-7.2.md) for the most up to date instructions.*
  
  ## Editable labels
@@ -16592,7 +16592,7 @@ index 79bc6de..c03c207 100644
 +++ b/doc/update/7.10-to-7.11.md
 @@ -1,4 +1,4 @@
 -# From 7.10 to 7.11
-+# 7.10から7.11へ
++# 7.10에서 7.11로
  
  ### 0. Stop server
  
@@ -16602,7 +16602,7 @@ index cc14a13..8f0df69 100644
 +++ b/doc/update/7.11-to-7.12.md
 @@ -1,4 +1,4 @@
 -# From 7.11 to 7.12
-+# 7.11から7.12へ
++# 7.11에서 7.12로
  
  ### 0. Double-check your Git version
  
@@ -16612,7 +16612,7 @@ index 57ebe32..1908ccd 100644
 +++ b/doc/update/7.12-to-7.13.md
 @@ -1,4 +1,4 @@
 -# From 7.12 to 7.13
-+# 7.12から7.13へ
++# 7.12에서 7.13로
  
  ### 0. Double-check your Git version
  
@@ -16622,7 +16622,7 @@ index 6dd9727..ecd1c75 100644
 +++ b/doc/update/7.13-to-7.14.md
 @@ -1,4 +1,4 @@
 -# From 7.13 to 7.14
-+# 7.13から7.14へ
++# 7.13에서 7.14로
  
  ### 0. Double-check your Git version
  
@@ -16632,7 +16632,7 @@ index 117e2af..f14f01b 100644
 +++ b/doc/update/7.14-to-8.0.md
 @@ -1,4 +1,4 @@
 -# From 7.14 to 8.0
-+# 7.14から8.0へ
++# 7.14에서 8.0로
  
  ### 0. Double-check your Git version
  
@@ -16642,7 +16642,7 @@ index 18f77d6..9dd182b 100644
 +++ b/doc/update/7.2-to-7.3.md
 @@ -1,4 +1,4 @@
 -# From 7.2 to 7.3
-+# 7.2から7.3へ
++# 7.2에서 7.3로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/7.2-to-7.3.md) for the most up to date instructions.*
  
  ### 0. Backup
@@ -16652,7 +16652,7 @@ index 53e739c..2456cde 100644
 +++ b/doc/update/7.3-to-7.4.md
 @@ -1,4 +1,4 @@
 -# From 7.3 to 7.4
-+# 7.3から7.4へ
++# 7.3에서 7.4로
  *Make sure you view this [upgrade guide from the `master` branch](../../../master/doc/update/7.3-to-7.4.md) for the most up to date instructions.*
  
  ### 0. Stop server
@@ -16662,7 +16662,7 @@ index 673eab3..22c2df3 100644
 +++ b/doc/update/7.4-to-7.5.md
 @@ -1,4 +1,4 @@
 -# From 7.4 to 7.5
-+# 7.4から7.5へ
++# 7.4에서 7.5로
  
  ### 0. Stop server
  
@@ -16672,7 +16672,7 @@ index 35cd437..70edb64 100644
 +++ b/doc/update/7.5-to-7.6.md
 @@ -1,4 +1,4 @@
 -# From 7.5 to 7.6
-+# 7.5から7.6へ
++# 7.5에서 7.6로
  
  ### 0. Stop server
  
@@ -16682,7 +16682,7 @@ index 910c7dc..bdf7622 100644
 +++ b/doc/update/7.6-to-7.7.md
 @@ -1,4 +1,4 @@
 -# From 7.6 to 7.7
-+# 7.6から7.7へ
++# 7.6에서 7.7로
  
  ### 0. Stop server
  
@@ -16692,7 +16692,7 @@ index 46ca163..b26773d 100644
 +++ b/doc/update/7.7-to-7.8.md
 @@ -1,4 +1,4 @@
 -# From 7.7 to 7.8
-+# 7.7から7.8へ
++# 7.7에서 7.8로
  
  ### 0. Stop server
  
@@ -16702,7 +16702,7 @@ index 6ffa21c..5d83818 100644
 +++ b/doc/update/7.8-to-7.9.md
 @@ -1,4 +1,4 @@
 -# From 7.8 to 7.9
-+# 7.8から7.9へ
++# 7.8에서 7.9로
  
  ### 0. Stop server
  
@@ -16712,7 +16712,7 @@ index d1179dc..bbdf7ff 100644
 +++ b/doc/update/7.9-to-7.10.md
 @@ -1,4 +1,4 @@
 -# From 7.9 to 7.10
-+# 7.9から7.10へ
++# 7.9에서 7.10로
  
  ### 0. Stop server
  
@@ -16722,7 +16722,7 @@ index d57c0d0..9c665ad 100644
 +++ b/doc/update/8.0-to-8.1.md
 @@ -1,4 +1,4 @@
 -# From 8.0 to 8.1
-+# 8.0から8.1へ
++# 8.0에서 8.1로
  
  **NOTE:** GitLab 8.0 introduced several significant changes related to
  installation and configuration which *are not duplicated here*. Be sure you're
@@ -16732,7 +16732,7 @@ index 46dfa22..c5a6e77 100644
 +++ b/doc/update/8.1-to-8.2.md
 @@ -1,4 +1,4 @@
 -# From 8.1 to 8.2
-+# 8.1から8.2へ
++# 8.1에서 8.2로
  
  **NOTE:** GitLab 8.0 introduced several significant changes related to
  installation and configuration which *are not duplicated here*. Be sure you're
@@ -16742,7 +16742,7 @@ index 9872176..cdf4d46 100644
 +++ b/doc/update/8.10-to-8.11.md
 @@ -1,4 +1,4 @@
 -# From 8.10 to 8.11
-+# 8.10から8.11へ
++# 8.10에서 8.11로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16752,7 +16752,7 @@ index 9f5c6c4..9bdcbda 100644
 +++ b/doc/update/8.2-to-8.3.md
 @@ -1,4 +1,4 @@
 -# From 8.2 to 8.3
-+# 8.2から8.3へ
++# 8.2에서 8.3로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16762,7 +16762,7 @@ index 9f6517d..dbf6963 100644
 +++ b/doc/update/8.3-to-8.4.md
 @@ -1,4 +1,4 @@
 -# From 8.3 to 8.4
-+# 8.3から8.4へ
++# 8.3에서 8.4로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16772,7 +16772,7 @@ index 0cb137a..3551fa7 100644
 +++ b/doc/update/8.4-to-8.5.md
 @@ -1,4 +1,4 @@
 -# From 8.4 to 8.5
-+# 8.4から8.5へ
++# 8.4에서 8.5로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16782,7 +16782,7 @@ index 6267f14..a1014b4 100644
 +++ b/doc/update/8.5-to-8.6.md
 @@ -1,4 +1,4 @@
 -# From 8.5 to 8.6
-+# 8.5から8.6へ
++# 8.5에서 8.6로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16802,7 +16802,7 @@ index 3290665..8002755 100644
 +++ b/doc/update/8.7-to-8.8.md
 @@ -1,4 +1,4 @@
 -# From 8.7 to 8.8
-+# 8.7から8.8へ
++# 8.7에서 8.8로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16812,7 +16812,7 @@ index f078a2b..94dd099 100644
 +++ b/doc/update/8.8-to-8.9.md
 @@ -1,4 +1,4 @@
 -# From 8.8 to 8.9
-+# 8.8から8.9へ
++# 8.8에서 8.9로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16822,7 +16822,7 @@ index a057a42..068d312 100644
 +++ b/doc/update/8.9-to-8.10.md
 @@ -1,4 +1,4 @@
 -# From 8.9 to 8.10
-+# 8.9から8.10へ
++#8.9에서 8.10로
  
  Make sure you view this update guide from the tag (version) of GitLab you would
  like to install. In most cases this should be the highest numbered production
@@ -16832,15 +16832,15 @@ index 9e2a89e..f8bcbde 100644
 +++ b/doc/user/admin_area/labels.md
 @@ -1,9 +1,9 @@
 -# Labels
-+# ラベル
++# 라벨
  
 -## Default Labels
-+## Default ラベル
++## Default 라벨
  
  ### Define your own default Label Set
  
 -Labels that are created within the Labels view on the Admin Dashboard will be automatically added to each new project.
-+ラベル that are created within the Labels view on the Admin Dashboard will be automatically added to each new project.
++라벨 that are created within the Labels view on the Admin Dashboard will be automatically added to each new project.
  
  ![Default label set](img/admin_labels.png)
 diff --git a/doc/user/markdown.md b/doc/user/markdown.md
@@ -16851,29 +16851,29 @@ index 7fe96e6..3c8f27a 100644
  # Markdown
  
 -## Table of Contents
-+## 目次
++## 목차
  
  **[GitLab Flavored Markdown](#gitlab-flavored-markdown-gfm)**
  
 -* [Newlines](#newlines)
 -* [Multiple underscores in words](#multiple-underscores-in-words)
 -* [URL auto-linking](#url-auto-linking)
-+* [改行](#newlines)
-+* [単語内の複数のアンダースコア](#multiple-underscores-in-words)
-+* [URLの自動リンク](#url-auto-linking)
++* [개행](#newlines)
++* [단어의 여러 밑줄](#multiple-underscores-in-words)
++* [URL자동 링크](#url-auto-linking)
  * [Multiline Blockquote](#multiline-blockquote)
 -* [Code and Syntax Highlighting](#code-and-syntax-highlighting)
-+* [コードとシンタックスハイライト](#code-and-syntax-highlighting)
++* [코드 및 구문 강조](#code-and-syntax-highlighting)
  * [Inline Diff](#inline-diff)
 -* [Emoji](#emoji)
 -* [Special GitLab references](#special-gitlab-references)
-+* [絵文字](#emoji)
-+* [GitLabでの参照](#special-gitlab-references)
++* [이모티콘](#emoji)
++* [깃랩에서 참조](#special-gitlab-references)
  * [Task Lists](#task-lists)
  * [Videos](#videos)
  
 -**[Standard Markdown](#standard-markdown)**
-+**[標準のMarkdown](#standard-markdown)**
++**[스탠다드 のMarkdown](#standard-markdown)**
  
 -* [Headers](#headers)
 -* [Emphasis](#emphasis)
@@ -16885,16 +16885,16 @@ index 7fe96e6..3c8f27a 100644
 -* [Horizontal Rule](#horizontal-rule)
 -* [Line Breaks](#line-breaks)
 -* [Tables](#tables)
-+* [ヘッダ](#headers)
-+* [強調](#emphasis)
-+* リスト(#lists)
-+* [リンク](#links)
-+* [画像](#images)
-+* [引用](#blockquotes)
-+* [インライン HTML](#inline-html)
-+* [水平線](#horizontal-rule)
-+* [改行](#line-breaks)
-+* [表](#tables)
++* [헤더](#headers)
++* [강조](#emphasis)
++* 목록(#lists)
++* [링크リンク](#links)
++* [이미지](#images)
++* [견적](#blockquotes)
++* [인라인 HTML](#inline-html)
++* [수평](#horizontal-rule)
++* [줄 바꿈](#line-breaks)
++* [테이블](#tables)
  
  **[Wiki-Specific Markdown](#wiki-specific-markdown)**
  
@@ -16903,7 +16903,7 @@ index 7fe96e6..3c8f27a 100644
  * [Wiki - Root link](#wiki-root-link)
  
 -**[References](#references)**
-+**[リファレンス](#references)**
++**[참조](#references)**
  
  ## GitLab Flavored Markdown (GFM)
  
@@ -16912,37 +16912,37 @@ index 7fe96e6..3c8f27a 100644
  GitLab uses "GitLab Flavored Markdown" (GFM). It extends the standard Markdown in a few significant ways to add some useful functionality. It was inspired by [GitHub Flavored Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
  
 -You can use GFM in the following areas:
-+GFM は以下の場所で使うことができます。 the following areas:
++GFM은 다음 위치에서 사용할 수 있습니다. the following areas :
  
 -- comments
 -- issues
 -- merge requests
 -- milestones
-+- コメント
-+- 課題
-+- マージリクエスト
-+- マイルストーン
++- 댓글
++- 이슈
++- 머지 요청
++- 마일스톤
  - snippets (the snippet must be named with a `.md` extension)
 -- wiki pages
-+- Wikiページ
++- 워키 페이지
  - markdown documents inside the repository
  
  You can also use other rich text files in GitLab. You might have to install a
  dependency to do so. Please see the [github-markup gem readme](https://github.com/gitlabhq/markup#markups) for more information.
  
 -## Newlines
-+## 改行
++## 개행
  
  > If this is not rendered correctly, see
  https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md#newlines
  
 -GFM honors the markdown specification in how [paragraphs and line breaks are handled](https://daringfireball.net/projects/markdown/syntax#p).
-+GFMは [段落と改行の取り扱い](https://daringfireball.net/projects/markdown/syntax#p) での Markdown 仕様にならっています。
++GFM은 단락과 개행의 취급 (https://daringfireball.net/projects/markdown/syntax#p)에서 Markdown 사양으로 디자인되어 있습니다.
  
 -A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines.
 -Line-breaks, or softreturns, are rendered if you end a line with two or more spaces:
-+段落は単純に1行以上の空行で分けられた、1行以上のテキストです。
-+ラインブレーク、ソフトリターンを使うには行末に2つ以上のスペースを入れます。:
++단락은 단순히 1 이상의 빈 행으로 분할 된 한 줄 이상의 텍스트입니다.
++라인 브레이크 소프트 리턴을 사용하려면 줄에 두 개 이상의 공간을 켭니다.:
  
      Roses are red [followed by two or more spaces]
      Violets are blue
@@ -16951,7 +16951,7 @@ index 7fe96e6..3c8f27a 100644
  Sugar is sweet
  
 -## Multiple underscores in words
-+## 単語内の複数のアンダースコア
++## 단어의 여러 밑줄
  
  > If this is not rendered correctly, see
  https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md#multiple-underscores-in-words
@@ -16960,7 +16960,7 @@ index 7fe96e6..3c8f27a 100644
  do_this_and_do_that_and_another_thing
  
 -## URL auto-linking
-+## URLの自動リンク
++## URL 자동 링크
  
  > If this is not rendered correctly, see
  https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md#url-auto-linking
@@ -16969,7 +16969,7 @@ index 7fe96e6..3c8f27a 100644
  >>>
  
 -## Code and Syntax Highlighting
-+## コードとシンタックスハイライト
++## 코드 및 구문 강조
  
  > If this is not rendered correctly, see
  https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md#code-and-syntax-highlighting
@@ -16978,11 +16978,11 @@ index 7fe96e6..3c8f27a 100644
  
  ```no-highlight
 -Inline `code` has `back-ticks around` it.
-+インラインの`コード`は`バッククオート`で括られています。
++인라인`코드`는`역 따옴표`로 둘러싸입니다.
  ```
  
 -Inline `code` has `back-ticks around` it.
-+インラインの`コード`は`バッククオート`で括られています。
++인라인`코드`는`역 따옴표`로 둘러싸입니다.
  
  Example:
  
@@ -16991,7 +16991,7 @@ index 7fe96e6..3c8f27a 100644
      ```python
      def function():
 -        #indenting works just fine in the fenced code block
-+        #仕切られたコードブロックではインデントが有効です
++        #나누어 진 코드 블록은 들여 쓰기가 적용됩니다
          s = "Python syntax highlighting"
          print s
      ```
@@ -17000,13 +17000,13 @@ index 7fe96e6..3c8f27a 100644
  
      ```
 -    No language indicated, so no syntax highlighting.
-+    言語が示されていない場合は、シンタックスハイライトされません。
++    언어가 표시되지 않은 경우, 구문 강조되지 않습니다.
      s = "There is no highlighting for this."
      But let's throw in a <b>tag</b>.
      ```
  
 -becomes:
-+これは次のように表示されます。
++이것은 다음과 같이 표시됩니다.
  
  ```javascript
  var s = "JavaScript syntax highlighting";
@@ -17015,7 +17015,7 @@ index 7fe96e6..3c8f27a 100644
  ```python
  def function():
 -    #indenting works just fine in the fenced code block
-+    #仕切られたコードブロックではインデントが有効です
++    #나누어 진 코드 블록은 들여 쓰기가 적용됩니다
      s = "Python syntax highlighting"
      print s
  ```
@@ -17024,7 +17024,7 @@ index 7fe96e6..3c8f27a 100644
  
  ```
 -No language indicated, so no syntax highlighting.
-+言語が示されていない場合は、シンタックスハイライトされません。
++언어가 표시되지 않은 경우, 구문 강조되지 않습니다.
  s = "There is no highlighting for this."
  But let's throw in a <b>tag</b>.
  ```
@@ -17033,52 +17033,52 @@ index 7fe96e6..3c8f27a 100644
  https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md#emoji
  
 -	Sometimes you want to :monkey: around a bit and add some :star2: to your :speech_balloon:. Well we have a gift for you:
-+	時には、 :monkey: になり :speech_balloon: に :star2: を追加したいこともあるでしょう。そんなあなたにプレゼントがあります。
++	때로는 :monkey: 수 :speech_balloon: 로 :star2: 을 추가 할 수도있을 것입니다. 그런 당신에게 선물합니다.
  
 -	:zap: You can use emoji anywhere GFM is supported. :v:
-+	:zap: あなたはGFMがサポートされた場所ならどこでも、絵文字を使うことができます :v:
++	:zap: 당신은 GFM가 지원되는 곳이라면 어디서나 이모티콘을 사용할 수 있습니다 :v:
  
 -	You can use it to point out a :bug: or warn about :speak_no_evil: patches. And if someone improves your really :snail: code, send them some :birthday:. People will :heart: you for that.
-+	:bug: の指摘や :speak_no_evil: パッチの警告に使うこともできます。そして、もし誰かが本当に :snail: なコードを改善したら、彼らに :birthday: を送りましょう。皆あなたを :heart: になるでしょう。
++	: bug : 지적과 : speak_no_evil : 패치의 경고에 사용할 수 있습니다. 그리고 만약 누군가가 정말 : snail : 코드를 개선하면 그들에게 : birthday :을 보내세요. 모두 당신을 : heart : 되겠지요.
  
 -	If you are new to this, don't be :fearful:. You can easily join the emoji :family:. All you need to do is to look up on the supported codes.
-+	あなたが絵文字の初心者だとしても、 :fearful: にならないでください。あなたも簡単に絵文字の :family: に入ることができます。サポートされたコードを使うだけです。
++	당신이 이모티콘 초보자 라하더라도 : fearful :하지 마십시오. 당신도 쉽게 이모티콘 : family :에 들어갈 수 있습니다. 지원 된 코드를 사용뿐입니다.
  
 -	Consult the [Emoji Cheat Sheet](http://emoji.codes) for a list of all supported emoji codes. :thumbsup:
-+	サポートされている絵文字コードの一覧は、 [Emoji Cheat Sheet](http://emoji.codes) を確認してください。 :thumbsup:
++	지원되는 이모티콘 코드 목록은 [Emoji Cheat Sheet (http://emoji.codes)를 확인하십시오. : thumbsup :
  
 -Sometimes you want to :monkey: around a bit and add some :star2: to your :speech_balloon:. Well we have a gift for you:
-+時には、 :monkey: になり :speech_balloon: に :star2: を追加したいこともあるでしょう。そんなあなたにプレゼントがあります。
++때로는 :monkey: 수 :speech_balloon: 로 :star2: 을 추가 할 수도있을 것입니다. 그런 당신에게 선물합니다.
  
 -:zap: You can use emoji anywhere GFM is supported. :v:
-+:zap: あなたはGFMがサポートされた場所ならどこでも、絵文字を使うことができます :v:
++:zap: 당신은 GFM가 지원되는 곳이라면 어디서나 이모티콘을 사용할 수 있습니다 :v:
  
 -You can use it to point out a :bug: or warn about :speak_no_evil: patches. And if someone improves your really :snail: code, send them some :birthday:. People will :heart: you for that.
-+:bug: の指摘や :speak_no_evil: パッチの警告に使うこともできます。そして、もし誰かが本当に :snail: なコードを改善したら、彼らに :birthday: を送りましょう。皆あなたを :heart: になるでしょう。
++:bug : 지적과 : speak_no_evil : 패치의 경고에 사용할 수 있습니다. 그리고 만약 누군가가 정말 : snail : 코드를 개선하면 그들에게 : birthday :을 보내세요. 모두 당신을 : heart : 되겠지요.
  
 -If you are new to this, don't be :fearful:. You can easily join the emoji :family:. All you need to do is to look up on the supported codes.
-+あなたが絵文字の初心者だとしても、 :fearful: にならないでください。あなたも簡単に絵文字の :family: に入ることができます。サポートされたコードを使うだけです。
++당신이 이모티콘 초보자 라하더라도 : fearful :하지 마십시오. 당신도 쉽게 이모티콘 : family :에 들어갈 수 있습니다. 지원 된 코드를 사용뿐입니다.
  
 -Consult the [Emoji Cheat Sheet](http://emoji.codes) for a list of all supported emoji codes. :thumbsup:
-+サポートされている絵文字コードの一覧は、 [Emoji Cheat Sheet](http://emoji.codes) を確認してください。 :thumbsup:
++지원되는 이모티콘 코드 목록은 [Emoji Cheat Sheet (http://emoji.codes)를 확인하십시오. : thumbsup :
  
 -## Special GitLab References
-+## GitLabでの特別な参照
++## 깃랩에서의 특별한 참조
  
 -GFM recognizes special references.
-+GFM は特別な参照を認識します。
++GFM 특별한 참조를 인식합니다.
  
 -You can easily reference e.g. an issue, a commit, a team member or even the whole team within a project.
-+例えばプロジェクト内のチームメンバー、課題、コミットメッセージを簡単に参照することができます。
++예를 들어 프로젝트 팀원 과제 커밋 메시지를 쉽게 참조 할 수 있습니다.
  
 -GFM will turn that reference into a link so you can navigate between them easily.
-+GFM は参照をリンクに変換するため、それらの参照に対して簡単にナビゲーションすることができます。
++GFM은 참조를 링크로 변환하기 위해 그 참조에 대해 쉽게 탐색 할 수 있습니다.
  
 -GFM will recognize the following:
-+GFM は以下を認識します。
++GFM는 다음을 인식합니다.
  
 -| input                  | references                   |
-+| 入力                  | 参照                   |
++| 인풋                  | 레퍼런스                   |
  |:-----------------------|:---------------------------  |
 -| `@user_name`           | specific user                |
 -| `@group_name`          | specific group               |
@@ -17089,42 +17089,42 @@ index 7fe96e6..3c8f27a 100644
 -| `~123`                 | label by ID                  |
 -| `~bug`                 | one-word label by name       |
 -| `~"feature request"`   | multi-word label by name     |
-+| `@user_name`           | 特定のユーザ                |
-+| `@group_name`          | 特定のグループ               |
-+| `@all`                 | チーム全体                  |
-+| `#123`                 | 課題                        |
-+| `!123`                 | マージリクエスト                |
-+| `$123`                 | スニペット                      |
-+| `~123`                 | ラベル by ID                  |
-+| `~bug`                 | 1単語ラベル by 名前       |
-+| `~"feature request"`   | 複数単語ラベル by 名前     |
++| `@user_name`           | 특정 사용자                |
++| `@group_name`          | 특정 그룹               |
++| `@all`                 | 팀 전체                  |
++| `#123`                 | 이슈                        |
++| `!123`                 | 머지 요청                |
++| `$123`                 | 미리보기                      |
++| `~123`                 | 라벨 by ID                  |
++| `~bug`                 | 1 단어 라벨 by 이름       |
++| `~"feature request"`   | 여러 단어 라벨 by 이름     |
  | `%123`                 | milestone by ID              |
  | `%v1.23`               | one-word milestone by name   |
  | `%"release candidate"` | multi-word milestone by name |
 -| `9ba12248`             | specific commit              |
 -| `9ba12248...b19a04f5`  | commit range comparison      |
 -| `[README](doc/README)` | repository file references   |
-+| `9ba12248`             | 特定のコミット              |
-+| `9ba12248...b19a04f5`  | コミット範囲比較      |
-+| `[README](doc/README)` | リポジトリ内のファイル   |
++| `9ba12248`             | 특정 커밋              |
++| `9ba12248...b19a04f5`  | 커밋 범위 비교      |
++| `[README](doc/README)` | 저장소의 파일   |
  
 -GFM also recognizes certain cross-project references:
-+GFM はクロスプロジェクトも認識します。
++GFM 크로스 프로젝트도 인식합니다.
  
 -| input                                   | references              |
-+| 入力                                   | 参照              |
++| 인풋                                   | 레퍼런스              |
  |:----------------------------------------|:------------------------|
 -| `namespace/project#123`                 | issue                   |
 -| `namespace/project!123`                 | merge request           |
-+| `namespace/project#123`                 | 課題                   |
-+| `namespace/project!123`                 | マージリクエスト           |
++| `namespace/project#123`                 | 이슈                   |
++| `namespace/project!123`                 | 머지 요청           |
  | `namespace/project%123`                 | milestone               |
 -| `namespace/project$123`                 | snippet                 |
 -| `namespace/project@9ba12248`            | specific commit         |
 -| `namespace/project@9ba12248...b19a04f5` | commit range comparison |
-+| `namespace/project$123`                 | スニペット                 |
-+| `namespace/project@9ba12248`            | 特定のコミット         |
-+| `namespace/project@9ba12248...b19a04f5` | コミット範囲比較 |
++| `namespace/project$123`                 | 스니펫                 |
++| `namespace/project@9ba12248`            | 특정 커밋         |
++| `namespace/project@9ba12248...b19a04f5` | 커밋 범위 비교 |
  | `namespace/project~"Some label"`        | issues with given label |
  
  ## Task Lists
@@ -17133,10 +17133,10 @@ index 7fe96e6..3c8f27a 100644
  ![Sample Video](img/markdown_video.mp4)
  
 -# Standard Markdown
-+# 標準のMarkdown
++# 스탠다드 Markdown
  
 -## Headers
-+## ヘッダ
++## 헤더
  
  ```no-highlight
  # H1
@@ -17145,14 +17145,14 @@ index 7fe96e6..3c8f27a 100644
  ###### H6
  
 -Alternatively, for H1 and H2, an underline-ish style:
-+H1とH2では下線を使ったスタイルも使うことができます。
++H1과 H2는 밑줄을 사용한 스타일도 사용할 수 있습니다.
  
 -Alt-H1
-+H1の別表現
++Alt-H1
  ======
  
 -Alt-H2
-+H2の別表現
++Alt-H2
  ------
  ```
  
@@ -17161,27 +17161,27 @@ index 7fe96e6..3c8f27a 100644
  ###### H6
  
 -Alternatively, for H1 and H2, an underline-ish style:
-+H1とH2では下線を使ったスタイルも使うことができます。
++H1과 H2는 밑줄을 사용한 스타일도 사용할 수 있습니다.
  
 -Alt-H1
-+H1の別表現
++Alt-H1
  ======
  
 -Alt-H2
-+H2の別表現
++Alt-H2
  ------
  
 -### Header IDs and links
-+### ヘッダのIDとリンク
++### 헤더의 ID와 링크
  
 -All Markdown-rendered headers automatically get IDs, except in comments.
-+すべての Markdown からレンダリングされたヘッダは、コメントを除いて自動的にIDを取得します。
++모든 Markdown에서 렌더링 된 헤더는 코멘트를 제외하고 자동으로 ID를 가져옵니다.
  
 -On hover a link to those IDs becomes visible to make it easier to copy the link to the header to give it to someone else.
-+ヘッダへのリンクを誰かに知らせやすくするために、リンク上にカーソルをあてるとIDが表示されます。
++헤더에 대한 링크를 누군가에게 알리고 쉽게하기 위해 링크에 커서를 갖다 대면 ID가 표시됩니다.
  
 -The IDs are generated from the content of the header according to the following rules:
-+コンテンツのヘッダから生成されたIDは以下のルールになっています。
++콘텐츠의 헤더에서 생성 된 ID는 다음의 규칙이 있습니다.
  
 -1. All text is converted to lowercase
 -1. All non-word text (e.g., punctuation, HTML) is removed
@@ -17189,14 +17189,14 @@ index 7fe96e6..3c8f27a 100644
 -1. Two or more hyphens in a row are converted to one
 -1. If a header with the same ID has already been generated, a unique
 -   incrementing number is appended, starting at 1.
-+1. すべての文字が小文字に変換されます
-+1. 単語構成文字以外のすべての文字(句読点、HTMLなど)は削除されます
-+1. すべての空白はハイフンに変換されます
-+1. 連続する2個以上のハイフンは1つのハイフンに変換されます
-+1. 同じIDを持つヘッダがすでに生成されていた場合、1から開始する一意となる連番が付加されます
++1. 모든 문자를 소문자로 변환됩니다
++1. 단어 문자를 제외한 모든 문자 (구두점, HTML 등)는 삭제됩니다
++1. 모든 공백은 하이픈으로 변환됩니다
++1. 연속하는 2 개 이상의 하이픈은 하나의 변수로 변환됩니다
++1. 동일한 ID를 가진 헤더가 이미 생성 된 경우 1에서 시작하는 고유된다 연번이 부가됩니다
  
 -For example:
-+例:
++예:
  
  ```
  # This header has spaces in it
@@ -17205,7 +17205,7 @@ index 7fe96e6..3c8f27a 100644
  ```
  
 -Would generate the following link IDs:
-+これらは以下のようなIDのリンクに変換されます:
++이들은 다음과 같은 ID를 링크로 변환됩니다:
  
  1. `this-header-has-spaces-in-it`
  1. `this-header-has-a-in-it`
@@ -17214,39 +17214,39 @@ index 7fe96e6..3c8f27a 100644
  1. `this-header-has-spaces-in-it-1`
  
 -Note that the Emoji processing happens before the header IDs are generated, so the Emoji is converted to an image which then gets removed from the ID.
-+絵文字はヘッダのIDが生成される前に処理されるため、絵文字は画像に変換され、IDからは削除されます。
++이모티콘은 헤더의 ID가 생성되기 전에 처리되므로 이모티콘 이미지로 변환되어 ID에서 삭제됩니다.
  
 -## Emphasis
-+## 強調
++## 강조
  
  ```no-highlight
 -Emphasis, aka italics, with *asterisks* or _underscores_.
-+強調(イタリック体)は *アスタリスク* や _アンダースコア_ で表現します。
++강조 (이탤릭체)는 * 별표 *과 _ 밑줄 _로 표현합니다.
  
 -Strong emphasis, aka bold, with **asterisks** or __underscores__.
-+さらに強い強調(太字)は **アスタリスク** or __アンダースコア__ で表現します。
++또한 강한 강조 (굵게)는 ** 별표 ** or __ 밑줄 __ 표현합니다.
  
 -Combined emphasis with **asterisks and _underscores_**.
-+組み合わせた強調は **アスタリスクと _アンダースコア_** のように表現します。
++결합 강조 ** 별표 _ 밑줄 _ **과 같이 표현합니다.
  
 -Strikethrough uses two tildes. ~~Scratch this.~~
-+取消線には二つのチルダを使います。 ~~ここを削除~~
++취소 선은 두 물결표를 사용합니다. ~~ 여기를 삭제 ~~
  ```
  
 -Emphasis, aka italics, with *asterisks* or _underscores_.
-+強調(イタリック体)は *アスタリスク* や _アンダースコア_ で表現します。
++강조 (이탤릭체)는 * 별표 *과 _ 밑줄 _로 표현합니다.
  
 -Strong emphasis, aka bold, with **asterisks** or __underscores__.
-+さらに強い強調(太字)は **アスタリスク** or __アンダースコア__ で表現します。
++또한 강한 강조 (굵게)는 ** 별표 ** or __ 밑줄 __ 표현합니다.
  
 -Combined emphasis with **asterisks and _underscores_**.
-+組み合わせた強調は **アスタリスクと _アンダースコア_** のように表現します。
++결합 강조 ** 별표 _ 밑줄 _ **과 같이 표현합니다.
  
 -Strikethrough uses two tildes. ~~Scratch this.~~
-+取消線には二つのチルダを使います。 ~~ここを削除~~
++취소 선은 두 물결표를 사용합니다. ~~ 여기를 삭제 ~~
  
 -## Lists
-+## リスト
++## 리스트
  
  ```no-highlight
 -1. First ordered list item
@@ -17259,16 +17259,16 @@ index 7fe96e6..3c8f27a 100644
 -* Unordered list can use asterisks
 -- Or minuses
 -+ Or pluses
-+1. 先頭のリスト項目
-+2. 別の項目
-+  * 番号のないサブリスト
-+1. 実際の番号は問題ではなく、数字であることが必要です
-+  1. 番号付きのサブリスト
-+4. さらに別の項目
++1. 첫 번째 목록 항목
++2. 다른 항목
++  * 번호없는 하위 목록
++1. 실제 번호는 문제가 아니라 숫자 여야합니다
++  1. 번호가 매겨진 하위 목록
++4. 또 다른 항목
 +
-+* 番号のないリストはアスタリスクを使います
-+- またはマイナス
-++ またはプラス
++* 번호없는 목록은 별표를 사용합니다
++- 또는 마이너스
+++ 또는 플러스
  ```
  
 -1. First ordered list item
@@ -17277,19 +17277,19 @@ index 7fe96e6..3c8f27a 100644
 -1. Actual numbers don't matter, just that it's a number
 -  1. Ordered sub-list
 -4. And another item.
-+1. 先頭のリスト項目
-+2. 別の項目
-+  * 番号のないサブリスト
-+1. 実際の番号は問題ではなく、数字であることが必要です
-+  1. 番号付きのサブリスト
-+4. さらに別の項目
++1. 첫 번째 목록 항목
++2. 다른 항목
++  * 번호없는 하위 목록
++1. 실제 번호는 문제가 아니라 숫자 여야합니다
++  1. 번호가 매겨진 하위 목록
++4. 또 다른 항목
  
 -* Unordered list can use asterisks
 -- Or minuses
 -+ Or pluses
-+* 番号のないリストはアスタリスクを使います
-+- またはマイナス
-++ またはプラス
++* 번호없는 목록은 별표를 사용합니다
++- 또는 마이너스
+++ 또는 플러스
  
  If a list item contains multiple paragraphs,
  each subsequent paragraph should be indented with four spaces.
@@ -17298,108 +17298,108 @@ index 7fe96e6..3c8f27a 100644
  
  ```no-highlight
 -1. First ordered list item
-+1. 先頭のリスト項目
++1. 첫 번째 목록 항목
  
     Second paragraph of first item.
 -2. Another item
-+2. 別の項目
++2. 다른 아이템
  ```
  
 -1. First ordered list item
-+1. 先頭のリスト項目
++1. 첫 번째 목록 항목
  
     Second paragraph of first item.
 -2. Another item
-+2. 別の項目
++2. 다른 아이템
  
 -## Links
-+## リンク
++## 링크
  
 -There are two ways to create links, inline-style and reference-style.
-+リンクを作るには、インラインスタイルとリファレンススタイルの二つの方法があります。
++링크를 만들려면 인라인 스타일과 참조 스타일의 두 가지 방법이 있습니다.
  
 -    [I'm an inline-style link](https://www.google.com)
-+    [インラインスタイルのリンクです](https://www.google.com)
++    [인라인 스타일의 링크입니다](https://www.google.com)
  
 -    [I'm a reference-style link][Arbitrary case-insensitive reference text]
-+    [リファレンススタイルのリンクです][Arbitrary case-insensitive reference text]
++    [참조 스타일의 링크입니다][Arbitrary case-insensitive reference text]
  
 -    [I'm a relative reference to a repository file](LICENSE)
-+    [リポジトリのファイルへの相対パスでの参照です](LICENSE)
++    [저장소의 파일에 대한 상대 경로로 참조합니다](LICENSE)
  
 -    [You can use numbers for reference-style link definitions][1]
-+    [リファレンススタイルのリンク定義に番号を使うこともできます][1]
++    [참조 스타일 링크 정의에 번호를 사용할 수 있습니다][1]
  
 -    Or leave it empty and use the [link text itself][]
-+    あるいは中身を空にして[リンクテキストをそのまま使う][]こともできます
++    또는 내용물을 비운 다음 링크 텍스트를 그대로 사용] [] 수 있습니다
  
 -    Some text to show that the reference links can follow later.
-+    リファレンスのリンク先は後に続けて書きます。
++    참조 링크는 다음에 계속 씁니다.
  
      [arbitrary case-insensitive reference text]: https://www.mozilla.org
      [1]: http://slashdot.org
      [link text itself]: https://www.reddit.com
  
 -[I'm an inline-style link](https://www.google.com)
-+[インラインスタイルのリンクです](https://www.google.com)
++[인라인 스타일의 링크입니다](https://www.google.com)
  
 -[I'm a reference-style link][Arbitrary case-insensitive reference text]
-+[リファレンススタイルのリンクです][Arbitrary case-insensitive reference text]
++[참조 스타일의 링크입니다][Arbitrary case-insensitive reference text]
  
 -[I'm a relative reference to a repository file](LICENSE)[^1]
-+[リポジトリのファイルへの相対パスでの参照です](LICENSE)[^1]
++[저장소의 파일에 대한 상대 경로로 참조합니다](LICENSE)[^1]
  
 -[You can use numbers for reference-style link definitions][1]
-+[リファレンススタイルのリンク定義に番号を使うこともできます][1]
++[참조 스타일 링크 정의에 번호를 사용할 수 있습니다][1]
  
 -Or leave it empty and use the [link text itself][]
-+あるいは中身を空にして[リンクテキストをそのまま使う][]こともできます
++또는 내용물을 비운 다음 링크 텍스트를 그대로 사용] [] 수 있습니다
  
 -Some text to show that the reference links can follow later.
-+リファレンスのリンク先は後に続けて書きます。
++참조 링크는 다음에 계속 씁니다.
  
  [arbitrary case-insensitive reference text]: https://www.mozilla.org
  [1]: http://slashdot.org
  [link text itself]: https://www.reddit.com
  
 -**Note**
-+**注意**
++**노트**
  
 -Relative links do not allow referencing project files in a wiki page or wiki page in a project file. The reason for this is that, in GitLab, wiki is always a separate git repository. For example:
-+相対パスのリンクでは、Wikiページ内のプロジェクトファイルやプロジェクトファイル内のWikiページを参照することはできません。理由は、GitLabではWikiが常に別のGitリポジトリに分けられているためです。例えば
++상대 경로 링크에서는 위키 페이지에서 프로젝트 파일과 프로젝트 파일의 워키 페이지를 참조 할 수 없습니다. 이유는 깃랩에서는 위키 항상 다른 Git 저장소로 나누어 져 있기 때문입니다. 예
  
 -`[I'm a reference-style link](style)`
-+`[リファレンススタイルのリンクです](style)`
++`[참조 스타일의 링크입니다](style)`
  
 -will point the link to `wikis/style` when the link is inside of a wiki markdown file.
-+は Wiki の Markdown ファイル内でのリンクならば `wikis/style` へリンクします。
++워키 Markdown 파일에 링크라면`wikis / style`에 연결합니다.
  
 -## Images
-+## 画像
++## 이미지
  
 -    Here's our logo (hover to see the title text):
-+    私たちのロゴです(マウスオーバーでタイトル文字列を表示します)。
++    우리의 로고입니다 (마우스 오버 제목 문자열을 표시합니다).。
  
 -    Inline-style:
-+    インラインスタイル:
++    인라인 스타일:
      ![alt text](img/markdown_logo.png)
  
 -    Reference-style:
-+    リファレンススタイル:
++    러퍼런스 스타일:
      ![alt text1][logo]
  
      [logo]: img/markdown_logo.png
  
 -Here's our logo:
-+私たちのロゴです。
++로고는 여기
  
 -Inline-style:
-+インラインスタイル:
++인라인 스타일:
  
  ![alt text](img/markdown_logo.png)
  
 -Reference-style:
-+リファレンススタイル:
++러퍼런스 스타일:
  
  ![alt text][logo]
  
@@ -17408,7 +17408,7 @@ index 7fe96e6..3c8f27a 100644
  | cell 3   | cell 4   |
  
 -**Note**
-+**注意**
++**노트**
  
  The row of dashes between the table header and body must have at least three dashes in each column.
  
@@ -17418,7 +17418,7 @@ index 6654286..0b35a89 100644
 +++ b/doc/user/permissions.md
 @@ -1,4 +1,4 @@
 -# Permissions
-+# アクセス権
++# 권한
  
  Users have different abilities depending on the access level they have in a
  particular group or project. If a user is both in a group's project and the
@@ -17427,12 +17427,12 @@ index 6654286..0b35a89 100644
  The following table depicts the various user permission levels in a project.
  
 -| Action                                | Guest   | Reporter   | Developer   | Master   | Owner  |
-+| アクション                                | Guest   | Reporter   | Developer   | Master   | Owner  |
++| 액션                                | Guest   | Reporter   | Developer   | Master   | Owner  |
  |---------------------------------------|---------|------------|-------------|----------|--------|
 -| Create new issue                      | ✓       | ✓          | ✓           | ✓        | ✓      |
 -| Leave comments                        | ✓       | ✓          | ✓           | ✓        | ✓      |
-+| 新しい課題を作成する                      | ✓       | ✓          | ✓           | ✓        | ✓      |
-+| コメントを作成する                        | ✓       | ✓          | ✓           | ✓        | ✓      |
++| 새로운 이슈 생성                      | ✓       | ✓          | ✓           | ✓        | ✓      |
++| 댓글 남기기                        | ✓       | ✓          | ✓           | ✓        | ✓      |
  | See a list of builds                  | ✓ [^1]  | ✓          | ✓           | ✓        | ✓      |
  | See a build log                       | ✓ [^1]  | ✓          | ✓           | ✓        | ✓      |
  | Download and browse build artifacts   | ✓ [^1]  | ✓          | ✓           | ✓        | ✓      |
@@ -17441,11 +17441,11 @@ index 6654286..0b35a89 100644
 -| Create code snippets                  |         | ✓          | ✓           | ✓        | ✓      |
 -| Manage issue tracker                  |         | ✓          | ✓           | ✓        | ✓      |
 -| Manage labels                         |         | ✓          | ✓           | ✓        | ✓      |
-+| プロジェクトのコードをプルする                     |         | ✓          | ✓           | ✓        | ✓      |
-+| プロジェクトをダウンロードする                      |         | ✓          | ✓           | ✓        | ✓      |
-+| コードスニペットを作成する                  |         | ✓          | ✓           | ✓        | ✓      |
-+| 課題トラッカーを管理する                  |         | ✓          | ✓           | ✓        | ✓      |
-+| ラベルを管理する                         |         | ✓          | ✓           | ✓        | ✓      |
++| 프로젝트 코드 받기                     |         | ✓          | ✓           | ✓        | ✓      |
++| 다운로드 프로젝트                      |         | ✓          | ✓           | ✓        | ✓      |
++| 생성 코드 스니펫                  |         | ✓          | ✓           | ✓        | ✓      |
++| 이슈 트래커 관리                  |         | ✓          | ✓           | ✓        | ✓      |
++| 라벨 관리                         |         | ✓          | ✓           | ✓        | ✓      |
  | See a commit status                   |         | ✓          | ✓           | ✓        | ✓      |
  | See a container registry              |         | ✓          | ✓           | ✓        | ✓      |
  | See environments                      |         | ✓          | ✓           | ✓        | ✓      |
@@ -17457,13 +17457,13 @@ index 6654286..0b35a89 100644
 -| Remove non-protected branches         |         |            | ✓           | ✓        | ✓      |
 -| Add tags                              |         |            | ✓           | ✓        | ✓      |
 -| Write a wiki                          |         |            | ✓           | ✓        | ✓      |
-+| マージリクエストを作成する              |         |            | ✓           | ✓        | ✓      |
-+| ブランチを作成する                   |         |            | ✓           | ✓        | ✓      |
-+| 保護されていないブランチにプッシュする        |         |            | ✓           | ✓        | ✓      |
-+| 保護されていないブランチに強制プッシュする  |         |            | ✓           | ✓        | ✓      |
-+| 保護されていないブランチを削除する         |         |            | ✓           | ✓        | ✓      |
-+| タグを追加する                              |         |            | ✓           | ✓        | ✓      |
-+| Wikiを書く                          |         |            | ✓           | ✓        | ✓      |
++| 새로운 머지 요청 생성              |         |            | ✓           | ✓        | ✓      |
++| 새로운 브랜치 생성                   |         |            | ✓           | ✓        | ✓      |
++| 비보호 브랜치 푸시        |         |            | ✓           | ✓        | ✓      |
++| 비보호 브랜치 강제 푸시  |         |            | ✓           | ✓        | ✓      |
++| 비보호 브랜치 삭제         |         |            | ✓           | ✓        | ✓      |
++| 태그 추가                              |         |            | ✓           | ✓        | ✓      |
++| 워키 작성                         |         |            | ✓           | ✓        | ✓      |
  | Cancel and retry builds               |         |            | ✓           | ✓        | ✓      |
  | Create or update commit status        |         |            | ✓           | ✓        | ✓      |
  | Update a container registry           |         |            | ✓           | ✓        | ✓      |
@@ -17473,18 +17473,18 @@ index 6654286..0b35a89 100644
 -| Add new team members                  |         |            |             | ✓        | ✓      |
 -| Push to protected branches            |         |            |             | ✓        | ✓      |
 -| Enable/disable branch protection      |         |            |             | ✓        | ✓      |
-+| マイルストーンを作成する                 |         |            |             | ✓        | ✓      |
-+| メンバーを追加する                  |         |            |             | ✓        | ✓      |
-+| 保護されたブランチにプッシュする            |         |            |             | ✓        | ✓      |
-+| 保護ブランチへのプッシュを有効/無効にする      |         |            |             | ✓        | ✓      |
++| 새로운 마일스톤 생성                 |         |            |             | ✓        | ✓      |
++| 새로운 팀 멤버 생성                  |         |            |             | ✓        | ✓      |
++| 보호 브랜치에 푸시            |         |            |             | ✓        | ✓      |
++| 활성/비활성 브랜치 보호      |         |            |             | ✓        | ✓      |
  | Turn on/off protected branch push for devs|         |            |             | ✓        | ✓      |
  | Rewrite/remove Git tags               |         |            |             | ✓        | ✓      |
 -| Edit project                          |         |            |             | ✓        | ✓      |
 -| Add deploy keys to project            |         |            |             | ✓        | ✓      |
 -| Configure project hooks               |         |            |             | ✓        | ✓      |
-+| プロジェクトを編集する                          |         |            |             | ✓        | ✓      |
-+| デプロイキーをプロジェクトに追加する            |         |            |             | ✓        | ✓      |
-+| プロジェクトフックを設定する               |         |            |             | ✓        | ✓      |
++| 프로젝트 편집                          |         |            |             | ✓        | ✓      |
++| 디폴로이 키를 프로젝트에 추가            |         |            |             | ✓        | ✓      |
++| 프로젝트 후킹 설정               |         |            |             | ✓        | ✓      |
  | Manage runners                        |         |            |             | ✓        | ✓      |
  | Manage build triggers                 |         |            |             | ✓        | ✓      |
  | Manage variables                      |         |            |             | ✓        | ✓      |
@@ -17494,35 +17494,35 @@ index 6654286..0b35a89 100644
 -| Remove project                        |         |            |             |          | ✓      |
 -| Force push to protected branches [^2] |         |            |             |          |        |
 -| Remove protected branches [^2]        |         |            |             |          |        |
-+| 可視性レベルを変更する               |         |            |             |          | ✓      |
-+| プロジェクトを移譲する |         |            |             |          | ✓      |
-+| プロジェクトを削除する                        |         |            |             |          | ✓      |
-+| 保護されているブランチに強制プッシュする [^2] |         |            |             |          |        |
-+| 保護されているブランチを削除する [^2]        |         |            |             |          |        |
++| 활성화 레벨 변경               |         |            |             |          | ✓      |
++| 다른 네임스페이스로 프로젝트 이관 |         |            |             |          | ✓      |
++| 프로젝트 삭제                        |         |            |             |          | ✓      |
++| 강제로 보호 브랜치 푸시 [^2] |         |            |             |          |        |
++| 보호 브랜치 삭제 [^2]        |         |            |             |          |        |
  
  [^1]: If **Allow guest to access builds** is enabled in CI settings
  [^2]: Not allowed for Guest, Reporter, Developer, Master, or Owner
  
 -## Group
-+## グループ
++## 그룹
  
  Any user can remove themselves from a group, unless they are the last Owner of
  the group. The following table depicts the various user permission levels in a
  group.
  
 -| Action                  | Guest | Reporter | Developer | Master | Owner |
-+| アクション                  | Guest | Reporter | Developer | Master | Owner |
++| 액션                    | Guest | Reporter | Developer | Master | Owner |
  |-------------------------|-------|----------|-----------|--------|-------|
 -| Browse group            | ✓     | ✓        | ✓         | ✓      | ✓     |
 -| Edit group              |       |          |           |        | ✓     |
 -| Create project in group |       |          |           | ✓      | ✓     |
 -| Manage group members    |       |          |           |        | ✓     |
 -| Remove group            |       |          |           |        | ✓     |
-+| グループを閲覧する            | ✓     | ✓        | ✓         | ✓      | ✓     |
-+| グループを編集する              |       |          |           |        | ✓     |
-+| グループ内にプロジェクトを作成する |       |          |           | ✓      | ✓     |
-+| メンバーを管理する    |       |          |           |        | ✓     |
-+| グループを削除する            |       |          |           |        | ✓     |
++| 브라우저 그룹            | ✓     | ✓        | ✓         | ✓      | ✓     |
++| 그룹 편집               |       |          |           |        | ✓     |
++| 그룹에 프로젝트 생성     |       |          |           | ✓      | ✓     |
++| 그룹 멤버 관리           |       |          |           |        | ✓     |
++| 그룹 제거               |       |          |           |        | ✓     |
  
  ## External Users
  
@@ -17531,12 +17531,12 @@ index 6654286..0b35a89 100644
  `/admin/runners`.
  
 -| Action                                | Guest, Reporter | Developer   | Master   | Admin  |
-+| アクション                                | Guest, Reporter | Developer   | Master   | Admin  |
++| 액션                                  | Guest, Reporter | Developer   | Master   | Admin  |
  |---------------------------------------|-----------------|-------------|----------|--------|
  | See commits and builds                | ✓               | ✓           | ✓        | ✓      |
  | Retry or cancel build                 |                 | ✓           | ✓        | ✓      |
 -| Remove project                        |                 |             | ✓        | ✓      |
-+| プロジェクトを削除する                        |                 |             | ✓        | ✓      |
++| 프로젝트 삭제                          |                 |             | ✓        | ✓      |
  | Create project                        |                 |             | ✓        | ✓      |
  | Change project configuration          |                 |             | ✓        | ✓      |
  | Add specific runners                  |                 |             | ✓        | ✓      |
@@ -17549,7 +17549,7 @@ index cac926b..4f04f47 100644
  ![Issue Board system notes](img/issue_board_system_notes.png)
  
 -## Permissions
-+## アクセス権
++## 권한
  
  [Developers and up](../permissions.md) can use all the functionality of the
  Issue Board, that is create/delete lists and drag issues around.
@@ -17562,7 +17562,7 @@ index e54587f..0cabe14 100644
  
  Once it's enabled, you will see some integration buttons on Project pages,
 -Merge Requests etc. To get started working on a specific project you first need
-+マージリクエスト etc. To get started working on a specific project you first need
++머지 요청 etc. To get started working on a specific project you first need
  to create a `.koding.yml` file under your project root. You can easily do that
  by using `Set Up Koding` button which will be visible on every project's
  landing page;
@@ -17572,10 +17572,10 @@ index cf1d9cb..183ece7 100644
 +++ b/doc/user/project/labels.md
 @@ -1,6 +1,6 @@
 -# Labels
-+# ラベル
++# 라벨
  
 -Labels provide an easy way to categorize the issues or merge requests based on
-+ラベル provide an easy way to categorize the issues or merge requests based on
++라벨 provide an easy way to categorize the issues or merge requests based on
  descriptive titles like `bug`, `documentation` or any other text you feel like.
  They can have different colors, a description, and are visible throughout
  the issue tracker or inside each issue individually.
@@ -17584,7 +17584,7 @@ index cf1d9cb..183ece7 100644
  labels.
  
 -Head over a single project and navigate to **Issues > Labels**.
-+Head over a single project and navigate to **Issues > ラベル**.
++Head over a single project and navigate to **이슈 > 라벨**.
  
  The first time you visit this page, you'll notice that there are no labels
  created yet.
@@ -17593,7 +17593,7 @@ index cf1d9cb..183ece7 100644
  ---
  
 -## Default Labels
-+## Default ラベル
++## Default 라벨
  
  It's possible to populate the labels for your project from a set of predefined labels.
  
@@ -17602,7 +17602,7 @@ index cf1d9cb..183ece7 100644
  ---
  
 -## Labels Overview
-+## ラベル Overview
++## 라벨 Overview
  
  ![Default generated labels](img/labels_default.png)
  
@@ -17611,13 +17611,13 @@ index cf1d9cb..183ece7 100644
  you to sort issues and merge requests by priority.
  
 -To prioritize labels, navigate to your project's **Issues > Labels** and click
-+To prioritize labels, navigate to your project's **Issues > ラベル** and click
++To prioritize labels, navigate to your project's **이슈 > 라벨** and click
  on the star icon next to them to put them in the priority list. Click on the
  star icon again to remove them from the list.
  
  From there, you can drag them around to set the desired priority. Priority is
 -set from high to low with an ascending order. Labels with no priority, count as
-+set from high to low with an ascending order. ラベル with no priority, count as
++set from high to low with an ascending order. 라벨 with no priority, count as
  having their priority set to null.
  
  ![Prioritize labels](img/labels_prioritize.png)
@@ -17626,7 +17626,7 @@ index cf1d9cb..183ece7 100644
  to an issue or merge request, making sure you don’t miss a thing.
  
 -Go to your project's **Issues > Labels** area, find the label(s) you want to
-+Go to your project's **Issues > ラベル** area, find the label(s) you want to
++Go to your project's **Issues > 라벨** area, find the label(s) you want to
  subscribe to and click on the eye icon. Click again to unsubscribe.
  
  ![Subscribe to labels](img/labels_subscribe.png)
@@ -17644,7 +17644,7 @@ index cf1d9cb..183ece7 100644
  
  Once you start adding labels to your issues, you'll see the benefit of it.
 -Labels can have several uses, one of them being the quick filtering of issues
-+ラベル can have several uses, one of them being the quick filtering of issues
++라벨 can have several uses, one of them being the quick filtering of issues
  or merge requests.
  
  Pick an existing label from the dropdown _Label_ menu or click on an existing
@@ -17656,7 +17656,7 @@ index f7a686d..cd21bb3 100644
  # Protected Branches
  
 -[Permissions](../permissions.md) in GitLab are fundamentally defined around the
-+[アクセス権](../permissions.md) in GitLab are fundamentally defined around the
++[권한](../permissions.md) in GitLab are fundamentally defined around the
  idea of having read or write permission to the repository and branches. To
  prevent people from messing with history or pushing code without review, we've
  created protected branches.
@@ -17665,7 +17665,7 @@ index f7a686d..cd21bb3 100644
  
  1. Navigate to the main page of the project.
 -1. In the upper right corner, click the settings wheel and select **Protected branches**.
-+1. In the upper right corner, click the settings wheel and select **保護ブランチ**.
++1. In the upper right corner, click the settings wheel and select **프로텍트 브랜치**.
  
      ![Project settings list](img/project_settings_list.png)
  
@@ -17673,13 +17673,13 @@ index f7a686d..cd21bb3 100644
     click **Protect**. In the screenshot below, we chose the `develop` branch.
  
 -    ![Protected branches page](img/protected_branches_page.png)
-+    ![保護ブランチ page](img/protected_branches_page.png)
++    ![보호 브랜치 페이지](img/protected_branches_page.png)
  
 -1. Once done, the protected branch will appear in the "Protected branches" list.
 +1. Once done, the protected branch will appear in the "保護ブランチ" list.
  
 -    ![Protected branches list](img/protected_branches_list.png)
-+    ![保護ブランチ list](img/protected_branches_list.png)
++    ![보호 브랜치 목록](img/protected_branches_list.png)
  
  ## Using the Allowed to merge and Allowed to push settings
  
@@ -17688,7 +17688,7 @@ index f7a686d..cd21bb3 100644
  
  You can specify a wildcard protected branch, which will protect all branches
 -matching the wildcard. For example:
-+matching the wildcard. 例:
++matching the wildcard. 예:
  
  | Wildcard Protected Branch | Matching Branches                                      |
  |---------------------------+--------------------------------------------------------|
@@ -17714,7 +17714,7 @@ index 33c1a79..89f6d2c 100644
  If you specify a secret token, it will be sent with the hook request in the `X-Gitlab-Token` HTTP header. Your webhook endpoint can check that to verify that the request is legitimate.
  
 -## SSL Verification
-+## SSL検証
++## SSL 검증
  
  By default, the SSL certificate of the webhook endpoint is verified based on
  an internal list of Certificate Authorities,
@@ -17723,23 +17723,23 @@ index 33c1a79..89f6d2c 100644
  You can turn this off in the webhook settings in your GitLab projects.
  
 -![SSL Verification](ssl.png)
-+![SSL検証](ssl.png)
++![SSL 검증](ssl.png)
  
 -## Push events
-+## プッシュイベント
++## 푸시 이벤트
  
 -Triggered when you push to the repository except when pushing tags.
-+リポジトリへのタグ以外のプッシュで実行されます。
++저장소에 태그 이외의 푸시에서 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Push Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17748,20 +17748,20 @@ index 33c1a79..89f6d2c 100644
  ```
  
 -## Tag events
-+## タグイベント
++## 태크 이벤트
  
 -Triggered when you create (or delete) tags to the repository.
-+リポジトリにタグを作成または削除したときに実行されます。
++저장소에 태그를 만들거나 제거 할 때 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Tag Push Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17770,20 +17770,20 @@ index 33c1a79..89f6d2c 100644
  ```
  
 -## Issues events
-+## 課題イベント
++## 이슈 이벤트
  
 -Triggered when a new issue is created or an existing issue was updated/closed/reopened.
-+課題の作成/更新/クローズ/再オープンで実行されます。
++이슈를 생성 / 업데이트 / 닫기 / 다시 오픈에서 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Issue Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17792,14 +17792,14 @@ index 33c1a79..89f6d2c 100644
  ### Comment on commit
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Note Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17808,14 +17808,14 @@ index 33c1a79..89f6d2c 100644
  ### Comment on merge request
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Note Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17824,14 +17824,14 @@ index 33c1a79..89f6d2c 100644
  ### Comment on issue
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Note Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17840,14 +17840,14 @@ index 33c1a79..89f6d2c 100644
  ### Comment on code snippet
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Note Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디:**
  
  ```json
  {
@@ -17856,20 +17856,20 @@ index 33c1a79..89f6d2c 100644
  ```
  
 -## Merge request events
-+## マージリクエストイベント
++## 머지 요청 이벤트
  
 -Triggered when a new merge request is created, an existing merge request was updated/merged/closed or a commit is added in the source branch.
-+マージリクエストの新規作成、既存のマージリクエストの更新/マージ/クローズ、ソースブランチへのコミットの追加で実行されます。
++머지 요청 만들기 기존 병합 요청 업데이트 / 머지 / 클로즈 소스 브랜치에 커밋 추가로 실행됩니다.
  
 -**Request header**:
-+**リクエストヘッダ**:
++**요청 헤더**:
  
  ```
  X-Gitlab-Event: Merge Request Hook
  ```
  
 -**Request body:**
-+**リクエストボディ:**
++**요청 바디ィ:**
  
  ```json
  {
@@ -17879,21 +17879,21 @@ index 0cf5644..f53e495 100644
 +++ b/doc/workflow/README.md
 @@ -1,30 +1,30 @@
 -# Workflow
-+# ワークフロー
++# 워크플로우
  
 -- [Authorization for merge requests](authorization_for_merge_requests.md)
 -- [Change your time zone](timezone.md)
-+- [マージリクエストの承認](authorization_for_merge_requests.md)
-+- [タイムゾーンの変更](timezone.md)
++- [머지 요청 승인](authorization_for_merge_requests.md)
++- [시간대 변경](timezone.md)
  - [Description templates](../user/project/description_templates.md)
 -- [Feature branch workflow](workflow.md)
-+- [フィーチャーブランチワークフロー](workflow.md)
++- [피쳐 브랜치 워크플로우](workflow.md)
  - [GitLab Flow](gitlab_flow.md)
 -- [Groups](groups.md)
-+- [グループ](groups.md)
- - [Issue Board](../user/project/issue_board.md)
++- [그룹](groups.md)
+ - [이슈 게시판](../user/project/issue_board.md)
 -- [Keyboard shortcuts](shortcuts.md)
-+- [キーボードショートカット](shortcuts.md)
++- [키보드 단축키](shortcuts.md)
  - [File finder](file_finder.md)
 -- [Labels](../user/project/labels.md)
 -- [Notification emails](notifications.md)
@@ -17901,12 +17901,12 @@ index 0cf5644..f53e495 100644
 -- [Project forking workflow](forking_workflow.md)
 -- [Project users](add-user/add-user.md)
 -- [Protected branches](../user/project/protected_branches.md)
-+- [ラベル](../user/project/labels.md)
-+- [通知メールアドレス](notifications.md)
-+- [プロジェクトの機能](project_features.md)
-+- [プロジェクトフォークワークフロー](forking_workflow.md)
-+- [プロジェクトユーザ](add-user/add-user.md)
-+- [保護ブランチ](../user/project/protected_branches.md)
++- [라벨](../user/project/labels.md)
++- [노티 이메일](notifications.md)
++- [프로젝트 피쳐](project_features.md)
++- [프로젝트 포크 워크플로우](forking_workflow.md)
++- [프로젝트 유저](add-user/add-user.md)
++- [프로젝트 브랜치](../user/project/protected_branches.md)
  - [Slash commands](../user/project/slash_commands.md)
  - [Sharing a project with a group](share_with_group.md)
  - [Share projects with other groups](share_projects_with_other_groups.md)
@@ -17914,14 +17914,14 @@ index 0cf5644..f53e495 100644
 -- [Releases](releases.md)
 -- [Milestones](milestones.md)
 -- [Merge Requests](merge_requests.md)
-+- [Webエディタ](web_editor.md)
-+- [リリース](releases.md)
-+- [マイルストーン](milestones.md)
-+- [マージリクエスト](merge_requests.md)
++- [Web 에디터](web_editor.md)
++- [릴리즈](releases.md)
++- [마일스톤](milestones.md)
++- [머지 요청](merge_requests.md)
  - [Revert changes](revert_changes.md)
  - [Cherry-pick changes](cherry_pick_changes.md)
 -- ["Work In Progress" Merge Requests](wip_merge_requests.md)
-+- ["Work In Progress" マージリクエスト](wip_merge_requests.md)
++- ["Work In Progress" 머지 요청](wip_merge_requests.md)
  - [Merge When Build Succeeds](merge_when_build_succeeds.md)
  - [Manage large binaries with Git LFS](lfs/manage_large_binaries_with_git_lfs.md)
  - [Importing from SVN, GitHub, BitBucket, etc](importing/README.md)
@@ -17931,7 +17931,7 @@ index e541111..71d1c83 100644
 +++ b/doc/workflow/add-user/add-user.md
 @@ -1,4 +1,4 @@
 -# Project users
-+# プロジェクトユーザ
++# 프로젝트 유저
  
  You can manage the groups and users and their access levels in all of your
  projects. You can also personalize the access level you give each user,
@@ -17944,7 +17944,7 @@ index 64b94d8..06c2553 100644
  
  GitLab implements Git's powerful feature to [cherry-pick any commit][git-cherry-pick]
 -with introducing a **Cherry-pick** button in Merge Requests and commit details.
-+with introducing a **Cherry-pick** button in マージリクエスト and commit details.
++with introducing a **Cherry-pick** button in 머지 요청 and commit details.
  
  ## Cherry-picking a Merge Request
  
@@ -17957,7 +17957,7 @@ index 8d87b03..1728b10 100644
  
  Press `t` to launch the File search function when in **Issues**,
 -**Merge requests**, **Milestones**, even the project's settings.
-+**Merge requests**, **マイルストーン**, even the project's settings.
++**머지 요청**, **마일스톤**, even the project's settings.
  
  Start typing what you are searching for and watch the magic happen. With the
  up/down arrows, you go up and down the results, with `Esc` you close the search
@@ -17967,7 +17967,7 @@ index 733d079..b9561ae 100644
 +++ b/doc/workflow/forking_workflow.md
 @@ -1,4 +1,4 @@
 -# Project forking workflow
-+# プロジェクトフォークワークフロー
++# 프로젝트 포크 워크플로우
  
  Forking a project to your own namespace is useful if you have no write
  access to the project you want to contribute to. If you do have write
@@ -17977,7 +17977,7 @@ index a693cc3..488a405 100644
 +++ b/doc/workflow/groups.md
 @@ -1,4 +1,4 @@
 -# GitLab Groups
-+# GitLab グループ
++# 깃랩 그룹
  
  GitLab groups allow you to group projects into directories and give users to several projects at once.
  
@@ -17986,10 +17986,10 @@ index a693cc3..488a405 100644
  ## Creating groups
  
 -You can create a group by going to the 'Groups' tab of the GitLab dashboard and clicking the 'New group' button.
-+You can create a group by going to the 'グループ' tab of the GitLab dashboard and clicking the 'New group' button.
++You can create a group by going to the '그룹' tab of the GitLab dashboard and clicking the 'New group' button.
  
 -![Click the 'New group' button in the 'Groups' tab](groups/new_group_button.png)
-+![Click the 'New group' button in the 'グループ' tab](groups/new_group_button.png)
++![Click the 'New group' button in the '그룹' tab](groups/new_group_button.png)
  
  Next, enter the name (required) and the optional description and group avatar.
  
@@ -18002,14 +18002,14 @@ index 520c421..605c8da 100644
  
  ### Note
 -Milestones and wiki pages are not imported from Bitbucket.
-+マイルストーン and wiki pages are not imported from Bitbucket.
++마일스톤 and 위키 pages are not imported from 빅버킷.
 diff --git a/doc/workflow/importing/migrating_from_svn.md b/doc/workflow/importing/migrating_from_svn.md
 index 4828bb5..32112d2 100644
 --- a/doc/workflow/importing/migrating_from_svn.md
 +++ b/doc/workflow/importing/migrating_from_svn.md
 @@ -1,4 +1,4 @@
 -# Migrating from SVN to GitLab
-+# SVNからの移行 to GitLab
++# SVN에서 깃랩으로 마이그레이션 
  
  Subversion (SVN) is a central version control system (VCS) while
  Git is a distributed version control system. There are some major differences
@@ -18019,7 +18019,7 @@ index 5c09891..6dc5bbf 100644
 +++ b/doc/workflow/labels.md
 @@ -1,3 +1,3 @@
 -# Labels
-+# ラベル
++# 라벨
  
  This document was moved to [user/project/labels.md](../user/project/labels.md).
 diff --git a/doc/workflow/merge_requests.md b/doc/workflow/merge_requests.md
@@ -18028,7 +18028,7 @@ index d2ec56e..26acd31 100644
 +++ b/doc/workflow/merge_requests.md
 @@ -1,4 +1,4 @@
 -# Merge Requests
-+# マージリクエスト
++# 머지 요청
  
  Merge requests allow you to exchange changes you made to source code
  
@@ -18038,17 +18038,17 @@ index dff3689..e6365d8 100644
 +++ b/doc/workflow/milestones.md
 @@ -1,11 +1,11 @@
 -# Milestones
-+# マイルストーン
++# 마일스톤
  
 -Milestones allow you to organize issues and merge requests into a cohesive group, optionally setting a due date. 
 -A common use is keeping track of an upcoming software version. Milestones are created per-project.
-+マイルストーン allow you to organize issues and merge requests into a cohesive group, optionally setting a due date. 
-+A common use is keeping track of an upcoming software version. マイルストーン are created per-project.
++마일스톤 allow you to organize issues and merge requests into a cohesive group, optionally setting a due date. 
++A common use is keeping track of an upcoming software version. 마일스톤 are created per-project.
  
  ![milestone form](milestones/form.png)
  
 -## Groups and milestones
-+## グループ and milestones
++## 그룹 and milestones
  
  You can create a milestone for several projects in the same group simultaneously. 
  On the group's milestones page, you will be able to see the status of that milestone across all of the selected projects.
@@ -18071,64 +18071,64 @@ index a523b3f..d9aabd6 100644
 +++ b/doc/workflow/project_features.md
 @@ -1,35 +1,35 @@
 -# Project features
-+# プロジェクトの機能
++# 프로젝트 피쳐
  
 -When in a Project -> Settings, you will find Features on the bottom of the page that you can toggle.
-+プロジェクトの設定画面には、ページ下部に、ON/OFFを切り替えられる機能があります。
++프로젝트 설정 화면은 페이지 하단에 ON / OFF를 전환 할 수있는 기능이 있습니다
  
 -Below you will find a more elaborate explanation of each of these.
-+以下では、各機能をより詳しく説明します。
++다음은 각 기능을 자세히 설명합니다.
  
 -## Issues
-+## 課題
++## 이슈
  
 -Issues is a really powerful, but lightweight issue tracking system.
-+"課題"は本当に強力ですが軽量な課題トラッキングシステムです。
++"이슈"정말 강력하지만 경량 과제 추적 시스템입니다.
  
 -You can make tickets, assign them to people, file them under milestones, order them with labels and have discussion in them.
-+チケットを作成し、メンバーにアサインし、マイルストーンを設定し、ラベルをつけてディスカッションすることができます。
++티켓을 만들고 멤버에 할당하고 마일스톤를 설정하고 라벨을 달고 토론 할 수 있습니다.
  
 -They integrate deeply into GitLab and are easily referenced from anywhere by using `#` and the issue number.
-+課題はGitLabに深く統合されており、`#`と課題番号を使うことで、どこからでも簡単に参照することができます。
++과제는 GitLab에 깊이 통합되어 있으며,`#`과 과제 번호를 사용하면 어디서나 쉽게 볼 수 있습니다.
  
 -## Merge Requests
-+## マージリクエスト
++## 머지 요청
  
 -Using a merge request, you can review and discuss code before it is merged in the branch of your code.
-+マージリクエストを使うと、ブランチ上のソースコードをマージする前にレビューし、ディスカッションすることができます。
++머지 요청을 사용하면 브랜치의 소스 코드를 병합하기 전에 검토하고 토론 할 수 있습니다.
  
 -As with issues, it can be assigned; people, issues, etc. can be referenced; milestones attached.
-+課題と同じように、メンバーや課題などをアサインすることができ、マイルストーンとともに参照できます。
++과제처럼 멤버와 과제 등을 할당 할 수 있으며, 마일스톤 등을 볼 수 있습니다.
  
 -We see it as an integral part of working together on code and couldn't work without it.
-+私たちは、これをソースコード上での共同作業に欠かすことのできない重要な部分だと考えています。
++우리는 이것을 소스 코드에서의 공동 작업에 빠뜨릴 수없는 중요한 부분이라고 생각합니다.
  
  ## Wiki
  
 -This is a separate system for documentation, built right into GitLab.
-+これはドキュメンテーションのための別のシステムですが、GitLabの一部として組み込まれています。
++이 문서에 대한 다른 시스템이지만 GitLab의 일부로 포함되어 있습니다.
  
 -It is source controlled and is very convenient if you don't want to keep you documentation in your source code, but you do want to keep it in your GitLab project.
-+Wikiはソースコードとして管理され、ドキュメントをソースコードの一部には入れたくないけれどもGitLabのプロジェクトの一部としておきたい場合に便利です。
++위키는 소스 코드로 관리되는 문서를 소스 코드의 일부에 넣고 싶지 않더라도 GitLab 프로젝트의 일부로하고 싶은 경우에 유용합니다.
  
 -## Snippets
-+## スニペット
++## 스니펫
  
 -Snippets are little bits of code or text.
-+スニペットはソースコードやテキストの断片です。
++미리보기는 소스 코드와 텍스트의 단편입니다.
  
 -This is a nice place to put code or text that is used semi-regularly within the project, but does not belong in source control.
-+スニペットは、プロジェクトで半定期的に参照するけれどもソースコード管理はしないようなソースコードやテキストを置いておくのに良い場所です。
++조각은 프로젝트에서 반 정기적으로 방문하더라도 소스 코드 관리는하지 않도록 소스 코드와 텍스트를 놓을 수있는 좋은 장소입니다.
  
 -For example, a specific config file that is used by > the team that is only valid for the people that work on the code.
-+例えば、あるコードを扱うメンバーにのみ有効な特定の設定ファイルなどです。
++예를 들어, 코드를 취급 멤버에만 유효한 특정 설정 파일입니다.
 diff --git a/doc/workflow/releases.md b/doc/workflow/releases.md
 index 6176784..c2ba6d3 100644
 --- a/doc/workflow/releases.md
 +++ b/doc/workflow/releases.md
 @@ -1,4 +1,4 @@
 -# Releases
-+# リリース
++# 릴리즈
  
  You can turn any git tag into a release, by adding a note to it.
  Release notes behave like any other markdown form in GitLab so you can write text and drag-n-drop files to it.
@@ -18141,12 +18141,12 @@ index 5ead9f4..41a7bd5 100644
  
  GitLab implements Git's powerful feature to [revert any commit][git-revert]
 -with introducing a **Revert** button in Merge Requests and commit details.
-+with introducing a **Revert** button in マージリクエスト and commit details.
++with introducing a **Revert** button in 머지 요청 and commit details.
  
  ## Reverting a Merge Request
  
 -_**Note:** The **Revert** button will only be available for Merge Requests
-+_**Note:** The **Revert** button will only be available for マージリクエスト
++_**Note:** The **Revert** button will only be available for 머지 요청
  created since GitLab 8.5. However, you can still revert a Merge Request
  by reverting the merge commit from the list of Commits page._
  
@@ -18156,16 +18156,16 @@ index 8e50cb0..541996f 100644
 +++ b/doc/workflow/share_projects_with_other_groups.md
 @@ -1,11 +1,11 @@
 -# Share Projects with other Groups
-+# Share Projects with other グループ
++# Share Projects with other 그룹
  
  You can share projects with other groups. This makes it possible to add a group of users
  to a project with a single action.
  
 -## Groups as collections of users
-+## グループ as collections of users
++## 그룹 as collections of users
  
 -Groups are used primarily to [create collections of projects](groups.md), but you can also
-+グループ are used primarily to [create collections of projects](groups.md), but you can also
++그룹 are used primarily to [create collections of projects](groups.md), but you can also
  take advantage of the fact that groups define collections of _users_, namely the group
  members.
  
@@ -18174,10 +18174,10 @@ index 8e50cb0..541996f 100644
  This is where the group sharing feature can be of use.
  
 -To share 'Project Acme' with the 'Engineering' group, go to the project settings page for 'Project Acme' and use the left navigation menu to go to the 'Groups' section.
-+To share 'Project Acme' with the 'Engineering' group, go to the project settings page for 'Project Acme' and use the left navigation menu to go to the 'グループ' section.
++To share 'Project Acme' with the 'Engineering' group, go to the project settings page for 'Project Acme' and use the left navigation menu to go to the '그룹' section.
  
 -![The 'Groups' section in the project settings screen](groups/share_project_with_groups.png)
-+![The 'グループ' section in the project settings screen](groups/share_project_with_groups.png)
++![The '그룹' section in the project settings screen](groups/share_project_with_groups.png)
  
  Now you can add the 'Engineering' group with the maximum access level of your choice.
  After sharing 'Project Acme' with 'Engineering', the project is listed on the group dashboard.
@@ -18190,7 +18190,7 @@ index 3651688..b7aa09f 100644
  | <kbd>shift</kbd> + <kbd>↓</kbd> or <kbd>shift</kbd> + <kbd>j</kbd> | Scroll to bottom |
  
 -## Issues and Merge Requests
-+## Issues and マージリクエスト
++## Issues and 머지 요청
  
  | Keyboard Shortcut | Description |
  | ----------------- | ----------- |
@@ -18210,7 +18210,7 @@ index a50ba30..5226015 100644
  | Author  | Filter by the author that triggered the Todo |
  | Type    | Filter by issue or merge request |
 -| Action  | Filter by the action that triggered the Todo (Assigned or Mentioned)|
-+| アクション  | Filter by the action that triggered the Todo (Assigned or Mentioned)|
++| 액션  | Filter by the action that triggered the Todo (Assigned or Mentioned)|
  
  You can also filter by more than one of these at the same time.
  
@@ -18220,7 +18220,7 @@ index ee8e786..3f0de25 100644
 +++ b/doc/workflow/web_editor.md
 @@ -1,4 +1,4 @@
 -# GitLab Web Editor
-+# GitLab Webエディタ
++# 깃랩 웹 에디터
  
  Sometimes it's easier to make quick changes directly from the GitLab interface
  than to clone the project and use the Git command line tool. In this feature
@@ -18230,7 +18230,7 @@ index 46035a5..4718c59 100644
 +++ b/doc/workflow/wip_merge_requests.md
 @@ -1,4 +1,4 @@
 -# "Work In Progress" Merge Requests
-+# "Work In Progress" マージリクエスト
++# "Work In Progress" 머지 요청
  
  To prevent merge requests from accidentally being accepted before they're completely ready, GitLab blocks the "Accept" button for merge requests that have been marked a **Work In Progress**.
  
@@ -18240,41 +18240,41 @@ index f70e41d..84ec9ef 100644
 +++ b/doc/workflow/workflow.md
 @@ -1,31 +1,31 @@
 -# Feature branch workflow
-+# フィーチャーブランチワークフロー
++# 피쳐 브랜치 워크플로우
  
 -1.  Clone project:
-+1.  プロジェクトをクローンします:
++1.  클론 프로젝트:
  
      ```bash
      git clone git@example.com:project-name.git
      ```
  
 -1.  Create branch with your feature:
-+1.  機能追加用のブランチを作成します:
++1.  당신의 피쳐에 브랜치를 생성합니다:
  
      ```bash
      git checkout -b $feature_name
      ```
  
 -1.  Write code. Commit changes:
-+1.  コードを書いて変更をコミットします:
++1.  코드 작성 변경 사항을 커밋합니다:
  
      ```bash
      git commit -am "My feature is ready"
      ```
  
 -1.  Push your branch to GitLab:
-+1.  ブランチをGitLabにプッシュします:
++1.  브랜치를 깃랩에 푸시합니다:
  
      ```bash
      git push origin $feature_name
      ```
  
 -1.  Review your code on commits page.
-+1.  コミットのページでコードをレビューします
++1.  커밋 페이지에서 코드를 리뷰합니다
  
 -1.  Create a merge request.
-+1.  マージリクエストを作成します
++1.  병합 요청을 만듭니다
  
 -1.  Your team lead will review the code &amp; merge it to the main branch.
-+1.  チームリーダがコードレビューしメインのブランチにマージします
++1.  팀 리더가 코드 리뷰 메인 브랜치에 병합합니다

@@ -743,12 +743,12 @@ index 94c6b54..3dd78e8 100644
  
      group_opts = [
 -      "Groups", groups.sort_by(&:human_name).map { |g| [display_path ? g.path : g.human_name, g.id, data_attr_group] }
-+      "グループ", groups.sort_by(&:human_name).map { |g| [display_path ? g.path : g.human_name, g.id, data_attr_group] }
++      "그룹", groups.sort_by(&:human_name).map { |g| [display_path ? g.path : g.human_name, g.id, data_attr_group] }
      ]
  
      users_opts = [
 -      "Users", users.sort_by(&:human_name).map { |u| [display_path ? u.path : u.human_name, u.id, data_attr_users] }
-+      "ユーザ", users.sort_by(&:human_name).map { |u| [display_path ? u.path : u.human_name, u.id, data_attr_users] }
++      "사용자", users.sort_by(&:human_name).map { |u| [display_path ? u.path : u.human_name, u.id, data_attr_users] }
      ]
  
      options = []
@@ -761,7 +761,7 @@ index da230f7..bb1cb80 100644
  
      button_tag 'Reply...', class: 'btn btn-text-field js-discussion-reply-button',
 -                           data: data, title: 'Add a reply'
-+                           data: data, title: '返信を追加'
++                           data: data, title: '회신 추가'
    end
  
    def preload_max_access_for_authors(notes, project)
@@ -777,10 +777,10 @@ index c3832cf..94adf50 100644
 -    stars:    'Starred Projects',
 -    project_activity: "Your Projects' Activity",
 -    starred_project_activity: "Starred Projects' Activity",
-+    projects: 'あなたのプロジェクト (デフォルト)',
-+    stars:    'スターをつけたプロジェクト',
-+    project_activity: "あなたのプロジェクトのアクティビティ",
-+    starred_project_activity: "スターをつけたプロジェクトのアクティビティ",
++    projects: '마이 프로젝트 (기본)',
++    stars:    '즐겨찾는 프로젝트',
++    project_activity: "마이 프로젝트 활동",
++    starred_project_activity: "즐겨찾는 프로젝트 활동",
      groups: "Your Groups",
      todos: "Your Todos"
    }.with_indifferent_access.freeze
@@ -801,10 +801,10 @@ index c019571..723fcef 100644
 -      { category: "Settings", label: "SSH Keys",         url: profile_keys_path },
 -      { category: "Settings", label: "Dashboard",        url: root_path },
 -      { category: "Settings", label: "Admin Section",    url: admin_root_path },
-+      { category: "Settings", label: "プロフィール設定", url: profile_path },
-+      { category: "Settings", label: "SSHキー",         url: profile_keys_path },
-+      { category: "Settings", label: "ダッシュボード",        url: root_path },
-+      { category: "Settings", label: "管理セクション",    url: admin_root_path },
++      { category: "Settings", label: "프로필 설정", url: profile_path },
++      { category: "Settings", label: "SSH 키",         url: profile_keys_path },
++      { category: "Settings", label: "대시보드",        url: root_path },
++      { category: "Settings", label: "관리자",    url: admin_root_path },
      ]
    end
  
@@ -813,7 +813,7 @@ index c019571..723fcef 100644
      current_user.authorized_groups.search(term).limit(limit).map do |group|
        {
 -        category: "Groups",
-+        category: "グループ",
++        category: "그룹",
          id: group.id,
          label: "#{search_result_sanitize(group.name)}",
          url: group_path(group)
@@ -826,7 +826,7 @@ index 5f27e33..284a759 100644
    def users_select_data_attributes(opts)
      {
 -      placeholder: opts[:placeholder]   || 'Search for a user',
-+      placeholder: opts[:placeholder]   || 'ユーザを検索',
++      placeholder: opts[:placeholder]   || '사용자 검색',
        null_user: opts[:null_user]       || false,
        any_user: opts[:any_user]         || false,
        email_user: opts[:email_user]     || false,
@@ -839,7 +839,7 @@ index 8b138a8..437819a 100644
  
    def sort_title_oldest_updated
 -    'Oldest updated'
-+    '最近更新されていない'
++    '업데이트 과거순'
    end
  
    def sort_title_recently_updated
@@ -848,7 +848,7 @@ index 8b138a8..437819a 100644
  
    def sort_title_oldest_created
 -    'Oldest created'
-+    '古い順'
++    '생성 과거분'
    end
  
    def sort_title_recently_created
@@ -857,12 +857,12 @@ index 8b138a8..437819a 100644
  
    def sort_title_milestone_soon
 -    'Milestone due soon'
-+    'マイルストーンが近い順'
++    '마일스톤에 가까운 순서'
    end
  
    def sort_title_milestone_later
 -    'Milestone due later'
-+    'マイルストーンが遠い順'
++    '마일스톤에 먼 순서'
    end
  
    def sort_title_due_date_soon
@@ -871,22 +871,22 @@ index 8b138a8..437819a 100644
  
    def sort_title_name
 -    'Name'
-+    '名前'
++    '이름'
    end
  
    def sort_title_largest_repo
 -    'Largest repository'
-+    'リポジトリの大きさ'
++    '레파지토리 크기'
    end
  
    def sort_title_recently_signin
 -    'Recent sign in'
-+    '最近サインインした'
++    '최근에 로그인한 순서'
    end
  
    def sort_title_oldest_signin
 -    'Oldest sign in'
-+    'サインインした順'
++    '로그인 오래된 순서'
    end
  
    def sort_title_downvotes
@@ -904,13 +904,13 @@ index 3a83ae1..a89d39d 100644
      case level
      when Gitlab::VisibilityLevel::PRIVATE
 -      "Project access must be granted explicitly to each user."
-+      "明示的にアクセス権を付与したユーザだけがアクセスできます"
++      "명시 적으로 권한을 부여한 사용자 만 액세스 할 수 있습니다"
      when Gitlab::VisibilityLevel::INTERNAL
 -      "The project can be cloned by any logged in user."
-+      "ログインしたユーザは誰でもプロジェクトをクローンできます"
++      "로그인 한 사용자는 누구나 프로젝트를 복제 할 수 있습니다"
      when Gitlab::VisibilityLevel::PUBLIC
 -      "The project can be cloned without any authentication."
-+      "誰でも、認証せずにプロジェクトをクローンできます"
++      "누구든지 인증없이 프로젝트를 복제 할 수 있습니다"
      end
    end
  
@@ -918,13 +918,13 @@ index 3a83ae1..a89d39d 100644
      case level
      when Gitlab::VisibilityLevel::PRIVATE
 -      "The group and its projects can only be viewed by members."
-+      "グループとそのプロジェクトはメンバーのみ閲覧できます。"
++      "그룹 및 프로젝트 멤버 만 볼 수 있습니다."
      when Gitlab::VisibilityLevel::INTERNAL
 -      "The group and any internal projects can be viewed by any logged in user."
-+      "グループとすべての内部プロジェクトはすべてのログイン済みのユーザから閲覧できます。"
++      "그룹 및 모든 내부 프로젝트는 모든 로그인 된 사용자에서 볼 수 있습니다."
      when Gitlab::VisibilityLevel::PUBLIC
 -      "The group and any public projects can be viewed without any authentication."
-+      "グループとすべての公開プロジェクトは認証なしで閲覧できます。"
++      "그룹 및 모든 공개 프로젝트는 인증없이 볼 수 있습니다."
      end
    end
  
@@ -937,10 +937,10 @@ index 3a83ae1..a89d39d 100644
        end
      when Gitlab::VisibilityLevel::INTERNAL
 -      "The snippet is visible to any logged in user."
-+      "スニペットはログインしているユーザが閲覧できます。"
++      "스니펫은 로그인 한 볼 수 있습니다."
      when Gitlab::VisibilityLevel::PUBLIC
 -      "The snippet can be accessed without any authentication."
-+      "スニペットは誰でも認証せずに閲覧できます。"
++      "스니펫은 누구나 인증없이 볼 수 있습니다."
      end
    end
  
@@ -951,11 +951,11 @@ index 3a83ae1..a89d39d 100644
 -    Project.visibility_levels.key(level)
 +    case level
 +    when Gitlab::VisibilityLevel::PRIVATE
-+      "プライベート"
++      "개인"
 +    when Gitlab::VisibilityLevel::INTERNAL
-+      "内部"
++      "내부"
 +    when Gitlab::VisibilityLevel::PUBLIC
-+      "公開"
++      "공개"
 +    end
    end
  
@@ -973,14 +973,14 @@ index 256cbcd..1194b62 100644
        @target_url = user_url(@user)
        @token = token
 -      mail(to: @user.notification_email, subject: subject("Account was created for you"))
-+      mail(to: @user.notification_email, subject: subject("あなたのアカウントが作成されました"))
++      mail(to: @user.notification_email, subject: subject("계정이 생성되었습니다"))
      end
  
      def new_email_email(email_id)
        @email = Email.find(email_id)
        @current_user = @user = @email.user
 -      mail(to: @user.notification_email, subject: subject("Email was added to your account"))
-+      mail(to: @user.notification_email, subject: subject("メールアドレスがあなたのアカウントに追加されました"))
++      mail(to: @user.notification_email, subject: subject("이메일 주소가 귀하의 계정에 추가되었습니다"))
      end
  
      def new_ssh_key_email(key_id)
@@ -989,7 +989,7 @@ index 256cbcd..1194b62 100644
        @current_user = @user = @key.user
        @target_url = user_url(@user)
 -      mail(to: @user.notification_email, subject: subject("SSH key was added to your account"))
-+      mail(to: @user.notification_email, subject: subject("SSHキーがあなたのアカウントに追加されました"))
++      mail(to: @user.notification_email, subject: subject("SSH 키가 귀하의 계정에 추가되었습니다"))
      end
    end
  end
@@ -1007,7 +1007,7 @@ index 2f13d33..f80be7c 100644
    # Because source_type is `Namespace`...
    def real_source_type
 -    'Group'
-+    'グループ'
++    '그룹'
    end
  
    private
@@ -1025,7 +1025,7 @@ index 19a684d..d87ead5 100644
  
    # MRs created before 8.4 don't store a MergeRequestDiff#base_commit_sha,
 -  # but we need to get a commit for the "View file @ ..." link by deleted files,
-+  # but we need to get a commit for the "ファイルを表示 @ ..." link by deleted files,
++  # but we need to get a commit for the "파일 보기 @ ..." link by deleted files,
    # so we find the likely one if we can't get the actual one.
    # This will not be the actual base commit if the target branch was merged into
    # the source branch after the merge request was created, but it is good enough
@@ -1034,7 +1034,7 @@ index 19a684d..d87ead5 100644
        "Closed"
      else
 -      "Open"
-+      "オープン"
++      "오픈"
      end
    end
  
@@ -1057,7 +1057,7 @@ index 8cf093b..fd9200c 100644
      end
    rescue
 -    self.errors.add(:base, "Can't check your ability to create project")
-+    self.errors.add(:base, "プロジェクトの作成権限が確認できませんでした")
++    self.errors.add(:base, "프로젝트 만들기 권한을 확인할 수 없습니다")
    end
  
    def visibility_level_allowed_by_group
@@ -1066,7 +1066,7 @@ index 8cf093b..fd9200c 100644
      repository.exists?
    rescue
 -    errors.add(:path, 'Invalid repository path')
-+    errors.add(:path, 'リポジトリのパスが無効です')
++    errors.add(:path, '레파지토리의 경로가 잘못되었습니다')
      false
    end
  
@@ -1084,7 +1084,7 @@ index 8eaf6db..40a5b1e 100644
        if @file_path =~ Gitlab::Regex.directory_traversal_regex
          raise_error(
 -          'Your changes could not be committed, because the file name ' +
-+          '変更をコミットできません。ファイル名には' +
++          '변경 내용을 커밋 할 수 없습니다. 파일 이름은' +
            Gitlab::Regex.directory_traversal_regex_message
          )
        end
@@ -1092,7 +1092,7 @@ index 8eaf6db..40a5b1e 100644
        unless @file_path =~ Gitlab::Regex.file_path_regex
          raise_error(
 -          'Your changes could not be committed, because the file name ' +
-+          '変更をコミットできません。ファイル名には' +
++          '변경 내용을 커밋 할 수 없습니다. 파일 이름은' +
            Gitlab::Regex.file_path_regex_message
          )
        end
@@ -1101,7 +1101,7 @@ index 8eaf6db..40a5b1e 100644
  
          if blob
 -          raise_error('Your changes could not be committed because a file with the same name already exists')
-+          raise_error('この名前のファイルが存在しているため、変更をコミットできません')
++          raise_error('이 이름의 파일이 존재하고 있기 때문에 변경 내용을 커밋 할 수 없습니다')
          end
        end
      end
@@ -1119,7 +1119,7 @@ index 6139ed5..3d4cd4f 100644
  
      # ignore gitlab service messages
 -    return true if note.note.start_with?('Status changed to closed')
-+    return true if note.note.start_with?('ステータスをクローズに変更しました')
++    return true if note.note.start_with?('상태를 닫기로 변경했습니다')
      return true if note.cross_reference? && note.system?
  
      target = note.noteable
@@ -1137,10 +1137,10 @@ index 546a8f1..24fecd4 100644
    def add_commits(noteable, project, author, new_commits, existing_commits = [], oldrev = nil)
      total_count  = new_commits.length + existing_commits.length
 -    commits_text = "#{total_count} commit".pluralize(total_count)
-+    commits_text = "#{total_count} コミット"
++    commits_text = "#{total_count} 커밋"
  
 -    body = "Added #{commits_text}:\n\n"
-+    body = "#{commits_text}を追加しました:\n\n"
++    body = "#{commits_text}을 추가했습니다.:\n\n"
      body << existing_commit_summary(noteable, existing_commits, oldrev)
      body << new_commit_summary(new_commits).join("\n")
  
@@ -1149,14 +1149,14 @@ index 546a8f1..24fecd4 100644
    # Example Note text:
    #
 -  #   "Assignee removed"
-+  #   "担当者が削除されました"
++  #   "담당자가 삭제되었습니다"
    #
    #   "Reassigned to @rspeicher"
    #
    # Returns the created Note object
    def change_assignee(noteable, project, author, assignee)
 -    body = assignee.nil? ? 'Assignee removed' : "Reassigned to #{assignee.to_reference}"
-+    body = assignee.nil? ? '担当者が削除されました' : "Reassigned to #{assignee.to_reference}"
++    body = assignee.nil? ? '담당자가 삭제되었습니다' : "Reassigned to #{assignee.to_reference}"
  
      create_note(noteable: noteable, project: project, author: author, note: body)
    end
@@ -1165,7 +1165,7 @@ index 546a8f1..24fecd4 100644
    #   "Status changed to merged"
    #
 -  #   "Status changed to closed by bc17db76"
-+  #   "ステータスをクローズに変更しました by bc17db76"
++  #   "상태를 닫기로 변경했습니다 by bc17db76"
    #
    # Returns the created Note object
    def change_status(noteable, project, author, status, source)
@@ -1178,13 +1178,13 @@ index 06be1a5..4ecb38d 100644
    = f.hidden_field :user_id
    .form-group
 -    = f.label :user_id, class: 'control-label'
-+    = f.label :user_id, 'ユーザID', class: 'control-label'
++    = f.label :user_id, '사용자 ID', class: 'control-label'
      .col-sm-10
        - name = "#{@abuse_report.user.name} (@#{@abuse_report.user.username})"
        = text_field_tag :user_name, name, class: "form-control", readonly: true
    .form-group
 -    = f.label :message, class: 'control-label'
-+    = f.label :message, 'メッセージ', class: 'control-label'
++    = f.label :message, '메시지', class: 'control-label'
      .col-sm-10
        = f.text_area :message, class: "form-control", rows: 2, required: true, value: sanitize(@ref_url)
        .help-block
@@ -1198,18 +1198,18 @@ index dd2e7eb..6ace688 100644
      - if user
 -      = link_to 'Remove user & report', admin_abuse_report_path(abuse_report, remove_user: true),
 -        data: { confirm: "USER #{user.name} WILL BE REMOVED! Are you sure?" }, remote: true, method: :delete, class: "btn btn-xs btn-remove js-remove-tr"
-+      = link_to 'ユーザを削除 & report', admin_abuse_report_path(abuse_report, remove_user: true),
-+        data: { confirm: "ユーザ #{user.name} は削除されます！本当に削除しますか？" }, remote: true, method: :delete, class: "btn btn-xs btn-remove js-remove-tr"
++      = link_to '사용자 삭제 & report', admin_abuse_report_path(abuse_report, remove_user: true),
++        data: { confirm: "사용자 #{user.name} 은 삭제됩니다! 정말 삭제 하시겠습니까?" }, remote: true, method: :delete, class: "btn btn-xs btn-remove js-remove-tr"
  
    %td
      - if user && !user.blocked?
 -      = link_to 'Block user', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! Are you sure?'}, method: :put, class: "btn btn-xs"
-+      = link_to 'ユーザをブロック', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! 本当によろしいですか？'}, method: :put, class: "btn btn-xs"
++      = link_to '사용자 차단', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! 정말 하시겠습니까?'}, method: :put, class: "btn btn-xs"
      - else
        .btn.btn-xs.disabled
          Already Blocked
 -    = link_to 'Remove report', [:admin, abuse_report], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
-+    = link_to 'reportを削除', [:admin, abuse_report], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
++    = link_to 'report을 삭제', [:admin, abuse_report], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
 diff --git a/app/views/admin/abuse_reports/index.html.haml b/app/views/admin/abuse_reports/index.html.haml
 index bc4a9ce..6cbecaa 100644
 --- a/app/views/admin/abuse_reports/index.html.haml
@@ -1221,9 +1221,9 @@ index bc4a9ce..6cbecaa 100644
 -          %th User
 -          %th Reported by
 -          %th Message
-+          %th ユーザ
-+          %th 報告者
-+          %th メッセージ
++          %th 사용자
++          %th 보고자
++          %th 메세지
            %th Primary action
            %th
        = render @abuse_reports
@@ -1236,12 +1236,12 @@ index 92e2dae..b1c2a09 100644
        Sign in/Sign up pages:
    .form-group
 -    = f.label :title, class: 'control-label'
-+    = f.label :title, 'タイトル', class: 'control-label'
++    = f.label :title, '제목', class: 'control-label'
      .col-sm-10
        = f.text_field :title, class: "form-control"
    .form-group
 -    = f.label :description, class: 'control-label'
-+    = f.label :description, '説明', class: 'control-label'
++    = f.label :description, '설명', class: 'control-label'
      .col-sm-10
        = f.text_area :description, class: "form-control", rows: 10
        .hint
@@ -1250,7 +1250,7 @@ index 92e2dae..b1c2a09 100644
          - if @appearance.persisted?
            %br
 -          = link_to 'Remove logo', logo_admin_appearances_path, data: { confirm: "Logo will be removed. Are you sure?"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
-+          = link_to 'logoを削除', logo_admin_appearances_path, data: { confirm: "Logo will be removed. 本当によろしいですか？"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
++          = link_to 'logo 삭제', logo_admin_appearances_path, data: { confirm: "Logo will be removed. 本当によろしいですか？"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
          %hr
        = f.hidden_field :logo_cache
        = f.file_field :logo, class: ""
@@ -1259,7 +1259,7 @@ index 92e2dae..b1c2a09 100644
          - if @appearance.persisted?
            %br
 -          = link_to 'Remove header logo', header_logos_admin_appearances_path, data: { confirm: "Header logo will be removed. Are you sure?"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
-+          = link_to 'header logoを削除', header_logos_admin_appearances_path, data: { confirm: "Header logo will be removed. 本当によろしいですか？"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
++          = link_to 'header logo 삭제', header_logos_admin_appearances_path, data: { confirm: "Header logo will be removed. 本当によろしいですか？"}, method: :delete, class: "btn btn-remove btn-small remove-logo"
          %hr
        = f.hidden_field :header_logo_cache
        = f.file_field :header_logo, class: ""
@@ -1268,7 +1268,7 @@ index 92e2dae..b1c2a09 100644
  
    .form-actions
 -    = f.submit 'Save', class: 'btn btn-save append-right-10'
-+    = f.submit '保存', class: 'btn btn-save append-right-10'
++    = f.submit '저장', class: 'btn btn-save append-right-10'
      - if @appearance.persisted?
        = link_to 'Preview last save', preview_admin_appearances_path, class: 'btn', target: '_blank'
  
@@ -1281,14 +1281,14 @@ index 6c51639..5978285 100644
  .login-box
    .login-heading
 -    %h3 Existing user? Sign in
-+    %h3 登録済みの方はサインイン
++    %h3 등록 된 분은 로그인
    %form
 -    = text_field_tag :login, nil, class: "form-control top", placeholder: "Username or Email"
 -    = password_field_tag :password, nil, class: "form-control bottom", placeholder: "Password"
 -    = button_tag "Sign in", class: "btn-create btn"
-+    = text_field_tag :login, nil, class: "form-control top", placeholder: "ユーザ名またはメールアドレス"
-+    = password_field_tag :password, nil, class: "form-control bottom", placeholder: "パスワード"
-+    = button_tag "サインイン", class: "btn-create btn"
++    = text_field_tag :login, nil, class: "form-control top", placeholder: "아이디나 이메일 주소"
++    = password_field_tag :password, nil, class: "form-control bottom", placeholder: "비밀번호"
++    = button_tag "로그인", class: "btn-create btn"
  
 diff --git a/app/views/admin/application_settings/_form.html.haml b/app/views/admin/application_settings/_form.html.haml
 index d929364..f32e909 100644
@@ -1299,20 +1299,20 @@ index d929364..f32e909 100644
  
    %fieldset
 -    %legend Visibility and Access Controls
-+    %legend 可視性とアクセス権制御
++    %legend Visibility 및 액세스 제어
      .form-group
 -      = f.label :default_branch_protection, class: 'control-label col-sm-2'
-+      = f.label :default_branch_protection, 'ブランチ保護初期値', class: 'control-label col-sm-2'
++      = f.label :default_branch_protection, '디폴트 브랜치 보호', class: 'control-label col-sm-2'
        .col-sm-10
          = f.select :default_branch_protection, options_for_select(Gitlab::Access.protection_options, @application_setting.default_branch_protection), {}, class: 'form-control'
      .form-group.project-visibility-level-holder
 -      = f.label :default_project_visibility, class: 'control-label col-sm-2'
-+      = f.label :default_project_visibility, 'プロジェクト可視性初期値', class: 'control-label col-sm-2'
++      = f.label :default_project_visibility, '디폴트 프로젝트 Visibility', class: 'control-label col-sm-2'
        .col-sm-10
          = render('shared/visibility_radios', model_method: :default_project_visibility, form: f, selected_level: @application_setting.default_project_visibility, form_model: Project.new)
      .form-group.project-visibility-level-holder
 -      = f.label :default_snippet_visibility, class: 'control-label col-sm-2'
-+      = f.label :default_snippet_visibility, 'スニペット可視性初期値', class: 'control-label col-sm-2'
++      = f.label :default_snippet_visibility, '디폴트 스니펫 Visibility', class: 'control-label col-sm-2'
        .col-sm-10
          = render('shared/visibility_radios', model_method: :default_snippet_visibility, form: f, selected_level: @application_setting.default_snippet_visibility, form_model: ProjectSnippet.new)
      .form-group.project-visibility-level-holder
@@ -1321,7 +1321,7 @@ index d929364..f32e909 100644
          = render('shared/visibility_radios', model_method: :default_group_visibility, form: f, selected_level: @application_setting.default_group_visibility, form_model: Group.new)
      .form-group
 -      = f.label :restricted_visibility_levels, class: 'control-label col-sm-2'
-+      = f.label :restricted_visibility_levels, '制限された可視性レベル', class: 'control-label col-sm-2'
++      = f.label :restricted_visibility_levels, '제한된 visibility 수준', class: 'control-label col-sm-2'
        .col-sm-10
          - data_attrs = { toggle: 'buttons' }
          .btn-group{ data: data_attrs }
@@ -1330,7 +1330,7 @@ index d929364..f32e909 100644
            If the public level is restricted, user profiles are only visible to logged in users.
      .form-group
 -      = f.label :import_sources, class: 'control-label col-sm-2'
-+      = f.label :import_sources, 'インポート元', class: 'control-label col-sm-2'
++      = f.label :import_sources, '임포트 소스', class: 'control-label col-sm-2'
        .col-sm-10
          - data_attrs = { toggle: 'buttons' }
          .btn-group{ data: data_attrs }
@@ -1339,7 +1339,7 @@ index d929364..f32e909 100644
            = f.label :version_check_enabled do
              = f.check_box :version_check_enabled
 -            Version check enabled
-+            Version check を利用
++            Version check 활성화
      .form-group
        .col-sm-offset-2.col-sm-10
          .checkbox
@@ -1348,11 +1348,11 @@ index d929364..f32e909 100644
            .help-block
              Some email servers do not support overriding the email sender name.
 -            Enable this option to include the name of the author of the issue,
-+            this option to include the name of the author of the issue,を有効にする
++            이슈의 작성자의 이름을 포함하려면이 옵션을 활성화
              merge request or comment in the email body instead.
      .form-group
 -      = f.label :admin_notification_email, class: 'control-label col-sm-2'
-+      = f.label :admin_notification_email, '管理者通知メールアドレス', class: 'control-label col-sm-2'
++      = f.label :admin_notification_email, '관리자 알림 이메일', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :admin_notification_email, class: 'form-control'
          .help-block
@@ -1360,43 +1360,43 @@ index d929364..f32e909 100644
  
    %fieldset
 -    %legend Account and Limit Settings
-+    %legend アカウントと制限の設定
++    %legend 계정 제한 설정
      .form-group
        .col-sm-offset-2.col-sm-10
          .checkbox
            = f.label :gravatar_enabled do
              = f.check_box :gravatar_enabled
 -            Gravatar enabled
-+            Gravatar を利用
++            Gravatar 활성화
      .form-group
 -      = f.label :default_projects_limit, class: 'control-label col-sm-2'
-+      = f.label :default_projects_limit, '上限プロジェクト数初期値', class: 'control-label col-sm-2'
++      = f.label :default_projects_limit, '최대 프로젝트 수 초기치', class: 'control-label col-sm-2'
        .col-sm-10
          = f.number_field :default_projects_limit, class: 'form-control'
      .form-group
 -      = f.label :max_attachment_size, 'Maximum attachment size (MB)', class: 'control-label col-sm-2'
-+      = f.label :max_attachment_size, '最大添付ファイルサイズ (MB)', class: 'control-label col-sm-2'
++      = f.label :max_attachment_size, '최대 첨부 파일 크기 (MB)', class: 'control-label col-sm-2'
        .col-sm-10
          = f.number_field :max_attachment_size, class: 'form-control'
      .form-group
 -      = f.label :session_expire_delay, 'Session duration (minutes)', class: 'control-label col-sm-2'
-+      = f.label :session_expire_delay, 'セッション期間 (分)', class: 'control-label col-sm-2'
++      = f.label :session_expire_delay, '세션 기간 (분)', class: 'control-label col-sm-2'
        .col-sm-10
          = f.number_field :session_expire_delay, class: 'form-control'
 -        %span.help-block#session_expire_delay_help_block GitLab restart is required to apply changes
-+        %span.help-block#session_expire_delay_help_block 変更を反映するにはGitLabの再起動が必要です
++        %span.help-block#session_expire_delay_help_block 변경 사항을 적용하려면 깃랩 다시 시작해야합니다
      .form-group
 -      = f.label :user_oauth_applications, 'User OAuth applications', class: 'control-label col-sm-2'
-+      = f.label :user_oauth_applications, 'OAuthアプリケーションの利用', class: 'control-label col-sm-2'
++      = f.label :user_oauth_applications, 'OAuth 응용 프로그램의 이용', class: 'control-label col-sm-2'
        .col-sm-10
          .checkbox
            = f.label :user_oauth_applications do
              = f.check_box :user_oauth_applications
 -            Allow users to register any application to use GitLab as an OAuth provider
-+            OAuthプロバイダとしてGitLabを使えるようにアプリケーションを登録することをユーザを許可する
++            OAuth 공급자로 깃랩을 사용할 수 있도록 응용 프로그램을 등록하는 것을 사용자가 허용
      .form-group
 -      = f.label :user_default_external, 'New users set to external', class: 'control-label col-sm-2'
-+      = f.label :user_default_external, '新しいユーザ set to external', class: 'control-label col-sm-2'
++      = f.label :user_default_external, '새로운 사용자 set to external', class: 'control-label col-sm-2'
        .col-sm-10
          .checkbox
            = f.label :user_default_external do
@@ -1405,7 +1405,7 @@ index d929364..f32e909 100644
            = f.label :signup_enabled do
              = f.check_box :signup_enabled
 -            Sign-up enabled
-+            Sign-up を利用
++            Sign-up 활성화
      .form-group
        .col-sm-offset-2.col-sm-10
          .checkbox
@@ -1414,7 +1414,7 @@ index d929364..f32e909 100644
            = f.label :domain_blacklist_enabled do
              = f.check_box :domain_blacklist_enabled
 -            Enable domain blacklist for sign ups
-+            domain blacklist for sign upsを有効にする
++            domain blacklist for sign ups 활성화
      .form-group
        .col-sm-offset-2.col-sm-10
          .radio
@@ -1422,7 +1422,7 @@ index d929364..f32e909 100644
              = radio_button_tag :blacklist_type, :file
              .option-title
 -              Upload blacklist file
-+              Upload blacklist ファイル
++              Upload blacklist 파일
          .radio
            = label_tag :blacklist_type_raw do
              = radio_button_tag :blacklist_type, :raw, @application_setting.domain_blacklist.present? || @application_setting.domain_blacklist.blank?
@@ -1430,7 +1430,7 @@ index d929364..f32e909 100644
                Enter blacklist manually
      .form-group.blacklist-file
 -      = f.label :domain_blacklist_file, 'Blacklist file', class: 'control-label col-sm-2'
-+      = f.label :domain_blacklist_file, 'Blacklist ファイル', class: 'control-label col-sm-2'
++      = f.label :domain_blacklist_file, 'Blacklist 파일', class: 'control-label col-sm-2'
        .col-sm-10
          = f.file_field :domain_blacklist_file, class: 'form-control', accept: '.txt,.conf'
          .help-block Users with e-mail addresses that match these domain(s) will NOT be able to sign-up. Wildcards allowed. Use separate lines or commas for multiple entries.
@@ -1439,18 +1439,18 @@ index d929364..f32e909 100644
        .col-sm-10
          = f.text_area :after_sign_up_text, class: 'form-control', rows: 4
 -        .help-block Markdown enabled
-+        .help-block Markdown を利用
++        .help-block Markdown 활성화
  
    %fieldset
 -    %legend Sign-in Restrictions
-+    %legend サインインの制限
++    %legend 로그인 제한
      .form-group
        .col-sm-offset-2.col-sm-10
          .checkbox
            = f.label :signin_enabled do
              = f.check_box :signin_enabled
 -            Sign-in enabled
-+            Sign-in を利用
++            Sign-in 활성화
      - if omniauth_enabled? && button_based_providers.any?
        .form-group
          = f.label :enabled_oauth_sign_in_sources, 'Enabled OAuth Sign-In sources', class: 'control-label col-sm-2'
@@ -1459,31 +1459,31 @@ index d929364..f32e909 100644
          .help-block Amount of time (in hours) that users are allowed to skip forced configuration of two-factor authentication
      .form-group
 -      = f.label :home_page_url, 'Home page URL', class: 'control-label col-sm-2'
-+      = f.label :home_page_url, 'Home ページ URL', class: 'control-label col-sm-2'
++      = f.label :home_page_url, 'Home 페이지 URL', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :home_page_url, class: 'form-control', placeholder: 'http://company.example.com', :'aria-describedby' => 'home_help_block'
 -        %span.help-block#home_help_block We will redirect non-logged in users to this page
-+        %span.help-block#home_help_block ログインしていないユーザをこのページにリダイレクトします
++        %span.help-block#home_help_block 로그인하지 않은 사용자를이 페이지로 리디렉션합니다
      .form-group
 -      = f.label :after_sign_out_path, class: 'control-label col-sm-2'
-+      = f.label :after_sign_out_path, 'サインアウト後パス', class: 'control-label col-sm-2'
++      = f.label :after_sign_out_path, '로그 아웃 후 경로', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :after_sign_out_path, class: 'form-control', placeholder: 'http://company.example.com', :'aria-describedby' => 'after_sign_out_path_help_block'
          %span.help-block#after_sign_out_path_help_block We will redirect users to this page after they sign out
      .form-group
 -      = f.label :sign_in_text, class: 'control-label col-sm-2'
-+      = f.label :sign_in_text, 'サインイン文言', class: 'control-label col-sm-2'
++      = f.label :sign_in_text, '로그인 텍스트', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_area :sign_in_text, class: 'form-control', rows: 4
 -        .help-block Markdown enabled
-+        .help-block Markdown を利用
++        .help-block Markdown 활성화
      .form-group
 -      = f.label :help_page_text, class: 'control-label col-sm-2'
-+      = f.label :help_page_text, 'ヘルプページ文言', class: 'control-label col-sm-2'
++      = f.label :help_page_text, '헬프 페이지 텍스트', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_area :help_page_text, class: 'form-control', rows: 4
 -        .help-block Markdown enabled
-+        .help-block Markdown を利用
++        .help-block Markdown 활성화
  
    %fieldset
      %legend Continuous Integration
@@ -1492,16 +1492,16 @@ index d929364..f32e909 100644
            = f.label :shared_runners_enabled do
              = f.check_box :shared_runners_enabled
 -            Enable shared runners for new projects
-+            shared runners for new プロジェクトを有効にする
++            shared runners for 새로운 프로젝트 활성화
      .form-group
        = f.label :shared_runners_text, class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_area :shared_runners_text, class: 'form-control', rows: 4
 -        .help-block Markdown enabled
-+        .help-block Markdown を利用
++        .help-block Markdown 활성화
      .form-group
 -      = f.label :max_artifacts_size, 'Maximum artifacts size (MB)', class: 'control-label col-sm-2'
-+      = f.label :max_artifacts_size, '最大成果物サイズ (MB)', class: 'control-label col-sm-2'
++      = f.label :max_artifacts_size, '최대 성과물 크기 (MB)', class: 'control-label col-sm-2'
        .col-sm-10
          = f.number_field :max_artifacts_size, class: 'form-control'
          .help-block
@@ -1510,7 +1510,7 @@ index d929364..f32e909 100644
            = f.label :metrics_enabled do
              = f.check_box :metrics_enabled
 -            Enable InfluxDB Metrics
-+            InfluxDB Metricsを有効にする
++            InfluxDB Metrics 활성화
      .form-group
        = f.label :metrics_host, 'InfluxDB host', class: 'control-label col-sm-2'
        .col-sm-10
@@ -1519,7 +1519,7 @@ index d929364..f32e909 100644
            The amount of InfluxDB connections to open. Connections are opened
            lazily. Users using multi-threaded application servers should ensure
 -          enough connections are available (at minimum the amount of application
-+          enough connections are available (at minimum the amount of アプリケーション
++          enough connections are available (at minimum the amount of 어플리케이션
            server threads).
      .form-group
        = f.label :metrics_timeout, 'Connection timeout', class: 'control-label col-sm-2'
@@ -1529,12 +1529,12 @@ index d929364..f32e909 100644
              = f.check_box :recaptcha_enabled
 -            Enable reCAPTCHA
 -          %span.help-block#recaptcha_help_block Helps prevent bots from creating accounts
-+            reCAPTCHAを有効にする
-+          %span.help-block#recaptcha_help_block Helps prevent bots from creating アカウント
++            reCAPTCHA 활성화
++          %span.help-block#recaptcha_help_block Helps prevent bots from creating 계정
  
      .form-group
 -      = f.label :recaptcha_site_key, 'reCAPTCHA Site Key', class: 'control-label col-sm-2'
-+      = f.label :recaptcha_site_key, 'reCAPTCHA Site キー', class: 'control-label col-sm-2'
++      = f.label :recaptcha_site_key, 'reCAPTCHA Site 키', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :recaptcha_site_key, class: 'form-control'
          .help-block
@@ -1543,7 +1543,7 @@ index d929364..f32e909 100644
  
      .form-group
 -      = f.label :recaptcha_private_key, 'reCAPTCHA Private Key', class: 'control-label col-sm-2'
-+      = f.label :recaptcha_private_key, 'reCAPTCHA Private キー', class: 'control-label col-sm-2'
++      = f.label :recaptcha_private_key, 'reCAPTCHA Private 키', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :recaptcha_private_key, class: 'form-control'
  
@@ -1553,12 +1553,12 @@ index d929364..f32e909 100644
              = f.check_box :akismet_enabled
 -            Enable Akismet
 -          %span.help-block#akismet_help_block Helps prevent bots from creating issues
-+            Akismetを有効にする
-+          %span.help-block#akismet_help_block Helps prevent bots from creating 課題
++            Akisme 활성화
++          %span.help-block#akismet_help_block Helps prevent bots from creating 이슈
  
      .form-group
 -      = f.label :akismet_api_key, 'Akismet API Key', class: 'control-label col-sm-2'
-+      = f.label :akismet_api_key, 'Akismet API キー', class: 'control-label col-sm-2'
++      = f.label :akismet_api_key, 'Akismet API 키', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :akismet_api_key, class: 'form-control'
          .help-block
@@ -1567,7 +1567,7 @@ index d929364..f32e909 100644
            = f.label :sentry_enabled do
              = f.check_box :sentry_enabled
 -            Enable Sentry
-+            Sentryを有効にする
++            Sentry 활성화
            .help-block
              Sentry is an error reporting and logging tool which is currently not shipped with GitLab, get it here:
              %a{ href: 'https://getsentry.com', target: '_blank' } https://getsentry.com
@@ -1576,7 +1576,7 @@ index d929364..f32e909 100644
      %legend Repository Storage
      .form-group
 -      = f.label :repository_storage, 'Storage path for new projects', class: 'control-label col-sm-2'
-+      = f.label :repository_storage, 'Storage path for new プロジェクト', class: 'control-label col-sm-2'
++      = f.label :repository_storage, 'Storage path for new 프로젝트', class: 'control-label col-sm-2'
        .col-sm-10
          = f.select :repository_storage, repository_storage_options_for_select, {}, class: 'form-control'
          .help-block
@@ -1585,7 +1585,7 @@ index d929364..f32e909 100644
            = f.label :repository_checks_enabled do
              = f.check_box :repository_checks_enabled
 -            Enable Repository Checks
-+            Repository Checksを有効にする
++            Repository Checks 활성화
            .help-block
              GitLab will periodically run
              %a{ href: 'https://www.kernel.org/pub/software/scm/git/docs/git-fsck.html', target: 'blank' } 'git fsck'
@@ -1593,7 +1593,7 @@ index d929364..f32e909 100644
      .form-group
        .col-sm-offset-2.col-sm-10
 -        = link_to 'Clear all repository checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear repository check states for ALL projects in the database. This cannot be undone. Are you sure?' }, method: :put, class: "btn btn-sm btn-remove"
-+        = link_to 'Clear all リポジトリ checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear リポジトリ check states for ALL プロジェクト in the database. This cannot be undone. 本当によろしいですか？' }, method: :put, class: "btn btn-sm btn-remove"
++        = link_to 'Clear all 레파지토리 checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear リポジトリ check states for ALL プロジェクト in the database. This cannot be undone. 本当によろしいですか？' }, method: :put, class: "btn btn-sm btn-remove"
          .help-block
            If you got a lot of false alarms from repository checks you can choose to clear all repository check information from the database.
  
@@ -1602,14 +1602,14 @@ index d929364..f32e909 100644
            = f.label :koding_enabled do
              = f.check_box :koding_enabled
 -            Enable Koding
-+            Kodingを有効にする
++            Koding 활성화
      .form-group
        = f.label :koding_url, 'Koding URL', class: 'control-label col-sm-2'
        .col-sm-10
          = f.text_field :koding_url, class: 'form-control', placeholder: 'http://gitlab.your-koding-instance.com:8090'
          .help-block
 -          Koding has integration enabled out of the box for the
-+          Koding has integration を利用 out of the box for the
++          Koding has integration 활성화 out of the box for the
            %strong gitlab
            team, and you need to provide that team's URL here. Learn more in the
            = succeed "." do
@@ -1618,17 +1618,17 @@ index d929364..f32e909 100644
  
    .form-actions
 -    = f.submit 'Save', class: 'btn btn-save'
-+    = f.submit '保存', class: 'btn btn-save'
++    = f.submit '저장', class: 'btn btn-save'
 diff --git a/app/views/admin/application_settings/show.html.haml b/app/views/admin/application_settings/show.html.haml
 index ecc46d8..4d4e1fb 100644
 --- a/app/views/admin/application_settings/show.html.haml
 +++ b/app/views/admin/application_settings/show.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "Settings"
-+- page_title "設定"
++- page_title "설정"
  
 -%h3.page-title Settings
-+%h3.page-title 設定
++%h3.page-title 설정
  %hr
  = render 'form'
 diff --git a/app/views/admin/applications/_delete_form.html.haml b/app/views/admin/applications/_delete_form.html.haml
@@ -1640,7 +1640,7 @@ index 042971e..fca19dd 100644
  = form_tag admin_application_path(application) do
    %input{:name => "_method", :type => "hidden", :value => "delete"}/
 -  = submit_tag 'Destroy', onclick: "return confirm('Are you sure?')", class: submit_btn_css
-+  = submit_tag '削除', onclick: "return confirm('本当によろしいですか？')", class: submit_btn_css
++  = submit_tag '삭제', onclick: "return confirm('정말 하시겠습니까?')", class: submit_btn_css
 diff --git a/app/views/admin/applications/_form.html.haml b/app/views/admin/applications/_form.html.haml
 index 4aacbb8..2267d21 100644
 --- a/app/views/admin/applications/_form.html.haml
@@ -1650,19 +1650,19 @@ index 4aacbb8..2267d21 100644
  
    = content_tag :div, class: 'form-group' do
 -    = f.label :name, class: 'col-sm-2 control-label'
-+    = f.label :name, '名前', class: 'col-sm-2 control-label'
++    = f.label :name, '이름', class: 'col-sm-2 control-label'
      .col-sm-10
        = f.text_field :name, class: 'form-control'
        = doorkeeper_errors_for application, :name
    = content_tag :div, class: 'form-group' do
 -    = f.label :redirect_uri, class: 'col-sm-2 control-label'
-+    = f.label :redirect_uri, 'リダイレクトURI', class: 'col-sm-2 control-label'
++    = f.label :redirect_uri, '리디렉션 URI', class: 'col-sm-2 control-label'
      .col-sm-10
        = f.text_area :redirect_uri, class: 'form-control'
        = doorkeeper_errors_for application, :redirect_uri
        %span.help-block
 -        Use one line per URI
-+        1行につき1つのURIを記述してください
++        한 줄에 하나의 URL을 기술하십시오
        - if Doorkeeper.configuration.native_redirect_uri
          %span.help-block
            Use
@@ -1671,8 +1671,8 @@ index 4aacbb8..2267d21 100644
    .form-actions
 -    = f.submit 'Submit', class: "btn btn-save wide"
 -    = link_to "Cancel", admin_applications_path, class: "btn btn-default"
-+    = f.submit '送信', class: "btn btn-save wide"
-+    = link_to "キャンセル", admin_applications_path, class: "btn btn-default"
++    = f.submit '서브밋', class: "btn btn-save wide"
++    = link_to "취소", admin_applications_path, class: "btn btn-default"
 diff --git a/app/views/admin/applications/edit.html.haml b/app/views/admin/applications/edit.html.haml
 index c596866..1d70ce2 100644
 --- a/app/views/admin/applications/edit.html.haml
@@ -1680,8 +1680,8 @@ index c596866..1d70ce2 100644
 @@ -1,4 +1,4 @@
 -- page_title "Edit", @application.name, "Applications"
 -%h3.page-title Edit application
-+- page_title "編集", @application.name, "アプリケーション"
-+%h3.page-title アプリケーションを編集
++- page_title "편집", @application.name, "어플리케이션"
++%h3.page-title 응용 프로그램을 편집
  - @url = admin_application_path(@application)
  = render 'form', application: @application
 diff --git a/app/views/admin/applications/index.html.haml b/app/views/admin/applications/index.html.haml
@@ -1690,16 +1690,16 @@ index f8cd98f..f49454d 100644
 +++ b/app/views/admin/applications/index.html.haml
 @@ -1,14 +1,14 @@
 -- page_title "Applications"
-+- page_title "アプリケーション"
++- page_title "어플리케이션"
  %h3.page-title
 -  System OAuth applications
-+  システムOAuthアプリケーション
++  시스템 OAuth 응용 프로그램
  %p.light
 -  System OAuth applications don't belong to any user and can only be managed by admins
-+  システムOAuthアプリケーションは特定のユーザのものではなく、管理者のみによって管理されます。
++  시스템 OAuth 응용 프로그램은 특정 사용자의 것이 아니라, 관리자 만이 관리됩니다.
  %hr
 -%p= link_to 'New Application', new_admin_application_path, class: 'btn btn-success'
-+%p= link_to '新しいアプリケーション', new_admin_application_path, class: 'btn btn-success'
++%p= link_to '새로운 어플리케이션', new_admin_application_path, class: 'btn btn-success'
  %table.table.table-striped
    %thead
      %tr
@@ -1714,8 +1714,8 @@ index f8cd98f..f49454d 100644
          %td= application.access_tokens.map(&:resource_owner_id).uniq.count
 -        %td= link_to 'Edit', edit_admin_application_path(application), class: 'btn btn-link'
 -        %td= render 'delete_form', application: application
-+        %td= link_to '編集', edit_admin_application_path(application), class: 'btn btn-link'
-+        %td= render 'delete_form', application: アプリケーション
++        %td= link_to '편집', edit_admin_application_path(application), class: 'btn btn-link'
++        %td= render 'delete_form', application: 어플리케이션
 diff --git a/app/views/admin/applications/new.html.haml b/app/views/admin/applications/new.html.haml
 index 6310d89..7f6c252 100644
 --- a/app/views/admin/applications/new.html.haml
@@ -1723,8 +1723,8 @@ index 6310d89..7f6c252 100644
 @@ -1,4 +1,4 @@
 -- page_title "New Application"
 -%h3.page-title New application
-+- page_title "新しいアプリケーション"
-+%h3.page-title 新しいアプリケーション
++- page_title "새로운 어플리케이션"
++%h3.page-title 새로운 어플리케이션
  - @url = admin_applications_path
  = render 'form', application: @application
 diff --git a/app/views/admin/applications/show.html.haml b/app/views/admin/applications/show.html.haml
@@ -1733,7 +1733,7 @@ index 3eb9d61..9bcd45b 100644
 +++ b/app/views/admin/applications/show.html.haml
 @@ -1,4 +1,4 @@
 -- page_title @application.name, "Applications"
-+- page_title @application.name, "アプリケーション"
++- page_title @application.name, "어플리케이션"
  %h3.page-title
    Application: #{@application.name}
  
@@ -1742,7 +1742,7 @@ index 3eb9d61..9bcd45b 100644
              %span.monospace= uri
  .form-actions
 -  = link_to 'Edit', edit_admin_application_path(@application), class: 'btn btn-primary wide pull-left'
-+  = link_to '編集', edit_admin_application_path(@application), class: 'btn btn-primary wide pull-left'
++  = link_to '편집', edit_admin_application_path(@application), class: 'btn btn-primary wide pull-left'
    = render 'delete_form', application: @application, submit_btn_css: 'btn btn-danger prepend-left-10'
 diff --git a/app/views/admin/background_jobs/_head.html.haml b/app/views/admin/background_jobs/_head.html.haml
 index 89d7a40..d3a3de1 100644
@@ -1753,10 +1753,10 @@ index 89d7a40..d3a3de1 100644
            System Info
      = nav_link(controller: :background_jobs) do
 -      = link_to admin_background_jobs_path, title: 'Background Jobs' do
-+      = link_to admin_background_jobs_path, title: 'バックグラウンドジョブ' do
++      = link_to admin_background_jobs_path, title: '백그라운드 작업' do
          %span
 -          Background Jobs
-+          バックグラウンドジョブ
++          백그라운드 작업
      = nav_link(controller: :logs) do
        = link_to admin_logs_path, title: 'Logs' do
          %span
@@ -1767,31 +1767,31 @@ index 4f680b5..4cb6b72 100644
 @@ -1,25 +1,25 @@
  - @no_container = true
 -- page_title "Background Jobs"
-+- page_title "バックグラウンドジョブ"
++- page_title "백그라운드 작업"
  = render 'admin/background_jobs/head'
  
  %div{ class: container_class }
 -  %h3.page-title Background Jobs
-+  %h3.page-title バックグラウンドジョブ
++  %h3.page-title 백그라운드 작업
    %p.light GitLab uses #{link_to "sidekiq", "http://sidekiq.org/"} library for async job processing
  
    %hr
  
    .panel.panel-default
 -    .panel-heading Sidekiq running processes
-+    .panel-heading 実行中の Sidekiq プロセス
++    .panel-heading 실행중인 Sidekiq 프로세스
      .panel-body
        - if @sidekiq_processes.empty?
          %h4.cred
            %i.fa.fa-exclamation-triangle
 -          There are no running sidekiq processes. Please restart GitLab
-+          実行中の Sidekiq プロセスはありません。GitLabを再起動してください。
++          실행중인 Sidekiq 프로세스는 없습니다. 깃랩를 다시 시작하십시오.
        - else
          .table-holder
            %table.table
              %thead
 -              %th USER
-+              %th ユーザ
++              %th 사용자
                %th PID
                %th CPU
                %th MEM
@@ -1800,11 +1800,11 @@ index 4f680b5..4cb6b72 100644
            %p
              %i.fa.fa-exclamation-circle
 -            If '[25 of 25 busy]' is shown, restart GitLab with 'sudo service gitlab reload'.
-+            もし '[25 of 25 busy]' と表示されていたら、'sudo service gitlab reload' でGitLabを再起動してください。
++            もし '[25 of 25 busy]' 표시되어 있으면 'sudo service gitlab reload' 에서 깃랩를 다시 시작하십시오.
            %p
              %i.fa.fa-exclamation-circle
 -            If more than one sidekiq process is listed, stop GitLab, kill the remaining sidekiq processes (sudo pkill -u #{gitlab_config.user} -f sidekiq) and restart GitLab.
-+            もし2つ以上の Sidekiq プロセスが表示されている場合、GitLabを停止し、残っている Sidekiq プロセスを kill し(sudo pkill -u #{gitlab_config.user} -f sidekiq)、GitLabを再起動してください。
++            만약 2 개 이상의 Sidekiq 프로세스가 표시되는 경우 GitLab을 중지하고 남아있는 Sidekiq 프로세스를 kill합니다 (sudo pkill -u #{gitlab_config.user} -f sidekiq) 깃랩를 다시 시작하십시오 .
  
  
  
@@ -1817,14 +1817,14 @@ index 6b157ab..be495b4 100644
    = icon('bullhorn')
    .js-broadcast-message-preview
 -    = render_broadcast_message(@broadcast_message.message.presence || "Your message here")
-+    = render_broadcast_message(@broadcast_message.message.presence || "あなたのmessage here")
++    = render_broadcast_message(@broadcast_message.message.presence || "당신의 message here")
  
  = form_for [:admin, @broadcast_message], html: { class: 'broadcast-message-form form-horizontal js-quick-submit js-requires-input'} do |f|
    = form_errors(@broadcast_message)
  
    .form-group
 -    = f.label :message, class: 'control-label'
-+    = f.label :message, 'メッセージ', class: 'control-label'
++    = f.label :message, '메세지', class: 'control-label'
      .col-sm-10
        = f.text_area :message, class: "form-control js-autosize",
          required: true,
@@ -1832,41 +1832,41 @@ index 6b157ab..be495b4 100644
    .form-group.js-toggle-colors-container
      .col-sm-10.col-sm-offset-2
 -      = link_to 'Customize colors', '#', class: 'js-toggle-colors-link'
-+      = link_to '色をカスタマイズ', '#', class: 'js-toggle-colors-link'
++      = link_to '색상을 사용자 정의', '#', class: 'js-toggle-colors-link'
    .form-group.js-toggle-colors-container.hide
 -    = f.label :color, "Background Color", class: 'control-label'
-+    = f.label :color, "背景色", class: 'control-label'
++    = f.label :color, "백그라운드 색상", class: 'control-label'
      .col-sm-10
        = f.color_field :color, class: "form-control"
    .form-group.js-toggle-colors-container.hide
 -    = f.label :font, "Font Color", class: 'control-label'
-+    = f.label :font, "文字色", class: 'control-label'
++    = f.label :font, "폰트 색상", class: 'control-label'
      .col-sm-10
        = f.color_field :font, class: "form-control"
    .form-group
 -    = f.label :starts_at, class: 'control-label'
-+    = f.label :starts_at, '開始日', class: 'control-label'
++    = f.label :starts_at, '시작일', class: 'control-label'
      .col-sm-10.datetime-controls
        = f.datetime_select :starts_at, {}, class: 'form-control form-control-inline'
    .form-group
 -    = f.label :ends_at, class: 'control-label'
-+    = f.label :ends_at, '終了日', class: 'control-label'
++    = f.label :ends_at, '종료일', class: 'control-label'
      .col-sm-10.datetime-controls
        = f.datetime_select :ends_at, {}, class: 'form-control form-control-inline'
    .form-actions
      - if @broadcast_message.persisted?
 -      = f.submit "Update broadcast message", class: "btn btn-create"
-+      = f.submit "ブロードキャストメッセージを更新", class: "btn btn-create"
++      = f.submit "브로드 캐스트 메시지를 업데이트", class: "btn btn-create"
      - else
 -      = f.submit "Add broadcast message", class: "btn btn-create"
-+      = f.submit "ブロードキャストメッセージを追加", class: "btn btn-create"
++      = f.submit "브로드 캐스트 메시지를 추가", class: "btn btn-create"
 diff --git a/app/views/admin/broadcast_messages/edit.html.haml b/app/views/admin/broadcast_messages/edit.html.haml
 index 45e053e..8228e22 100644
 --- a/app/views/admin/broadcast_messages/edit.html.haml
 +++ b/app/views/admin/broadcast_messages/edit.html.haml
 @@ -1,3 +1,3 @@
 -- page_title "Broadcast Messages"
-+- page_title "ブロードキャストメッセージ"
++- page_title "브로드 캐스트 메시지"
  
  = render 'form'
 diff --git a/app/views/admin/broadcast_messages/index.html.haml b/app/views/admin/broadcast_messages/index.html.haml
@@ -1875,11 +1875,11 @@ index c05538a..db4bfca 100644
 +++ b/app/views/admin/broadcast_messages/index.html.haml
 @@ -1,7 +1,7 @@
 -- page_title "Broadcast Messages"
-+- page_title "ブロードキャストメッセージ"
++- page_title "브로드 캐스트 메시지"
  
  %h3.page-title
 -  Broadcast Messages
-+  ブロードキャストメッセージ
++  브로드 캐스트 메시지
  %p.light
    Broadcast messages are displayed for every user and can be used to notify
    users about scheduled maintenance, recent upgrades and more.
@@ -1889,8 +1889,8 @@ index c05538a..db4bfca 100644
        %tr
 -        %th Status
 -        %th Preview
-+        %th ステータス
-+        %th プレビュー
++        %th 상태
++        %th 이전
          %th Starts
          %th Ends
          %th &nbsp;
@@ -1900,8 +1900,8 @@ index c05538a..db4bfca 100644
            %td
 -            = link_to icon('pencil-square-o'), edit_admin_broadcast_message_path(message), title: 'Edit', class: 'btn btn-xs'
 -            = link_to icon('times'), admin_broadcast_message_path(message), method: :delete, remote: true, title: 'Remove', class: 'js-remove-tr btn btn-xs btn-danger'
-+            = link_to icon('pencil-square-o'), edit_admin_broadcast_message_path(message), title: '編集', class: 'btn btn-xs'
-+            = link_to icon('times'), admin_broadcast_message_path(message), method: :delete, remote: true, title: '削除', class: 'js-remove-tr btn btn-xs btn-danger'
++            = link_to icon('pencil-square-o'), edit_admin_broadcast_message_path(message), title: '편집', class: 'btn btn-xs'
++            = link_to icon('times'), admin_broadcast_message_path(message), method: :delete, remote: true, title: '삭제', class: 'js-remove-tr btn btn-xs btn-danger'
  
    = paginate @broadcast_messages, theme: 'gitlab'
 diff --git a/app/views/admin/builds/_build.html.haml b/app/views/admin/builds/_build.html.haml
@@ -1913,7 +1913,7 @@ index f29d9c9..61f2aaa 100644
        - if can?(current_user, :update_build, build.project)
          - if build.active?
 -          = link_to cancel_namespace_project_build_path(build.project.namespace, build.project, build, return_to: request.original_url), method: :post, title: 'Cancel', class: 'btn btn-build' do
-+          = link_to cancel_namespace_project_build_path(build.project.namespace, build.project, build, return_to: request.original_url), method: :post, title: 'キャンセル', class: 'btn btn-build' do
++          = link_to cancel_namespace_project_build_path(build.project.namespace, build.project, build, return_to: request.original_url), method: :post, title: '취소', class: 'btn btn-build' do
              %i.fa.fa-remove.cred
          - elsif defined?(allow_retry) && allow_retry && build.retryable?
            = link_to retry_namespace_project_build_path(build.project.namespace, build.project, build, return_to: request.original_url), method: :post, title: 'Retry', class: 'btn btn-build' do
@@ -1926,7 +1926,7 @@ index 3d77634..4f56385 100644
        %li{class: ('active' if @scope.nil?)}
          = link_to admin_builds_path do
 -          All
-+          すべて
++          전체
            %span.badge.js-totalbuilds-count= @all_builds.count(:id)
  
        %li{class: ('active' if @scope == 'pending')}
@@ -1935,7 +1935,7 @@ index 3d77634..4f56385 100644
        %li{class: ('active' if @scope == 'running')}
          = link_to admin_builds_path(scope: :running) do
 -          Running
-+          実行中
++          진행중
            %span.badge= number_with_delimiter(@all_builds.running.count(:id))
  
        %li{class: ('active' if @scope == 'finished')}
@@ -1944,17 +1944,17 @@ index 3d77634..4f56385 100644
      .nav-controls
        - if @all_builds.running_or_pending.any?
 -        = link_to 'Cancel all', cancel_all_admin_builds_path, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', method: :post
-+        = link_to 'すべてキャンセル', cancel_all_admin_builds_path, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-danger', method: :post
++        = link_to '전체 취소', cancel_all_admin_builds_path, data: { confirm: '정말 하시겠습니까?' }, class: 'btn btn-danger', method: :post
  
    .row-content-block.second-block
 -    #{(@scope || 'all').capitalize} builds
-+    #{(@scope || 'all').capitalize} ビルド
++    #{(@scope || 'all').capitalize} 빌드
  
    %ul.content-list.builds-content-list
      - if @builds.blank?
        %li
 -        .nothing-here-block No builds to show
-+        .nothing-here-block ビルドがありません
++        .nothing-here-block 빌드가 없습니다
      - else
        .table-holder
          %table.table.builds
@@ -1963,12 +1963,12 @@ index 3d77634..4f56385 100644
 -              %th Status
 -              %th Commit
 -              %th Project
-+              %th ステータス
-+              %th コミット
-+              %th プロジェクト
++              %th 상태
++              %th 커밋
++              %th 프로젝트
                %th Runner
 -              %th Name
-+              %th 名前
++              %th 이름
                %th
                %th
  
@@ -1981,27 +1981,27 @@ index b74da64..304ce71 100644
            Overview
      = nav_link(controller: [:admin, :projects]) do
 -      = link_to admin_namespaces_projects_path, title: 'Projects' do
-+      = link_to admin_namespaces_projects_path, title: 'プロジェクト' do
++      = link_to admin_namespaces_projects_path, title: '프로젝트' do
          %span
 -          Projects
-+          プロジェクト
++          프로젝트
      = nav_link(controller: :users) do
 -      = link_to admin_users_path, title: 'Users' do
 +      = link_to admin_users_path, title: 'ユーザ' do
          %span
 -          Users
-+          ユーザ
++          사용자
      = nav_link(controller: :groups) do
 -      = link_to admin_groups_path, title: 'Groups' do
 +      = link_to admin_groups_path, title: 'グループ' do
          %span
 -          Groups
-+          グループ
++          그룹
      = nav_link path: 'builds#index' do
        = link_to admin_builds_path, title: 'Builds' do
          %span
 -          Builds
-+          ビルド
++          빌드
      = nav_link path: ['runners#index', 'runners#show'] do
        = link_to admin_runners_path, title: 'Runners' do
          %span
@@ -2014,56 +2014,56 @@ index e6687f4..54eeb12 100644
      .row
        .col-md-4
 -        %h4 Statistics
-+        %h4 統計
++        %h4 통계
          %hr
          %p
 -          Forks
-+          フォーク
++          포크
            %span.light.pull-right
              = number_with_delimiter(ForkedProjectLink.count)
          %p
 -          Issues
-+          課題
++          이슈
            %span.light.pull-right
              = number_with_delimiter(Issue.count)
          %p
 -          Merge Requests
-+          マージリクエスト
++          머지 요청
            %span.light.pull-right
              = number_with_delimiter(MergeRequest.count)
          %p
 -          Notes
-+          ノート
++          노트
            %span.light.pull-right
              = number_with_delimiter(Note.count)
          %p
 -          Snippets
-+          スニペット
++          스니펫
            %span.light.pull-right
              = number_with_delimiter(Snippet.count)
          %p
 -          SSH Keys
-+          SSHキー
++          SSH 키
            %span.light.pull-right
              = number_with_delimiter(Key.count)
          %p
 -          Milestones
-+          マイルストーン
++          마일스톤
            %span.light.pull-right
              = number_with_delimiter(Milestone.count)
          %p
 -          Active Users
-+          Active ユーザ
++          Active 사용자
            %span.light.pull-right
              = number_with_delimiter(User.active.count)
        .col-md-4
          %h4
 -          Features
-+          機能
++          피쳐
          %hr
          %p
 -          Sign up
-+          サインアップ
++          가입
            %span.light.pull-right
              = boolean_to_icon signup_enabled?
          %p
@@ -2072,17 +2072,17 @@ index e6687f4..54eeb12 100644
        .col-sm-4
          .light-well
 -          %h4 Projects
-+          %h4 プロジェクト
++          %h4 프로젝트
            .data
              = link_to admin_namespaces_projects_path do
                %h1= number_with_delimiter(Project.cached_count)
              %hr
 -            = link_to('New Project', new_project_path, class: "btn btn-new")
-+            = link_to('新しいプロジェクト', new_project_path, class: "btn btn-new")
++            = link_to('새로운 프로젝트', new_project_path, class: "btn btn-new")
        .col-sm-4
          .light-well
 -          %h4 Users
-+          %h4 ユーザ
++          %h4 사용자
            .data
              = link_to admin_users_path do
                %h1= number_with_delimiter(User.count)
@@ -2098,12 +2098,12 @@ index e6687f4..54eeb12 100644
                %h1= number_with_delimiter(Group.count)
              %hr
 -            = link_to 'New Group', new_admin_group_path, class: "btn btn-new"
-+            = link_to '新しいグループ', new_admin_group_path, class: "btn btn-new"
++            = link_to '새로운 그룹', new_admin_group_path, class: "btn btn-new"
  
      .row.prepend-top-10
        .col-md-4
 -        %h4 Latest projects
-+        %h4 最新のプロジェクト
++        %h4 최신 프로젝트
          %hr
          - @projects.each do |project|
            %p
@@ -2112,7 +2112,7 @@ index e6687f4..54eeb12 100644
  
        .col-md-4
 -        %h4 Latest users
-+        %h4 最新のユーザ
++        %h4 최신 사용자
          %hr
          - @users.each do |user|
            %p
@@ -2121,7 +2121,7 @@ index e6687f4..54eeb12 100644
  
        .col-md-4
 -        %h4 Latest groups
-+        %h4 最新のグループ
++        %h4 최신 그룹
          %hr
          - @groups.each do |group|
            %p
@@ -2131,13 +2131,13 @@ index 149593e..fa640a4 100644
 +++ b/app/views/admin/deploy_keys/index.html.haml
 @@ -1,16 +1,16 @@
 -- page_title "Deploy Keys"
-+- page_title "デプロイキー"
++- page_title "디플로이 키"
  .panel.panel-default.prepend-top-default
    .panel-heading
      Public deploy keys (#{@deploy_keys.count})
      .controls
 -      = link_to 'New Deploy Key', new_admin_deploy_key_path, class: "btn btn-new btn-sm"
-+      = link_to '新しいデプロイキー', new_admin_deploy_key_path, class: "btn btn-new btn-sm"
++      = link_to '새로운 디플로이 키', new_admin_deploy_key_path, class: "btn btn-new btn-sm"
    - if @deploy_keys.any?
      .table-holder
        %table.table
@@ -2145,8 +2145,8 @@ index 149593e..fa640a4 100644
            %tr
 -            %th Title
 -            %th Fingerprint
-+            %th タイトル
-+            %th フィンガープリント
++            %th 타이틀
++            %th 핑거프린트
              %th Added at
              %th
          %tbody
@@ -2155,7 +2155,7 @@ index 149593e..fa640a4 100644
                    added #{time_ago_with_tooltip(deploy_key.created_at)}
                %td
 -                = link_to 'Remove', admin_deploy_key_path(deploy_key), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn btn-sm btn-remove delete-key pull-right"
-+                = link_to '削除', admin_deploy_key_path(deploy_key), data: { confirm: '本当によろしいですか？'}, method: :delete, class: "btn btn-sm btn-remove delete-key pull-right"
++                = link_to '삭제', admin_deploy_key_path(deploy_key), data: { confirm: '정말 하시겠습니까?'}, method: :delete, class: "btn btn-sm btn-remove delete-key pull-right"
 diff --git a/app/views/admin/deploy_keys/new.html.haml b/app/views/admin/deploy_keys/new.html.haml
 index 5c410a6..abc1005 100644
 --- a/app/views/admin/deploy_keys/new.html.haml
@@ -2163,8 +2163,8 @@ index 5c410a6..abc1005 100644
 @@ -1,5 +1,5 @@
 -- page_title "New Deploy Key"
 -%h3.page-title New public deploy key
-+- page_title "新しいデプロイキー"
-+%h3.page-title 新しい公開デプロイキー
++- page_title "새로운 디플로이 키"
++%h3.page-title 새로운 퍼블릭 디플로이 키
  %hr
  
  %div
@@ -2173,23 +2173,23 @@ index 5c410a6..abc1005 100644
  
      .form-group
 -      = f.label :title, class: "control-label"
-+      = f.label :title, 'タイトル', class: "control-label"
++      = f.label :title, '제목', class: "control-label"
        .col-sm-10= f.text_field :title, class: 'form-control'
      .form-group
 -      = f.label :key, class: "control-label"
-+      = f.label :key, 'キー', class: "control-label"
++      = f.label :key, '키', class: "control-label"
        .col-sm-10
          %p.light
 -          Paste a machine public key here. Read more about how to generate it
 -          = link_to "here", help_page_path("ssh/README")
-+          マシンの公開鍵をペーストしてください。生成方法の詳細は
-+          = link_to "こちら", help_page_path("ssh/README")
++          컴퓨터의 공개 키를 붙여 넣기합니다. 생성 방법은
++          = link_to "여기", help_page_path("ssh/README")
          = f.text_area :key, class: "form-control thin_area", rows: 5
  
      .form-actions
        = f.submit 'Create', class: "btn-create btn"
 -      = link_to "Cancel", admin_deploy_keys_path, class: "btn btn-cancel"
-+      = link_to "キャンセル", admin_deploy_keys_path, class: "btn btn-cancel"
++      = link_to "취소", admin_deploy_keys_path, class: "btn btn-cancel"
  
 diff --git a/app/views/admin/groups/_form.html.haml b/app/views/admin/groups/_form.html.haml
 index 5f7fdfd..6979308 100644
@@ -2200,7 +2200,7 @@ index 5f7fdfd..6979308 100644
  
    .form-group.group-description-holder
 -    = f.label :avatar, "Group avatar", class: 'control-label'
-+    = f.label :avatar, "グループアバター", class: 'control-label'
++    = f.label :avatar, "그룹 아바타", class: 'control-label'
      .col-sm-10
        = render 'shared/choose_group_avatar_button', f: f
  
@@ -2210,15 +2210,15 @@ index 5f7fdfd..6979308 100644
      .form-actions
 -      = f.submit 'Create group', class: "btn btn-create"
 -      = link_to  'Cancel', admin_groups_path, class: "btn btn-cancel"
-+      = f.submit 'グループを作成', class: "btn btn-create"
-+      = link_to  'キャンセル', admin_groups_path, class: "btn btn-cancel"
++      = f.submit '생성 그룹', class: "btn btn-create"
++      = link_to  '취소', admin_groups_path, class: "btn btn-cancel"
  
    - else
      .form-actions
 -      = f.submit 'Save changes', class: "btn btn-save"
 -      = link_to  'Cancel', admin_group_path(@group), class: "btn btn-cancel"
-+      = f.submit '変更を保存', class: "btn btn-save"
-+      = link_to  'キャンセル', admin_group_path(@group), class: "btn btn-cancel"
++      = f.submit '변경사항 저장', class: "btn btn-save"
++      = link_to  '취소', admin_group_path(@group), class: "btn btn-cancel"
 diff --git a/app/views/admin/groups/_group.html.haml b/app/views/admin/groups/_group.html.haml
 index 77a11e4..681be87 100644
 --- a/app/views/admin/groups/_group.html.haml
@@ -2229,8 +2229,8 @@ index 77a11e4..681be87 100644
    .controls
 -    = link_to 'Edit', edit_admin_group_path(group), id: "edit_#{dom_id(group)}", class: 'btn'
 -    = link_to 'Delete', [:admin, group], data: { confirm: "Are you sure you want to remove #{group.name}?" }, method: :delete, class: 'btn btn-remove'
-+    = link_to '編集', edit_admin_group_path(group), id: "edit_#{dom_id(group)}", class: 'btn'
-+    = link_to '削除', [:admin, group], data: { confirm: "Are you sure you want to remove #{group.name}?" }, method: :delete, class: 'btn btn-remove'
++    = link_to '편집', edit_admin_group_path(group), id: "edit_#{dom_id(group)}", class: 'btn'
++    = link_to '삭제', [:admin, group], data: { confirm: "Are you sure you want to remove #{group.name}?" }, method: :delete, class: 'btn btn-remove'
    .stats
      %span
        = icon('bookmark')
@@ -2241,8 +2241,8 @@ index eb09a63..3b06a57 100644
 @@ -1,4 +1,4 @@
 -- page_title "Edit", @group.name, "Groups"
 -%h3.page-title Edit group: #{@group.name}
-+- page_title "編集", @group.name, "グループ"
-+%h3.page-title group: #{@group.name}を編集
++- page_title "편집", @group.name, "그룹"
++%h3.page-title group: #{@group.name}편집
  %hr
  = render 'form'
 diff --git a/app/views/admin/groups/index.html.haml b/app/views/admin/groups/index.html.haml
@@ -2252,7 +2252,7 @@ index 794f910..b95d991 100644
 @@ -1,5 +1,5 @@
  - @no_container = true
 -- page_title "Groups"
-+- page_title "グループ"
++- page_title "그룹"
  = render "admin/dashboard/head"
  
  %div{ class: container_class }
@@ -2261,7 +2261,7 @@ index 794f910..b95d991 100644
                    = sort_title_oldest_updated
            = link_to new_admin_group_path, class: "btn btn-new" do
 -            New Group
-+            新しいグループ
++            새로운 그룹
    %ul.content-list
      = render @groups
  
@@ -2272,8 +2272,8 @@ index c81ee55..c13c298 100644
 @@ -1,4 +1,4 @@
 -- page_title "New Group"
 -%h3.page-title New group
-+- page_title "新しいグループ"
-+%h3.page-title 新しいグループ
++- page_title "새로운 그룹"
++%h3.page-title 새로운 그룹
  %hr
  = render 'form'
 diff --git a/app/views/admin/groups/show.html.haml b/app/views/admin/groups/show.html.haml
@@ -2282,14 +2282,14 @@ index bb37469..debd614 100644
 +++ b/app/views/admin/groups/show.html.haml
 @@ -1,10 +1,10 @@
 -- page_title @group.name, "Groups"
-+- page_title @group.name, "グループ"
++- page_title @group.name, "그룹"
  %h3.page-title
    Group: #{@group.name}
  
    = link_to edit_admin_group_path(@group), class: "btn pull-right" do
      %i.fa.fa-pencil-square-o
 -    Edit
-+    編集
++    편집
  %hr
  .row
    .col-md-6
@@ -2298,7 +2298,7 @@ index bb37469..debd614 100644
            = image_tag group_icon(@group), class: "avatar s60"
          %li
 -          %span.light Name:
-+          %span.light 名前:
++          %span.light 이름:
            %strong= @group.name
          %li
            %span.light Path:
@@ -2307,19 +2307,19 @@ index bb37469..debd614 100644
  
          %li
 -          %span.light Description:
-+          %span.light 説明:
++          %span.light 설명:
            %strong
              = @group.description
  
          %li
 -          %span.light Visibility level:
-+          %span.light 可視性レベル:
++          %span.light Visibility 수준:
            %strong
              = visibility_level_label(@group.visibility_level)
  
          %li
 -          %span.light Created on:
-+          %span.light 作成日:
++          %span.light 작성일:
            %strong
              = @group.created_at.to_s(:medium)
  
@@ -2327,7 +2327,7 @@ index bb37469..debd614 100644
        .panel-heading
          %h3.panel-title
 -          Projects
-+          プロジェクト
++          프로젝트
            %span.badge
              #{@group.projects.count}
        %ul.well-list
@@ -2336,14 +2336,14 @@ index bb37469..debd614 100644
        .panel.panel-default
          .panel-heading
 -          Add user(s) to the group:
-+          usersをgroupに追加:
++          user를 group에 추가 :
          .panel-body.form-holder
            %p.light
 -            Read more about project permissions
 -            %strong= link_to "here", help_page_path("user/permissions"), class: "vlink"
-+            アクセス権についての詳細は、
-+            %strong= link_to "こちら", help_page_path("user/permissions"), class: "vlink"
-+            から確認できます。
++            권한에 대한 자세한 내용은
++            %strong= link_to "여기", help_page_path("user/permissions"), class: "vlink"
++            에서 확인할 수 있습니다.
  
            = form_tag members_update_admin_group_path(@group), id: "new_project_member", class: "bulk_import", method: :put  do
              %div
@@ -2352,7 +2352,7 @@ index bb37469..debd614 100644
                = select_tag :access_level, options_for_select(GroupMember.access_level_roles), class: "project-access-select select2"
              %hr
 -            = button_tag 'Add users to group', class: "btn btn-create"
-+            = button_tag 'ユーザをグループに追加', class: "btn btn-create"
++            = button_tag '사용자를 그룹에 추가', class: "btn btn-create"
  
      = render 'shared/members/requests', membership_source: @group, requesters: @requesters
  
@@ -2360,7 +2360,7 @@ index bb37469..debd614 100644
        .panel-heading
          %strong= @group.name
 -        group members
-+        group メンバー
++        group 멤버
          %span.badge= @group.members.size
          .pull-right
            = link_to icon('pencil-square-o', text: 'Manage Access'), polymorphic_url([@group, :members]), class: "btn btn-xs"
@@ -2373,7 +2373,7 @@ index e793032..c7d1860 100644
        data: { confirm: 'Are you sure you want to reset the health check token?' } do
        = icon('refresh')
 -      Reset health check access token
-+      health check access tokenをリセット
++      리셋 상태 점검 액세스 토큰 
    %p.light
      Health information can be retrieved as plain text, JSON, or XML using:
      %ul
@@ -2382,7 +2382,7 @@ index e793032..c7d1860 100644
    .panel.panel-default
      .panel-heading
 -      Current Status:
-+      Current ステータス:
++      Current 상태:
        - if @errors.blank?
          = icon('circle', class: 'cgreen')
          Healthy
@@ -2392,10 +2392,10 @@ index c217490..be2926d 100644
 +++ b/app/views/admin/hooks/index.html.haml
 @@ -1,6 +1,6 @@
 -- page_title "System Hooks"
-+- page_title "システムフック"
++- page_title "시스템 후크"
  %h3.page-title
 -  System hooks
-+  システムフック
++  시스템 후크
  
  %p.light
    #{link_to "System hooks ", help_page_path("system_hooks/system_hooks"), class: "vlink"} can be
@@ -2404,11 +2404,11 @@ index c217490..be2926d 100644
          Use this token to validate received payloads
    .form-group
 -    = f.label :url, "Trigger", class: 'control-label'
-+    = f.label :url, "トリガー", class: 'control-label'
++    = f.label :url, "트리거", class: 'control-label'
      .col-sm-10.prepend-top-10
        %div
 -        System hook will be triggered on set of events like creating project
-+        System hook will be triggered on set of events like creating プロジェクト
++        System hook will be triggered on set of events like creating 프로젝트
          or adding ssh key. But you can also enable extra triggers like Push events.
  
        %div.prepend-top-default
@@ -2416,19 +2416,19 @@ index c217490..be2926d 100644
          .prepend-left-20
            = f.label :push_events, class: 'list-label' do
 -            %strong Push events
-+            %strong プッシュ
++            %strong 푸시 이벤트
            %p.light
 -            This url will be triggered by a push to the repository
-+            リポジトリへのプッシュイベントがあったときにこのURLをリクエストします
++            저장소에 푸시 이벤트가있을 때이 URL을 요청합니다
        %div
          = f.check_box :tag_push_events, class: 'pull-left'
          .prepend-left-20
            = f.label :tag_push_events, class: 'list-label' do
 -            %strong Tag push events
-+            %strong タグプッシュ
++            %strong 태그 푸시
            %p.light
 -            This url will be triggered when a new tag is pushed to the repository
-+            新しいタグがリポジトリにプッシュされたときにこのURLをリクエストします
++            새로운 태그에 Push 될 때이 URL을 요청합니다
    .form-group
 -    = f.label :enable_ssl_verification, "SSL verification", class: 'control-label checkbox'
 +    = f.label :enable_ssl_verification, "SSL検証", class: 'control-label checkbox'
@@ -2437,10 +2437,10 @@ index c217490..be2926d 100644
          = f.label :enable_ssl_verification do
            = f.check_box :enable_ssl_verification
 -          %strong Enable SSL verification
-+          %strong SSL検証を有効にする
++          %strong SSL 검증을 활성화
    .form-actions
 -    = f.submit "Add System Hook", class: "btn btn-create"
-+    = f.submit "システムフックを追加", class: "btn btn-create"
++    = f.submit "시스템 후크를 추가", class: "btn btn-create"
  %hr
  
  -if @hooks.any?
@@ -2449,7 +2449,7 @@ index c217490..be2926d 100644
            .controls
              = link_to 'Test Hook', admin_hook_test_path(hook), class: "btn btn-sm"
 -            = link_to 'Remove', admin_hook_path(hook), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-remove btn-sm"
-+            = link_to '削除', admin_hook_path(hook), data: { confirm: '本当によろしいですか？' }, method: :delete, class: "btn btn-remove btn-sm"
++            = link_to '삭제', admin_hook_path(hook), data: { confirm: '정말 하시겠습니까?' }, method: :delete, class: "btn btn-remove btn-sm"
            .monospace= hook.url
            %div
              - %w(push_events tag_push_events issues_events note_events merge_requests_events build_events).each do |trigger|
@@ -2462,7 +2462,7 @@ index 112a201..578aaef 100644
  
    .form-group
 -    = f.label :provider, class: 'control-label'
-+    = f.label :provider, 'プロバイダ', class: 'control-label'
++    = f.label :provider, '공급자', class: 'control-label'
      .col-sm-10
        - values = Gitlab::OAuth::Provider.providers.map { |name| ["#{Gitlab::OAuth::Provider.label_for(name)} (#{name})", name] }
        = f.select :provider, values, { allow_blank: false }, class: 'form-control'
@@ -2471,7 +2471,7 @@ index 112a201..578aaef 100644
  
    .form-actions
 -    = f.submit 'Save changes', class: "btn btn-save"
-+    = f.submit '変更を保存', class: "btn btn-save"
++    = f.submit '변경사항 저장', class: "btn btn-save"
  
 diff --git a/app/views/admin/identities/_identity.html.haml b/app/views/admin/identities/_identity.html.haml
 index 7362d90..b89cb2d 100644
@@ -2482,22 +2482,22 @@ index 7362d90..b89cb2d 100644
    %td
      = link_to edit_admin_user_identity_path(@user, identity), class: 'btn btn-xs btn-grouped' do
 -      Edit
-+      編集
++      편집
      = link_to [:admin, @user, identity], method: :delete,
        class: 'btn btn-xs btn-danger',
        data: { confirm: "Are you sure you want to remove this identity?" } do
 -      Delete
-+      削除
++      삭제
 diff --git a/app/views/admin/identities/edit.html.haml b/app/views/admin/identities/edit.html.haml
 index 515d46b..fdae704 100644
 --- a/app/views/admin/identities/edit.html.haml
 +++ b/app/views/admin/identities/edit.html.haml
 @@ -1,6 +1,6 @@
 -- page_title "Edit", @identity.provider, "Identities", @user.name, "Users"
-+- page_title "編集", @identity.provider, "Identities", @user.name, "ユーザ"
++- page_title "편집", @identity.provider, "Identities", @user.name, "사용자"
  %h3.page-title
 -  Edit identity for #{@user.name}
-+  identity for #{@user.name}を編集
++  identity for #{@user.name}편집
  %hr
  
  = render 'form'
@@ -2507,11 +2507,11 @@ index 741d111..fcedc7d 100644
 +++ b/app/views/admin/identities/index.html.haml
 @@ -1,7 +1,7 @@
 -- page_title "Identities", @user.name, "Users"
-+- page_title "Identities", @user.name, "ユーザ"
++- page_title "Identities", @user.name, "사용자"
  = render 'admin/users/head'
  
 -= link_to 'New Identity', new_admin_user_identity_path, class: 'pull-right btn btn-new'
-+= link_to '新しいIdentity', new_admin_user_identity_path, class: 'pull-right btn btn-new'
++= link_to '새로운 Identity', new_admin_user_identity_path, class: 'pull-right btn btn-new'
  - if @identities.present?
    .table-holder
      %table.table
@@ -2522,8 +2522,8 @@ index e30bf0e..6e4314d 100644
 @@ -1,4 +1,4 @@
 -- page_title "New Identity"
 -%h3.page-title New identity
-+- page_title "新しいIdentity"
-+%h3.page-title 新しいidentity
++- page_title "사용자 Identity"
++%h3.page-title 사용자 identity
  %hr
  = render 'form'
 diff --git a/app/views/admin/labels/_form.html.haml b/app/views/admin/labels/_form.html.haml
@@ -2535,27 +2535,27 @@ index 602cfa9..29633ff 100644
  
    .form-group
 -    = f.label :title, class: 'control-label'
-+    = f.label :title, 'タイトル', class: 'control-label'
++    = f.label :title, '제목', class: 'control-label'
      .col-sm-10
        = f.text_field :title, class: "form-control", required: true
    .form-group
 -    = f.label :description, class: 'control-label'
-+    = f.label :description, '説明', class: 'control-label'
++    = f.label :description, '설명', class: 'control-label'
      .col-sm-10
        = f.text_field :description, class: "form-control js-quick-submit"
    .form-group
 -    = f.label :color, "Background color", class: 'control-label'
-+    = f.label :color, "背景色", class: 'control-label'
++    = f.label :color, "색상", class: 'control-label'
      .col-sm-10
        .input-group
          .input-group-addon.label-color-preview &nbsp;
          = f.color_field :color, class: "form-control"
        .help-block
 -        Choose any color.
-+        色を選択してください。
++        색상 선택
          %br
 -        Or you can choose one of suggested colors below
-+        もしくは、以下の色から選択します。
++        또는 다음의 색상에서 선택합니다.
  
        .suggest-colors
          - suggested_colors.each do |color|
@@ -2565,8 +2565,8 @@ index 602cfa9..29633ff 100644
    .form-actions
 -    = f.submit 'Save', class: 'btn btn-save js-save-button'
 -    = link_to "Cancel", admin_labels_path, class: 'btn btn-cancel'
-+    = f.submit '保存', class: 'btn btn-save js-save-button'
-+    = link_to "キャンセル", admin_labels_path, class: 'btn btn-cancel'
++    = f.submit '저장', class: 'btn btn-save js-save-button'
++    = link_to "취소", admin_labels_path, class: 'btn btn-cancel'
 diff --git a/app/views/admin/labels/_label.html.haml b/app/views/admin/labels/_label.html.haml
 index f417b2e..260a6d0 100644
 --- a/app/views/admin/labels/_label.html.haml
@@ -2577,18 +2577,18 @@ index f417b2e..260a6d0 100644
      .pull-right
 -      = link_to 'Edit', edit_admin_label_path(label), class: 'btn btn-sm'
 -      = link_to 'Delete', admin_label_path(label), class: 'btn btn-sm btn-remove remove-row', method: :delete, remote: true, data: {confirm: "Delete this label? Are you sure?"}
-+      = link_to '編集', edit_admin_label_path(label), class: 'btn btn-sm'
-+      = link_to '削除', admin_label_path(label), class: 'btn btn-sm btn-remove remove-row', method: :delete, remote: true, data: {confirm: "このラベルを削除しますか？ 本当によろしいですか？"}
++      = link_to '편집', edit_admin_label_path(label), class: 'btn btn-sm'
++      = link_to '삭제', admin_label_path(label), class: 'btn btn-sm btn-remove remove-row', method: :delete, remote: true, data: {confirm: "이 레이블을 삭제 하시겠습니까? 정말 하시겠습니까?"}
 diff --git a/app/views/admin/labels/edit.html.haml b/app/views/admin/labels/edit.html.haml
 index 309aedc..74c3c88 100644
 --- a/app/views/admin/labels/edit.html.haml
 +++ b/app/views/admin/labels/edit.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "Edit", @label.name, "Labels"
-+- page_title "編集", @label.name, "ラベル"
++- page_title "編集", @label.name, "라벨"
  %h3.page-title
 -  Edit Label
-+  ラベルを編集
++  라벨 편집
  %hr
  = render 'form'
 diff --git a/app/views/admin/labels/index.html.haml b/app/views/admin/labels/index.html.haml
@@ -2597,15 +2597,15 @@ index 05d6b9e..a830e13 100644
 +++ b/app/views/admin/labels/index.html.haml
 @@ -1,10 +1,10 @@
 -- page_title "Labels"
-+- page_title "ラベル"
++- page_title "라벨"
  
  %div
    = link_to new_admin_label_path, class: "pull-right btn btn-nr btn-new" do
 -    New label
-+    新しいラベル
++    새로운 라벨
    %h3.page-title
 -    Labels
-+    ラベル
++    라벨
  %hr
  
  .labels
@@ -2615,10 +2615,10 @@ index 0135ad0..0b9cf92 100644
 +++ b/app/views/admin/labels/new.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "New Label"
-+- page_title "新しいラベル"
++- page_title "새로운 라벨"
  %h3.page-title
 -  New Label
-+  新しいラベル
++  새로운 라벨
  %hr
  = render 'form'
 diff --git a/app/views/admin/projects/index.html.haml b/app/views/admin/projects/index.html.haml
@@ -2628,7 +2628,7 @@ index 1e75578..a31eea8 100644
 @@ -1,5 +1,5 @@
  - @no_container = true
 -- page_title "Projects"
-+- page_title "プロジェクト"
++- page_title "프로젝트"
  - params[:visibility_level] ||= []
  
  = render "admin/dashboard/head"
@@ -2637,38 +2637,38 @@ index 1e75578..a31eea8 100644
              .dropdown-menu.dropdown-select.dropdown-menu-align-right
                = dropdown_title('Namespaces')
 -              = dropdown_filter("Search for Namespace")
-+              = dropdown_filter("Search for ネームスペース")
++              = dropdown_filter("Search for 네임스페이스")
                = dropdown_content
                = dropdown_loading
  
 -          = button_tag "Search", class: "btn btn-primary btn-search"
-+          = button_tag "検索", class: "btn btn-primary btn-search"
++          = button_tag "검색", class: "btn btn-primary btn-search"
  
      %ul.nav-links
        - opts = params[:visibility_level].present? ? {} : { page: admin_namespaces_projects_path }
        = nav_link(opts) do
          = link_to admin_namespaces_projects_path do
 -          All
-+          すべて
++          전체
  
        = nav_link(html_options: { class: params[:visibility_level] == Gitlab::VisibilityLevel::PRIVATE.to_s ? 'active' : '' }) do
          = link_to admin_namespaces_projects_path(visibility_level: Gitlab::VisibilityLevel::PRIVATE) do
 -          Private
-+          プライベート
++          비공개
        = nav_link(html_options: { class: params[:visibility_level] == Gitlab::VisibilityLevel::INTERNAL.to_s ? 'active' : '' }) do
          = link_to admin_namespaces_projects_path(visibility_level: Gitlab::VisibilityLevel::INTERNAL) do
 -          Internal
-+          内部
++          내부
        = nav_link(html_options: { class: params[:visibility_level] == Gitlab::VisibilityLevel::PUBLIC.to_s ? 'active' : '' }) do
          = link_to admin_namespaces_projects_path(visibility_level: Gitlab::VisibilityLevel::PUBLIC) do
 -          Public
-+          公開
++          공개
  
      .nav-controls
        = render 'shared/projects/dropdown'
        = link_to new_project_path, class: 'btn btn-new' do
 -        New Project
-+        新しいプロジェクト
++        새로운 프로젝트
  
    .projects-list-holder
      - if @projects.any?
@@ -2678,8 +2678,8 @@ index 1e75578..a31eea8 100644
                  = repository_size(project)
 -              = link_to 'Edit', edit_namespace_project_path(project.namespace, project), id: "edit_#{dom_id(project)}", class: "btn"
 -              = link_to 'Delete', [project.namespace.becomes(Namespace), project], data: { confirm: remove_project_message(project) }, method: :delete, class: "btn btn-remove"
-+              = link_to '編集', edit_namespace_project_path(project.namespace, project), id: "edit_#{dom_id(project)}", class: "btn"
-+              = link_to '削除', [project.namespace.becomes(Namespace), project], data: { confirm: remove_project_message(project) }, method: :delete, class: "btn btn-remove"
++              = link_to '편집', edit_namespace_project_path(project.namespace, project), id: "edit_#{dom_id(project)}", class: "btn"
++              = link_to '삭제', [project.namespace.becomes(Namespace), project], data: { confirm: remove_project_message(project) }, method: :delete, class: "btn btn-remove"
              .title
                = link_to [:admin, project.namespace.becomes(Namespace), project] do
                  .dash-project-avatar
@@ -2688,20 +2688,20 @@ index 1e75578..a31eea8 100644
        = paginate @projects, theme: 'gitlab'
      - else
 -      .nothing-here-block No projects found
-+      .nothing-here-block プロジェクトがありません
++      .nothing-here-block 프로젝트가 없습니다
 diff --git a/app/views/admin/projects/show.html.haml b/app/views/admin/projects/show.html.haml
 index b2c6073..016d0b8 100644
 --- a/app/views/admin/projects/show.html.haml
 +++ b/app/views/admin/projects/show.html.haml
 @@ -1,9 +1,9 @@
 -- page_title @project.name_with_namespace, "Projects"
-+- page_title @project.name_with_namespace, "プロジェクト"
++- page_title @project.name_with_namespace, "프로젝트"
  %h3.page-title
    Project: #{@project.name_with_namespace}
    = link_to edit_project_path(@project), class: "btn btn-nr pull-right" do
      %i.fa.fa-pencil-square-o
 -    Edit
-+    編集
++    편집
  %hr
  - if @project.last_repository_check_failed?
    .row
@@ -2710,16 +2710,16 @@ index b2c6073..016d0b8 100644
      .panel.panel-default
        .panel-heading
 -        Project info:
-+        プロジェクト情報:
++        프로젝트 정보:
        %ul.well-list
          %li
 -          %span.light Name:
-+          %span.light 名前:
++          %span.light 이름:
            %strong
              = link_to @project.name, project_path(@project)
          %li
 -          %span.light Namespace:
-+          %span.light ネームスペース:
++          %span.light 네임스페이스:
            %strong
              - if @project.namespace
                = link_to @project.namespace.human_name, [:admin, @project.group || @project.owner]
@@ -2728,13 +2728,13 @@ index b2c6073..016d0b8 100644
  
          %li
 -          %span.light Created by:
-+          %span.light 登録者:
++          %span.light 작성자:
            %strong
              = @project.creator.try(:name) || '(deleted)'
  
          %li
 -          %span.light Created on:
-+          %span.light 作成日:
++          %span.light 작성일:
            %strong
              = @project.created_at.to_s(:medium)
  
@@ -2743,22 +2743,22 @@ index b2c6073..016d0b8 100644
  
            %li
 -            %span.light Size
-+            %span.light サイズ
++            %span.light 사이즈
              %strong
                = repository_size(@project)
  
            %li
 -            %span.light last commit:
-+            %span.light 最終コミット:
++            %span.light 마지막 커밋:
              %strong
                = last_commit(@project)
          - else
            %li
 -            %span.light repository:
-+            %span.light リポジトリ:
++            %span.light 레파지토리:
              %strong.cred
 -              does not exist
-+              存在しません
++              존재하지 않음
  
          - if @project.archived?
            %li
@@ -2767,19 +2767,19 @@ index b2c6073..016d0b8 100644
      .panel.panel-default
        .panel-heading
 -        Transfer project
-+        プロジェクトを移譲
++        프로젝트를 이양
        .panel-body
          = form_for @project, url: transfer_admin_namespace_project_path(@project.namespace, @project), method: :put, html: { class: 'form-horizontal' } do |f|
            .form-group
 -            = f.label :new_namespace_id, "Namespace", class: 'control-label'
-+            = f.label :new_namespace_id, "ネームスペース", class: 'control-label'
++            = f.label :new_namespace_id, "네임스페이스", class: 'control-label'
              .col-sm-10
                .dropdown
                  = dropdown_toggle('Search for Namespace', { toggle: 'dropdown', field_name: 'new_namespace_id', show_any: 'false' }, { toggle_class: 'js-namespace-select large' })
                  .dropdown-menu.dropdown-select
                    = dropdown_title('Namespaces')
 -                  = dropdown_filter("Search for Namespace")
-+                  = dropdown_filter("Search for ネームスペース")
++                  = dropdown_filter("Search for 네임스페이스")
                    = dropdown_content
                    = dropdown_loading
  
@@ -2788,7 +2788,7 @@ index b2c6073..016d0b8 100644
  
            .form-group
 -            = f.submit 'Trigger repository check', class: 'btn btn-primary'
-+            = f.submit 'Trigger リポジトリ check', class: 'btn btn-primary'
++            = f.submit 'Trigger 레파지토리 check', class: 'btn btn-primary'
  
    .col-md-6
      - if @group
@@ -2796,7 +2796,7 @@ index b2c6073..016d0b8 100644
          .panel-heading
            %strong= @group.name
 -          group members
-+          group メンバー
++          group 멤버
            %span.badge= @group_members.size
            .pull-right
              = link_to admin_group_path(@group), class: 'btn btn-xs' do
@@ -2805,7 +2805,7 @@ index b2c6073..016d0b8 100644
        .panel-heading
          %strong= @project.name
 -        project members
-+        project メンバー
++        project 멤버
          %span.badge= @project.users.size
          .pull-right
            = link_to icon('pencil-square-o', text: 'Manage Access'), polymorphic_url([@project, :members]), class: "btn btn-xs"
@@ -2818,15 +2818,15 @@ index 64893b3..e459268 100644
    %td
      .pull-right
 -      = link_to 'Edit', admin_runner_path(runner), class: 'btn btn-sm'
-+      = link_to '編集', admin_runner_path(runner), class: 'btn btn-sm'
++      = link_to '편집', admin_runner_path(runner), class: 'btn btn-sm'
        &nbsp;
        - if runner.active?
 -        = link_to 'Pause', [:pause, :admin, runner], data: { confirm: "Are you sure?" }, method: :get, class: 'btn btn-danger btn-sm'
-+        = link_to 'Pause', [:pause, :admin, runner], data: { confirm: "本当によろしいですか？" }, method: :get, class: 'btn btn-danger btn-sm'
++        = link_to 'Pause', [:pause, :admin, runner], data: { confirm: "정말 하시겠습니까?" }, method: :get, class: 'btn btn-danger btn-sm'
        - else
          = link_to 'Resume', [:resume, :admin, runner], method: :get, class: 'btn btn-success btn-sm'
 -      = link_to 'Remove', [:admin, runner], data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger btn-sm'
-+      = link_to '削除', [:admin, runner], data: { confirm: "本当によろしいですか？" }, method: :delete, class: 'btn btn-danger btn-sm'
++      = link_to '削除', [:admin, runner], data: { confirm: "정말 하시겠습니까?" }, method: :delete, class: 'btn btn-danger btn-sm'
  
 diff --git a/app/views/admin/runners/index.html.haml b/app/views/admin/runners/index.html.haml
 index a53876d..74209cc 100644
@@ -2837,7 +2837,7 @@ index a53876d..74209cc 100644
            data: { confirm: 'Are you sure you want to reset registration token?' } do
            = icon('refresh')
 -          Reset runners registration token
-+          runners registration tokenをリセット
++          초기화 runners registration token
  
    .bs-callout
      %p
@@ -2846,19 +2846,19 @@ index a53876d..74209cc 100644
          %li
            %span.label.label-success shared
 -          \- run builds from all unassigned projects
-+          \- run builds from all unassigned プロジェクト
++          \- run builds from all unassigned 프로젝트
          %li
            %span.label.label-info specific
 -          \- run builds from assigned projects
-+          \- run builds from assigned プロジェクト
++          \- run builds from assigned 프로젝트
          %li
            %span.label.label-warning locked
 -          \- runner cannot be assigned to other projects
-+          \- runner cannot be assigned to other プロジェクト
++          \- runner cannot be assigned to other 프로젝트
          %li
            %span.label.label-danger paused
 -          \- runner will not receive any new builds
-+          \- runner will not receive any new ビルド
++          \- runner will not receive any new 빌드
  
    .append-bottom-20.clearfix
      .pull-left
@@ -2866,7 +2866,7 @@ index a53876d..74209cc 100644
          .form-group
            = search_field_tag :search, params[:search], class: 'form-control', placeholder: 'Runner description or token', spellcheck: false
 -        = submit_tag 'Search', class: 'btn'
-+        = submit_tag '検索', class: 'btn'
++        = submit_tag '검색', class: 'btn'
  
      .pull-right.light
        Runners with last contact less than a minute ago: #{@active_runners_cnt}
@@ -2878,9 +2878,9 @@ index a53876d..74209cc 100644
 -          %th Projects
 -          %th Builds
 -          %th Tags
-+          %th 説明
-+          %th プロジェクト
-+          %th ビルド
++          %th 설명
++          %th 프로젝트
++          %th 빌드
 +          %th 태그
            %th Last contact
            %th
@@ -2894,14 +2894,14 @@ index 61abfc6..daf9e52 100644
  - if @runner.shared?
    .bs-callout.bs-callout-success
 -    %h4 This runner will process builds from ALL UNASSIGNED projects
-+    %h4 This runner will process builds from ALL UNASSIGNED プロジェクト
++    %h4 This runner will process builds from ALL UNASSIGNED 프로젝트
      %p
        If you want runners to build only specific projects, enable them in the table below.
        Keep in mind that this is a one way transition.
  - else
    .bs-callout.bs-callout-info
 -    %h4 This runner will process builds only from ASSIGNED projects
-+    %h4 This runner will process builds only from ASSIGNED プロジェクト
++    %h4 This runner will process builds only from ASSIGNED 프로젝트
      %p You can't make this a shared runner.
  %hr
  
@@ -2910,7 +2910,7 @@ index 61abfc6..daf9e52 100644
          %thead
            %tr
 -            %th Assigned projects
-+            %th Assigned プロジェクト
++            %th Assigned 프로젝트
              %th
          - @runner.runner_projects.each do |runner_project|
            - project = runner_project.project
@@ -2919,7 +2919,7 @@ index 61abfc6..daf9e52 100644
        %thead
          %tr
 -          %th Project
-+          %th プロジェクト
++          %th 프로젝트
            %th
  
        %tr
@@ -2928,7 +2928,7 @@ index 61abfc6..daf9e52 100644
              .form-group
                = search_field_tag :search, params[:search], class: 'form-control', spellcheck: false
 -            = submit_tag 'Search', class: 'btn'
-+            = submit_tag '検索', class: 'btn'
++            = submit_tag '검색', class: 'btn'
  
          %td
        - @projects.each do |project|
@@ -2940,10 +2940,10 @@ index 61abfc6..daf9e52 100644
 -          %th Status
 -          %th Project
 -          %th Commit
-+          %th ビルド
-+          %th ステータス
-+          %th プロジェクト
-+          %th コミット
++          %th 빌드
++          %th 상태
++          %th 프로젝트
++          %th 커밋
            %th Finished at
  
        - @builds.each do |build|
@@ -2956,7 +2956,7 @@ index cdbfc60..63022ea 100644
  
    .form-actions
 -    = form.submit 'Save', class: 'btn btn-save'
-+    = form.submit '保存', class: 'btn btn-save'
++    = form.submit '저장', class: 'btn btn-save'
 diff --git a/app/views/admin/services/index.html.haml b/app/views/admin/services/index.html.haml
 index 6a5986f..c541cb5 100644
 --- a/app/views/admin/services/index.html.haml
@@ -2967,8 +2967,8 @@ index 6a5986f..c541cb5 100644
          %th
 -        %th Service
 -        %th Description
-+        %th サービス
-+        %th 説明
++        %th 서비스
++        %th 설명
          %th Last edit
      - @services.sort_by(&:title).each do |service|
        %tr
@@ -2982,23 +2982,23 @@ index 4ce4eab..46dacce 100644
      - if user
 -      = link_to 'Remove user', admin_spam_log_path(spam_log, remove_user: true),
 -        data: { confirm: "USER #{user.name} WILL BE REMOVED! Are you sure?" }, method: :delete, class: "btn btn-xs btn-remove"
-+      = link_to 'ユーザを削除', admin_spam_log_path(spam_log, remove_user: true),
-+        data: { confirm: "ユーザ #{user.name} は削除されます！本当に削除しますか？" }, method: :delete, class: "btn btn-xs btn-remove"
++      = link_to '사용자 삭제', admin_spam_log_path(spam_log, remove_user: true),
++        data: { confirm: "사용자 #{user.name} 은 삭제됩니다! 정말 삭제 하시겠습니까?" }, method: :delete, class: "btn btn-xs btn-remove"
    %td
      - if spam_log.submitted_as_ham?
        .btn.btn-xs.disabled
          Submitted as ham
      - else
 -      = link_to 'Submit as ham', mark_as_ham_admin_spam_log_path(spam_log), method: :post, class: 'btn btn-xs btn-warning'
-+      = link_to 'as hamを送信', mark_as_ham_admin_spam_log_path(spam_log), method: :post, class: 'btn btn-xs btn-warning'
++      = link_to 'Submit as ham', mark_as_ham_admin_spam_log_path(spam_log), method: :post, class: 'btn btn-xs btn-warning'
      - if user && !user.blocked?
 -      = link_to 'Block user', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! Are you sure?'}, method: :put, class: "btn btn-xs"
-+      = link_to 'ユーザをブロック', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! 本当によろしいですか？'}, method: :put, class: "btn btn-xs"
++      = link_to '사용자 차단', block_admin_user_path(user), data: {confirm: 'USER WILL BE BLOCKED! 정말 하시겠습니까?'}, method: :put, class: "btn btn-xs"
      - else
        .btn.btn-xs.disabled
          Already Blocked
 -    = link_to 'Remove log', [:admin, spam_log], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
-+    = link_to 'logを削除', [:admin, spam_log], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
++    = link_to '로그 삭제', [:admin, spam_log], remote: true, method: :delete, class: "btn btn-xs btn-close js-remove-tr"
 diff --git a/app/views/admin/spam_logs/index.html.haml b/app/views/admin/spam_logs/index.html.haml
 index 0fdd5bd..81d3e71 100644
 --- a/app/views/admin/spam_logs/index.html.haml
@@ -3008,14 +3008,14 @@ index 0fdd5bd..81d3e71 100644
          %tr
            %th Date
 -          %th User
-+          %th ユーザ
++          %th 사용자
            %th Source IP
            %th API?
            %th Type
 -          %th Title
 -          %th Description
-+          %th タイトル
-+          %th 説明
++          %th 제목
++          %th 설명
            %th Primary Action
            %th
        = render @spam_logs
@@ -3028,71 +3028,71 @@ index 3145212..23c11a6 100644
  
      %fieldset
 -      %legend Account
-+      %legend アカウント
++      %legend 계정
        .form-group
 -        = f.label :name, class: 'control-label'
-+        = f.label :name, '名前', class: 'control-label'
++        = f.label :name, '이름', class: 'control-label'
          .col-sm-10
            = f.text_field :name, required: true, autocomplete: 'off', class: 'form-control'
 -          %span.help-inline * required
-+          %span.help-inline * 必須
++          %span.help-inline * 필수
        .form-group
 -        = f.label :username, class: 'control-label'
-+        = f.label :username, 'ユーザ名', class: 'control-label'
++        = f.label :username, '아이디', class: 'control-label'
          .col-sm-10
            = f.text_field :username, required: true, autocomplete: 'off', autocorrect: 'off', autocapitalize: 'off', spellcheck: false, class: 'form-control'
 -          %span.help-inline * required
-+          %span.help-inline * 必須
++          %span.help-inline * 피수
        .form-group
 -        = f.label :email, class: 'control-label'
-+        = f.label :email, 'メールアドレス', class: 'control-label'
++        = f.label :email, '이메일', class: 'control-label'
          .col-sm-10
            = f.text_field :email, required: true, autocomplete: 'off', class: 'form-control'
 -          %span.help-inline * required
-+          %span.help-inline * 必須
++          %span.help-inline * 필수
  
      - if @user.new_record?
        %fieldset
 -        %legend Password
-+        %legend パスワード
++        %legend 암호
          .form-group
 -          = f.label :password, class: 'control-label'
-+          = f.label :password, '新しいパスワード', class: 'control-label'
++          = f.label :password, '암호', class: 'control-label'
            .col-sm-10
              %strong
 -              Reset link will be generated and sent to the user.
-+              パスワードリセットのリンクが生成され、ユーザに送信されます。
++              암호 재설정 링크가 생성되어 사용자에게 전송됩니다.
                %br
 -              User will be forced to set the password on first sign in.
-+              ユーザは初回のサインイン時にパスワードを強制的に変更させられます。
++              사용자가 처음 로그인 할 때 암호를 강제로 변경시킬 수 있습니다.
      - else
        %fieldset
 -        %legend Password
-+        %legend パスワード
++        %legend 암호
          .form-group
 -          = f.label :password, class: 'control-label'
-+          = f.label :password, '新しいパスワード', class: 'control-label'
++          = f.label :password, '암호', class: 'control-label'
            .col-sm-10= f.password_field :password, disabled: f.object.force_random_password, class: 'form-control'
          .form-group
 -          = f.label :password_confirmation, class: 'control-label'
-+          = f.label :password_confirmation, '新しいパスワード(確認)', class: 'control-label'
++          = f.label :password_confirmation, '새 암호 (확인)', class: 'control-label'
            .col-sm-10= f.password_field :password_confirmation, disabled: f.object.force_random_password, class: 'form-control'
  
      %fieldset
        %legend Access
        .form-group
 -        = f.label :projects_limit, class: 'control-label'
-+        = f.label :projects_limit, '上限プロジェクト数', class: 'control-label'
++        = f.label :projects_limit, '최대 프로젝트 수', class: 'control-label'
          .col-sm-10= f.number_field :projects_limit, min: 0, class: 'form-control'
  
        .form-group
 -        = f.label :can_create_group, class: 'control-label'
-+        = f.label :can_create_group, 'グループ作成可能', class: 'control-label'
++        = f.label :can_create_group, '그룹 생성 가능', class: 'control-label'
          .col-sm-10= f.check_box :can_create_group
  
        .form-group
 -        = f.label :admin, class: 'control-label'
-+        = f.label :admin, '管理者', class: 'control-label'
++        = f.label :admin, '관리자', class: 'control-label'
          - if current_user == @user
            .col-sm-10= f.check_box :admin, disabled: true
            .col-sm-10 You cannot remove your own admin rights.
@@ -3101,7 +3101,7 @@ index 3145212..23c11a6 100644
        %legend Profile
        .form-group
 -        = f.label :avatar, class: 'control-label'
-+        = f.label :avatar, 'アバター', class: 'control-label'
++        = f.label :avatar, '아바타', class: 'control-label'
          .col-sm-10
            = f.file_field :avatar
  
@@ -3110,20 +3110,20 @@ index 3145212..23c11a6 100644
          .col-sm-10= f.text_field :twitter, class: 'form-control'
        .form-group
 -        = f.label :website_url, 'Website', class: 'control-label'
-+        = f.label :website_url, 'Webサイト', class: 'control-label'
++        = f.label :website_url, '웹사이트', class: 'control-label'
          .col-sm-10= f.text_field :website_url, class: 'form-control'
  
      .form-actions
        - if @user.new_record?
 -        = f.submit 'Create user', class: "btn btn-create"
 -        = link_to 'Cancel', admin_users_path, class: "btn btn-cancel"
-+        = f.submit 'ユーザを作成', class: "btn btn-create"
-+        = link_to 'キャンセル', admin_users_path, class: "btn btn-cancel"
++        = f.submit '사용자를 생성', class: "btn btn-create"
++        = link_to '취소', admin_users_path, class: "btn btn-cancel"
        - else
 -        = f.submit 'Save changes', class: "btn btn-save"
 -        = link_to 'Cancel', admin_user_path(@user), class: "btn btn-cancel"
-+        = f.submit '変更を保存', class: "btn btn-save"
-+        = link_to 'キャンセル', admin_user_path(@user), class: "btn btn-cancel"
++        = f.submit '변경사항 저장', class: "btn btn-save"
++        = link_to '취소', admin_user_path(@user), class: "btn btn-cancel"
 diff --git a/app/views/admin/users/_head.html.haml b/app/views/admin/users/_head.html.haml
 index ce5e21e..fb3a5e6 100644
 --- a/app/views/admin/users/_head.html.haml
@@ -3133,18 +3133,18 @@ index ce5e21e..fb3a5e6 100644
      = link_to edit_admin_user_path(@user), class: "btn btn-nr btn-grouped" do
        %i.fa.fa-pencil-square-o
 -      Edit
-+      編集
++      편집
  %hr
  %ul.nav-links
    = nav_link(path: 'users#show') do
 -    = link_to "Account", admin_user_path(@user)
-+    = link_to "アカウント", admin_user_path(@user)
++    = link_to "계정", admin_user_path(@user)
    = nav_link(path: 'users#groups') do
 -    = link_to "Groups", groups_admin_user_path(@user)
-+    = link_to "グループ", groups_admin_user_path(@user)
++    = link_to "그룹", groups_admin_user_path(@user)
    = nav_link(path: 'users#projects') do
 -    = link_to "Projects", projects_admin_user_path(@user)
-+    = link_to "プロジェクト", projects_admin_user_path(@user)
++    = link_to "프로젝트", projects_admin_user_path(@user)
    = nav_link(path: 'users#keys') do
      = link_to "SSH keys", keys_admin_user_path(@user)
    = nav_link(controller: :identities) do
@@ -3157,12 +3157,12 @@ index 6bc217f..9f510e5 100644
      - unless user.website_url.blank?
        %li
 -        %span.light Website:
-+        %span.light Webサイト:
++        %span.light 웹사이트:
          %strong= link_to user.short_website_url, user.full_website_url
      - unless user.location.blank?
        %li
 -        %span.light Location:
-+        %span.light 場所:
++        %span.light 장소:
          %strong= user.location
 diff --git a/app/views/admin/users/_projects.html.haml b/app/views/admin/users/_projects.html.haml
 index a126a85..3ff3bcc 100644
@@ -3173,7 +3173,7 @@ index a126a85..3ff3bcc 100644
  - if local_assigns.has_key?(:projects) && projects.present?
    .panel.panel-default
 -    .panel-heading Personal projects
-+    .panel-heading Personal プロジェクト
++    .panel-heading Personal 프로젝트
      = render 'shared/projects/list',
        projects: projects.sort_by(&:star_count).reverse,
        projects_limit: 10, stars: true, avatar: false
@@ -3186,7 +3186,7 @@ index 4bf1c9c..596bf17 100644
        = mail_to user.email, user.email
    .controls
 -    = link_to 'Edit', edit_admin_user_path(user), id: "edit_#{dom_id(user)}", class: 'btn'
-+    = link_to '編集', edit_admin_user_path(user), id: "edit_#{dom_id(user)}", class: 'btn'
++    = link_to '편집', edit_admin_user_path(user), id: "edit_#{dom_id(user)}", class: 'btn'
      - unless user == current_user
        .dropdown.inline
          %a.dropdown-new.btn.btn-default#project-settings-button{href: '#', data: { toggle: 'dropdown' } }
@@ -3195,25 +3195,25 @@ index 4bf1c9c..596bf17 100644
          %ul.dropdown-menu.dropdown-menu-align-right
            %li.dropdown-header
 -            Settings
-+            設定
++            설정
              %li
                - if user.ldap_blocked?
 -                %span.small Cannot unblock LDAP blocked users
-+                %span.small Cannot unblock LDAP blocked ユーザ
++                %span.small Cannot unblock LDAP blocked 사용자
                - elsif user.blocked?
                  = link_to 'Unblock', unblock_admin_user_path(user), method: :put
                - else
 -                = link_to 'Block', block_admin_user_path(user), data: { confirm: 'USER WILL BE BLOCKED! Are you sure?' }, method: :put
-+                = link_to 'Block', block_admin_user_path(user), data: { confirm: 'USER WILL BE BLOCKED! 本当によろしいですか？' }, method: :put
++                = link_to 'Block', block_admin_user_path(user), data: { confirm: 'USER WILL BE BLOCKED! 정말 하시겠습니까?' }, method: :put
              - if user.access_locked?
                %li
 -                = link_to 'Unlock', unlock_admin_user_path(user), method: :put, class: 'btn-grouped btn btn-xs btn-success', data: { confirm: 'Are you sure?' }
-+                = link_to 'Unlock', unlock_admin_user_path(user), method: :put, class: 'btn-grouped btn btn-xs btn-success', data: { confirm: '本当によろしいですか？' }
++                = link_to 'Unlock', unlock_admin_user_path(user), method: :put, class: 'btn-grouped btn btn-xs btn-success', data: { confirm: '정말 하시겠습니까?' }
            - if user.can_be_removed?
              %li.divider
              %li
 -              = link_to 'Delete User', [:admin, user], data: { confirm: "USER #{user.name} WILL BE REMOVED! All issues, merge requests and groups linked to this user will also be removed! Consider cancelling this deletion and blocking the user instead. Are you sure?" },
-+              = link_to 'ユーザを削除', [:admin, user], data: { confirm: "USER #{user.name} WILL BE REMOVED! All issues, マージリクエスト and グループ linked to このユーザ will also be removed! Consider cancelling this deletion and blocking the ユーザ instead. 本当によろしいですか？" },
++              = link_to '사용자 삭제', [:admin, user], data: { confirm: "USER #{user.name} WILL BE REMOVED! All issues, 머지 요청 and 그룹 linked to 이 사용자 will also be removed! Consider cancelling this deletion and blocking the 사용자 instead. 정말 하시겠습니까?" },
                                                     class: 'btn btn-remove btn-block',
                                                     method: :delete
 diff --git a/app/views/admin/users/edit.html.haml b/app/views/admin/users/edit.html.haml
@@ -3222,10 +3222,10 @@ index 3b6fd71..6a7d966 100644
 +++ b/app/views/admin/users/edit.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "Edit", @user.name, "Users"
-+- page_title "編集", @user.name, "ユーザ"
++- page_title "편집", @user.name, "시영지"
  %h3.page-title
 -  Edit user: #{@user.name}
-+  user: #{@user.name}を編集
++  user: #{@user.name}편집
  %hr
  = render 'form'
 diff --git a/app/views/admin/users/groups.html.haml b/app/views/admin/users/groups.html.haml
@@ -3234,14 +3234,14 @@ index 8f6d13b..95d124d 100644
 +++ b/app/views/admin/users/groups.html.haml
 @@ -1,10 +1,10 @@
 -- page_title "Groups", @user.name, "Users"
-+- page_title "グループ", @user.name, "ユーザ"
++- page_title "그룹", @user.name, "사용자"
  = render 'admin/users/head'
  
  - group_members = @user.group_members.includes(:source)
  - if group_members.any?
    .panel.panel-default
 -    .panel-heading Groups:
-+    .panel-heading グループ:
++    .panel-heading 그룹:
      %ul.well-list
        - group_members.each do |group_member|
          - group = group_member.group
@@ -3250,7 +3250,7 @@ index 8f6d13b..95d124d 100644
              %span.light= group_member.human_access
              - unless group_member.owner?
 -              = link_to group_group_member_path(group, group_member), data: { confirm: remove_member_message(group_member) }, method: :delete, remote: true, class: "btn-xs btn btn-remove", title: 'Remove user from group' do
-+              = link_to group_group_member_path(group, group_member), data: { confirm: remove_member_message(group_member) }, method: :delete, remote: true, class: "btn-xs btn btn-remove", title: 'ユーザを削除 from グループ' do
++              = link_to group_group_member_path(group, group_member), data: { confirm: remove_member_message(group_member) }, method: :delete, remote: true, class: "btn-xs btn btn-remove", title: '그룹에서 사용자 삭제' do
                  %i.fa.fa-times.fa-inverse
  - else
    .nothing-here-block This user has no groups.
@@ -3261,7 +3261,7 @@ index 357123c..dbf1378 100644
 @@ -1,5 +1,5 @@
  - @no_container = true
 -- page_title "Users"
-+- page_title "ユーザ"
++- page_title "사용자"
  = render "admin/dashboard/head"
  
  %div{ class: container_class }
@@ -3270,7 +3270,7 @@ index 357123c..dbf1378 100644
          .search-holder
            .search-field-holder
 -            = search_field_tag :name, params[:name], placeholder: 'Search by name, email or username', class: 'form-control search-text-input js-search-input', spellcheck: false
-+            = search_field_tag :name, params[:name], placeholder: 'Search by name, email or ユーザ名', class: 'form-control search-text-input js-search-input', spellcheck: false
++            = search_field_tag :name, params[:name], placeholder: 'Search by name, email or 사용자이름', class: 'form-control search-text-input js-search-input', spellcheck: false
              = icon("search", class: "search-icon")
            .dropdown
              - toggle_text = if @sort.present? then sort_options_hash[@sort] else sort_title_name end
@@ -3279,7 +3279,7 @@ index 357123c..dbf1378 100644
                  = link_to admin_users_path(sort: sort_value_oldest_updated, filter: params[:filter]) do
                    = sort_title_oldest_updated
 -          = link_to 'New User', new_admin_user_path, class: 'btn btn-new btn-search'
-+          = link_to '新しいユーザ', new_admin_user_path, class: 'btn btn-new btn-search'
++          = link_to '새로운 사용자', new_admin_user_path, class: 'btn btn-new btn-search'
  
      .nav-block
        %ul.nav-links.wide.scrolling-tabs.white.scrolling-tabs
@@ -3288,7 +3288,7 @@ index 357123c..dbf1378 100644
          = nav_link(html_options: { class: ('active' if params[:filter] == 'wop') }) do
            = link_to admin_users_path(filter: "wop") do
 -            Without projects
-+            Without プロジェクト
++            Without 프로젝트
              %small.badge= number_with_delimiter(User.without_projects.count)
          .fade-right
  
@@ -3298,7 +3298,7 @@ index 0f64412..c9c9622 100644
 +++ b/app/views/admin/users/keys.html.haml
 @@ -1,3 +1,3 @@
 -- page_title "SSH Keys", @user.name, "Users"
-+- page_title "SSHキー", @user.name, "ユーザ"
++- page_title "SSHキー", @user.name, "유저"
  = render 'admin/users/head'
  = render 'profiles/keys/key_table', admin: true
 diff --git a/app/views/admin/users/new.html.haml b/app/views/admin/users/new.html.haml
@@ -3307,10 +3307,10 @@ index bfc36ed..c5f3961 100644
 +++ b/app/views/admin/users/new.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "New User"
-+- page_title "新しいユーザ"
++- page_title "새로운 사용자"
  %h3.page-title
 -  New user
-+  新しいユーザ
++  새로운 사용자
  %hr
  = render 'form'
 diff --git a/app/views/admin/users/projects.html.haml b/app/views/admin/users/projects.html.haml
@@ -3319,13 +3319,13 @@ index 84b9ceb..bf9e7e2 100644
 +++ b/app/views/admin/users/projects.html.haml
 @@ -1,9 +1,9 @@
 -- page_title "Projects", @user.name, "Users"
-+- page_title "プロジェクト", @user.name, "ユーザ"
++- page_title "프로젝트", @user.name, "사용자"
  = render 'admin/users/head'
  
  - if @user.groups.any?
    .panel.panel-default
 -    .panel-heading Group projects
-+    .panel-heading Group プロジェクト
++    .panel-heading Group 프로젝트
      %ul.well-list
        - @user.groups.each do |group|
          %li
@@ -3334,7 +3334,7 @@ index 84b9ceb..bf9e7e2 100644
  
                    - if member.respond_to? :project
 -                    = link_to namespace_project_project_member_path(project.namespace, project, member), data: { confirm: remove_member_message(member) }, remote: true, method: :delete, class: "btn-xs btn btn-remove", title: 'Remove user from project' do
-+                    = link_to namespace_project_project_member_path(project.namespace, project, member), data: { confirm: remove_member_message(member) }, remote: true, method: :delete, class: "btn-xs btn btn-remove", title: 'ユーザを削除 from プロジェクト' do
++                    = link_to namespace_project_project_member_path(project.namespace, project, member), data: { confirm: remove_member_message(member) }, remote: true, method: :delete, class: "btn-xs btn btn-remove", title: '프로젝트에서 사용자 삭제' do
                        %i.fa.fa-times
 diff --git a/app/views/admin/users/show.html.haml b/app/views/admin/users/show.html.haml
 index 76c9ed0..74b49b0 100644
@@ -3342,7 +3342,7 @@ index 76c9ed0..74b49b0 100644
 +++ b/app/views/admin/users/show.html.haml
 @@ -1,4 +1,4 @@
 -- page_title @user.name, "Users"
-+- page_title @user.name, "ユーザ"
++- page_title @user.name, "사용자"
  = render 'admin/users/head'
  
  .row
@@ -3355,16 +3355,16 @@ index 76c9ed0..74b49b0 100644
        %ul.well-list
          %li
 -          %span.light Name:
-+          %span.light 名前:
++          %span.light 이름:
            %strong= @user.name
          %li
 -          %span.light Username:
-+          %span.light ユーザ名:
++          %span.light 사용자 이름:
            %strong
              = @user.username
          %li
 -          %span.light Email:
-+          %span.light メールアドレス:
++          %span.light 이메일:
            %strong
              = mail_to @user.email
          - @user.emails.each do |email|
@@ -3372,23 +3372,23 @@ index 76c9ed0..74b49b0 100644
              %span.light Secondary email:
              %strong= email.email
 -            = link_to remove_email_admin_user_path(@user, email), data: { confirm: "Are you sure you want to remove #{email.email}?" }, method: :delete, class: "btn-xs btn btn-remove pull-right", title: 'Remove secondary email', id: "remove_email_#{email.id}" do
-+            = link_to remove_email_admin_user_path(@user, email), data: { confirm: "Are you sure you want to remove #{email.email}?" }, method: :delete, class: "btn-xs btn btn-remove pull-right", title: 'secondary emailを削除', id: "remove_email_#{email.id}" do
++            = link_to remove_email_admin_user_path(@user, email), data: { confirm: "Are you sure you want to remove #{email.email}?" }, method: :delete, class: "btn-xs btn btn-remove pull-right", title: '두번째 이메일 삭제', id: "remove_email_#{email.id}" do
                %i.fa.fa-times
  
          %li.two-factor-status
 -          %span.light Two-factor Authentication:
-+          %span.light 二段階認証:
++          %span.light 두 단계 인증:
            %strong{class: @user.two_factor_enabled? ? 'cgreen' : 'cred'}
              - if @user.two_factor_enabled?
                Enabled
 -              = link_to 'Disable', disable_two_factor_admin_user_path(@user), data: {confirm: 'Are you sure?'}, method: :patch, class: 'btn btn-xs btn-remove pull-right', title: 'Disable Two-factor Authentication'
-+              = link_to 'Disable', disable_two_factor_admin_user_path(@user), data: {confirm: '本当によろしいですか？'}, method: :patch, class: 'btn btn-xs btn-remove pull-right', title: '二段階認証を無効にする'
++              = link_to 'Disable', disable_two_factor_admin_user_path(@user), data: {confirm: '정말 하시겠습니까?'}, method: :patch, class: 'btn btn-xs btn-remove pull-right', title: '두 단계 인증을 사용하지 않으려면'
              - else
                Disabled
  
          %li
 -          %span.light External User:
-+          %span.light External ユーザ:
++          %span.light External 사용자:
            %strong
              = @user.external? ? "Yes" : "No"
          %li
@@ -3397,16 +3397,16 @@ index 76c9ed0..74b49b0 100644
          - if @user.confirmed_at
            %li
 -            %span.light Confirmed at:
-+            %span.light 登録確認日:
++            %span.light 등록 확인일:
              %strong
                = @user.confirmed_at.to_s(:medium)
          - else
            %li
 -            %span.light Confirmed:
-+            %span.light 登録確認:
++            %span.light 등록 확인:
              %strong.cred
 -              No
-+              未確認
++              미확인
  
          %li
            %span.light Current sign-in IP:
@@ -3419,13 +3419,13 @@ index 76c9ed0..74b49b0 100644
  
          %li
 -          %span.light Current sign-in at:
-+          %span.light 現在のサインイン:
++          %span.light 현재 로그인:
            %strong
              - if @user.current_sign_in_at
                = @user.current_sign_in_at.to_s(:medium)
              - else
 -              never
-+              サインインなし
++              로그인없이
  
          %li
            %span.light Last sign-in IP:
@@ -3434,7 +3434,7 @@ index 76c9ed0..74b49b0 100644
                = @user.last_sign_in_ip
              - else
 -              never
-+              サインインなし
++              로그인없이
  
          %li
 -          %span.light Last sign-in at:
@@ -3444,11 +3444,11 @@ index 76c9ed0..74b49b0 100644
                = @user.last_sign_in_at.to_s(:medium)
              - else
 -              never
-+              サインインなし
++              로그인없이
  
          %li
 -          %span.light Sign-in count:
-+          %span.light サインイン回数:
++          %span.light 로그인 횟수:
            %strong
              = @user.sign_in_count
  
@@ -3457,7 +3457,7 @@ index 76c9ed0..74b49b0 100644
          - if @user.created_by
            %li
 -            %span.light Created by:
-+            %span.light 登録者:
++            %span.light 작성자:
              %strong
                = link_to @user.created_by.name, [:admin, @user.created_by]
  
@@ -3466,19 +3466,19 @@ index 76c9ed0..74b49b0 100644
          .panel.panel-info
            .panel-heading
 -            Confirm user
-+            Confirm ユーザ
++            Confirm 사용자
            .panel-body
              - if @user.unconfirmed_email.present?
                - email = " (#{@user.unconfirmed_email})"
              %p This user has an unconfirmed email address#{email}. You may force a confirmation.
              %br
 -            = link_to 'Confirm user', confirm_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: 'Are you sure?' }
-+            = link_to 'Confirm ユーザ', confirm_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '本当によろしいですか？' }
++            = link_to 'Confirm 사용자', confirm_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '정말 하시겠습니까?' }
        - if @user.blocked?
          .panel.panel-info
            .panel-heading
 -            This user is blocked
-+            このユーザはブロックされています
++            이 사용자는 차단되어 있습니다
            .panel-body
              %p A blocked user cannot:
              %ul
@@ -3486,29 +3486,29 @@ index 76c9ed0..74b49b0 100644
                %li Access Git repositories
              %br
 -            = link_to 'Unblock user', unblock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: 'Are you sure?' }
-+            = link_to 'ブロック解除', unblock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '本当によろしいですか？' }
++            = link_to '차단 해제', unblock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '삭제 하시겠습니까?' }
        - else
          .panel.panel-warning
            .panel-heading
 -            Block this user
-+            このユーザをブロック
++            이 사용자를 차단
            .panel-body
 -            %p Blocking user has the following effects:
-+            %p ユーザをブロックすると以下の影響があります。
++            %p 사용자를 차단하면 다음과 같은 효과가 있습니다.
              %ul
 -              %li User will not be able to login
 -              %li User will not be able to access git repositories
 -              %li User will be removed from joined projects and groups
 -              %li Personal projects will be left
 -              %li Owned groups will be left
-+              %li ユーザはログインできません。
-+              %li ユーザはGitリポジトリにアクセスできません。
-+              %li User will be removed from joined projects and グループ
-+              %li パーソナルプロジェクトが残されます。
-+              %li ユーザが所有するグループが残されます。
++              %li 사용자가 로그인 할 수 없습니다.
++              %li 사용자는 Git 저장소에 액세스 할 수 없습니다.
++              %li User will be removed from joined projects and 그룹
++              %li 개인 프로젝트가 남아 있습니다.
++              %li 사용자가 소유하는 그룹이 남습니다.
              %br
 -            = link_to 'Block user', block_admin_user_path(@user), data: { confirm: 'USER WILL BE BLOCKED! Are you sure?' }, method: :put, class: "btn btn-warning"
-+            = link_to 'ユーザをブロック', block_admin_user_path(@user), data: { confirm: 'USER WILL BE BLOCKED! 本当によろしいですか？' }, method: :put, class: "btn btn-warning"
++            = link_to '사용자 차단', block_admin_user_path(@user), data: { confirm: 'USER WILL BE BLOCKED! 정말 하시겠습니까?' }, method: :put, class: "btn btn-warning"
        - if @user.access_locked?
          .panel.panel-info
            .panel-heading
@@ -3517,7 +3517,7 @@ index 76c9ed0..74b49b0 100644
              %p This user has been temporarily locked due to excessive number of failed logins. You may manually unlock the account.
              %br
 -            = link_to 'Unlock user', unlock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: 'Are you sure?' }
-+            = link_to 'Unlock ユーザ', unlock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '本当によろしいですか？' }
++            = link_to 'Unlock 사용자', unlock_admin_user_path(@user), method: :put, class: "btn btn-info", data: { confirm: '정말 하시겠습니까?' }
  
        .panel.panel-danger
          .panel-heading
@@ -3526,14 +3526,14 @@ index 76c9ed0..74b49b0 100644
          .panel-body
            - if @user.can_be_removed?
 -            %p Deleting a user has the following effects:
-+            %p ユーザを削除すると以下の影響があります。
++            %p 사용자를 삭제하면 다음과 같은 효과가 있습니다.
              %ul
 -              %li All user content like authored issues, snippets, comments will be removed
-+              %li このユーザが作成した課題, スニペット, コメントといったすべてのコンテンツが削除されます。
++              %li 이 사용자가 생성 한 과제, 스니펫, 코멘트 등 모든 콘텐츠가 삭제됩니다.
                - rp = @user.personal_projects.count
                - unless rp.zero?
 -                %li #{pluralize rp, 'personal project'} will be removed and cannot be restored
-+                %li #{rp}個のパーソナルプロジェクトが削除され、復元できなくなります。
++                %li #{rp}개의 개인 프로젝트가 삭제되며 복구 할 수 없습니다.
              %br
 -            = link_to 'Remove user', [:admin, @user], data: { confirm: "USER #{@user.name} WILL BE REMOVED! Are you sure?" }, method: :delete, class: "btn btn-remove"
 +            = link_to 'ユーザを削除', [:admin, @user], data: { confirm: "ユーザ #{@user.name} は削除されます！本当に削除しますか？" }, method: :delete, class: "btn btn-remove"

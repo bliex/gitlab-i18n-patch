@@ -551,7 +551,7 @@ index 3327f4f..860a49f 100644
  
      respond_to do |format|
 -      format.html { redirect_to new_user_session_path, notice: "Account successfully removed." }
-+      format.html { redirect_to new_user_session_path, notice: "アカウントが削除されました" }
++      format.html { redirect_to new_user_session_path, notice: "계정이 삭제되었습니다" }
      end
    end
  
@@ -569,10 +569,10 @@ index f3733b0..213bac2 100644
    def state_filters_text_for(entity, project)
      titles = {
 -      opened: "Open"
-+      opened: "オープン",
-+      closed: "クローズ",
-+      merged: "マージ済み",
-+      all: "すべて"
++      opened: "오픈",
++      closed: "닫기",
++      merged: "병합된",
++      all: "전체"
      }
  
      entity_title = titles[entity] || entity.to_s.humanize
@@ -590,10 +590,10 @@ index e13b7cd..92639b2 100644
  
      if !on_top_of_branch?(project, ref)
 -      button_tag "Edit", class: "btn disabled has-tooltip btn-file-option", title: "You can only edit files when you are on a branch", data: { container: 'body' }
-+      button_tag "編集", class: "btn disabled has-tooltip btn-file-option", title: "You can only edit files when you are on a branch", data: { container: 'body' }
++      button_tag "편집", class: "btn disabled has-tooltip btn-file-option", title: "You can only edit files when you are on a branch", data: { container: 'body' }
      elsif can_edit_blob?(blob, project, ref)
 -      link_to "Edit", edit_path, class: 'btn btn-sm'
-+      link_to "編集", edit_path, class: 'btn btn-sm'
++      link_to "편집", edit_path, class: 'btn btn-sm'
      elsif can?(current_user, :fork_project, project)
        continue_params = {
          to:     edit_path,
@@ -602,7 +602,7 @@ index e13b7cd..92639b2 100644
        fork_path = namespace_project_forks_path(project.namespace, project, namespace_key: current_user.namespace.id, continue: continue_params)
  
 -      link_to "Edit", fork_path, class: 'btn btn-file-option', method: :post
-+      link_to "編集", fork_path, class: 'btn btn-file-option', method: :post
++      link_to "편집", fork_path, class: 'btn btn-file-option', method: :post
      end
    end
  
@@ -611,13 +611,13 @@ index e13b7cd..92639b2 100644
  
    def leave_edit_message
 -    "Leave edit mode?\nAll unsaved changes will be lost."
-+    "編集モードを終了しますか？\n保存していない変更は失われます。"
++    "편집 모드를 종료 하시겠습니까?\n저장하지 않은 변경 사항이 손실됩니다."
    end
  
    def editing_preview_title(filename)
      if Gitlab::MarkupHelper.previewable?(filename)
 -      'Preview'
-+      'プレビュー'
++      '미리보기'
      else
        'Preview Changes'
      end
@@ -635,7 +635,7 @@ index b478580..dc7ba13 100644
          placement: placement,
          container: 'body',
 -        title: 'Add an SSH key to your profile<br>to pull or push via SSH.'
-+        title: 'SSHでプル/プッシュするためにはプロフィールにSSHキーを追加してください'
++        title: 'SSH에서 풀 또는 푸시하기 위해서는<br>프로필에 SSH 키를 추가하십시오'
        }
    end
  end
@@ -653,7 +653,7 @@ index 33dcee4..53d3fd3 100644
        class: 'btn view-file js-view-file btn-file-option'
      ) do
 -      raw('View file @') + content_tag(:span, commit_sha[0..6],
-+      raw('ファイルを表示 @') + content_tag(:span, commit_sha[0..6],
++      raw('파일보기 @') + content_tag(:span, commit_sha[0..6],
                                         class: 'commit-short-id')
      end
    end
@@ -671,7 +671,7 @@ index 0725c3f..380668c 100644
  
    def inline_diff_btn
 -    diff_btn('Inline', 'inline', diff_view == :inline)
-+    diff_btn('インライン', 'inline', diff_view == :inline)
++    diff_btn('인라인', 'inline', diff_view == :inline)
    end
  
    def parallel_diff_btn
@@ -689,7 +689,7 @@ index bfedcb1..d834813 100644
        class: "event-filter-link",
        id:    "#{key}_event_filter",
 -      title: "Filter by #{tooltip.downcase}",
-+      title: "#{tooltip.downcase}で絞り込み",
++      title: "#{tooltip.downcase}에서 검색",
      }
  
      content_tag :li, class: active do
@@ -933,11 +933,11 @@ index 3a83ae1..a89d39d 100644
          "The snippet is visible only to project members."
        else
 -        "The snippet is visible only to me."
-+        "スニペットは自分だけが閲覧できます。"
++        "스니펫은 자신 만이 볼 수 있습니다."
        end
      when Gitlab::VisibilityLevel::INTERNAL
 -      "The snippet is visible to any logged in user."
-+      "스니펫은 로그인 한 볼 수 있습니다."
++      "스니펫은 로그인한 사용자만 볼 수 있습니다."
      when Gitlab::VisibilityLevel::PUBLIC
 -      "The snippet can be accessed without any authentication."
 +      "스니펫은 누구나 인증없이 볼 수 있습니다."
@@ -1052,7 +1052,7 @@ index 8cf093b..fd9200c 100644
          self.errors.add(:limit_reached, "Personal project creation is not allowed. Please contact your administrator with questions")
        else
 -        self.errors.add(:limit_reached, "Your project limit is #{projects_limit} projects! Please contact your administrator to increase it")
-+        self.errors.add(:limit_reached, "あなたが作成できる프로젝트の上限は #{projects_limit} 個です！管理者に上限を増やすように連絡してください")
++        self.errors.add(:limit_reached, "당신이 만들 수있는 프로젝트의 상한은  #{projects_limit}개 입니다! 제한을 늘리기 위해서는 관리자에게 문의하십시오")
        end
      end
    rescue
@@ -1800,7 +1800,7 @@ index 4f680b5..4cb6b72 100644
            %p
              %i.fa.fa-exclamation-circle
 -            If '[25 of 25 busy]' is shown, restart GitLab with 'sudo service gitlab reload'.
-+            もし '[25 of 25 busy]' 표시되어 있으면 'sudo service gitlab reload' 에서 깃랩를 다시 시작하십시오.
++            만약 '[25 of 25 busy]' 표시되어 있으면 'sudo service gitlab reload' 에서 깃랩를 다시 시작하십시오.
            %p
              %i.fa.fa-exclamation-circle
 -            If more than one sidekiq process is listed, stop GitLab, kill the remaining sidekiq processes (sudo pkill -u #{gitlab_config.user} -f sidekiq) and restart GitLab.
@@ -1987,13 +1987,13 @@ index b74da64..304ce71 100644
 +          프로젝트
      = nav_link(controller: :users) do
 -      = link_to admin_users_path, title: 'Users' do
-+      = link_to admin_users_path, title: 'ユーザ' do
++      = link_to admin_users_path, title: '사용자' do
          %span
 -          Users
 +          사용자
      = nav_link(controller: :groups) do
 -      = link_to admin_groups_path, title: 'Groups' do
-+      = link_to admin_groups_path, title: 'グループ' do
++      = link_to admin_groups_path, title: '그룹' do
          %span
 -          Groups
 +          그룹
@@ -2088,11 +2088,11 @@ index e6687f4..54eeb12 100644
                %h1= number_with_delimiter(User.count)
              %hr
 -            = link_to 'New User', new_admin_user_path, class: "btn btn-new"
-+            = link_to '新しいユーザ', new_admin_user_path, class: "btn btn-new"
++            = link_to '새로운 사용자', new_admin_user_path, class: "btn btn-new"
        .col-sm-4
          .light-well
 -          %h4 Groups
-+          %h4 グループ
++          %h4 그룹
            .data
              = link_to admin_groups_path do
                %h1= number_with_delimiter(Group.count)
@@ -2585,7 +2585,7 @@ index 309aedc..74c3c88 100644
 +++ b/app/views/admin/labels/edit.html.haml
 @@ -1,5 +1,5 @@
 -- page_title "Edit", @label.name, "Labels"
-+- page_title "編集", @label.name, "라벨"
++- page_title "편집", @label.name, "라벨"
  %h3.page-title
 -  Edit Label
 +  라벨 편집
@@ -3298,7 +3298,7 @@ index 0f64412..c9c9622 100644
 +++ b/app/views/admin/users/keys.html.haml
 @@ -1,3 +1,3 @@
 -- page_title "SSH Keys", @user.name, "Users"
-+- page_title "SSHキー", @user.name, "유저"
++- page_title "SSH 키", @user.name, "유저"
  = render 'admin/users/head'
  = render 'profiles/keys/key_table', admin: true
 diff --git a/app/views/admin/users/new.html.haml b/app/views/admin/users/new.html.haml
@@ -3415,7 +3415,7 @@ index 76c9ed0..74b49b0 100644
                = @user.current_sign_in_ip
              - else
 -              never
-+              サインインなし
++              로그인없이
  
          %li
 -          %span.light Current sign-in at:
@@ -3438,7 +3438,7 @@ index 76c9ed0..74b49b0 100644
  
          %li
 -          %span.light Last sign-in at:
-+          %span.light 最終サインイン:
++          %span.light 마지막 로그인:
            %strong
              - if @user.last_sign_in_at
                = @user.last_sign_in_at.to_s(:medium)
@@ -3522,7 +3522,7 @@ index 76c9ed0..74b49b0 100644
        .panel.panel-danger
          .panel-heading
 -          Remove user
-+          ユーザを削除
++          사용자를 삭제
          .panel-body
            - if @user.can_be_removed?
 -            %p Deleting a user has the following effects:
@@ -3536,7 +3536,7 @@ index 76c9ed0..74b49b0 100644
 +                %li #{rp}개의 개인 프로젝트가 삭제되며 복구 할 수 없습니다.
              %br
 -            = link_to 'Remove user', [:admin, @user], data: { confirm: "USER #{@user.name} WILL BE REMOVED! Are you sure?" }, method: :delete, class: "btn btn-remove"
-+            = link_to '사용자 삭제', [:admin, @user], data: { confirm: "ユーザ #{@user.name} 은 삭제됩니다! 정말 삭제 하시겠습니까?" }, method: :delete, class: "btn btn-remove"
++            = link_to '사용자 삭제', [:admin, @user], data: { confirm: "#{@user.name} 사용자는 삭제됩니다! 정말 삭제 하시겠습니까?" }, method: :delete, class: "btn btn-remove"
            - else
              - if @user.solo_owned_groups.present?
                %p
@@ -3672,7 +3672,7 @@ index aa57df1..9bbabdf 100644
  = content_for :meta_tags do
    - if current_user
 -    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "All activity")
-+    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "すべてのアクティビティ")
++    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "모든 활동")
  
 -- page_title    "Activity"
 -- header_title  "Activity", activity_dashboard_path
@@ -3705,7 +3705,7 @@ index 1eec4db..bd52ccf 100644
  = content_for :meta_tags do
    - if current_user
 -    = auto_discovery_link_tag(:atom, issues_dashboard_url(format: :atom, private_token: current_user.private_token), title: "#{current_user.name} issues")
-+    = auto_discovery_link_tag(:atom, issues_dashboard_url(format: :atom, private_token: current_user.private_token), title: "#{current_user.name} 課題")
++    = auto_discovery_link_tag(:atom, issues_dashboard_url(format: :atom, private_token: current_user.private_token), title: "#{current_user.name} 이슈")
  
  .top-area
    = render 'shared/issuable/nav', type: :issues
@@ -3789,7 +3789,7 @@ index fdea834..300dedf 100644
        %strong= number_with_delimiter(current_user.projects_limit)
 -      = succeed "." do
 -        = "project".pluralize(current_user.projects_limit)
-+      = succeed "。" do
++      = succeed "." do
 +        개까지 프로젝트를 만들 수 있습니다
      - else
        If you are added to a project, it will be displayed here.
@@ -3828,7 +3828,7 @@ index 4f36a4a..61b69df 100644
  = content_for :meta_tags do
    - if current_user
 -    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "All activity")
-+    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "すべてのアクティビティ")
++    = auto_discovery_link_tag(:atom, dashboard_projects_url(format: :atom, private_token: current_user.private_token), title: "모든 활동")
  
 -- page_title    "Projects"
 -- header_title  "Projects", dashboard_projects_path
@@ -3872,7 +3872,7 @@ index d4e7862..819935c 100644
  .nav-block
    .controls
 -    = link_to new_snippet_path, class: "btn btn-new", title: "New Snippet" do
-+    = link_to new_snippet_path, class: "btn btn-new", title: "新しいスニペット" do
++    = link_to new_snippet_path, class: "btn btn-new", title: "새로운 스니펫" do
        = icon('plus')
 -      New Snippet
 +      새로운 스니펫
@@ -4106,7 +4106,7 @@ index 9f55206..10bc16f 100644
 +        = link_to "비밀번호를 잊으셨습니까?", new_password_path(resource_name)
    %div
 -    = f.submit "Sign in", class: "btn btn-save"
-+    = f.submit "サインイン", class: "btn btn-save"
++    = f.submit "로그인", class: "btn btn-save"
 diff --git a/app/views/devise/sessions/_new_crowd.html.haml b/app/views/devise/sessions/_new_crowd.html.haml
 index b7d3aca..319a8ff 100644
 --- a/app/views/devise/sessions/_new_crowd.html.haml
@@ -4176,7 +4176,7 @@ index fafc4b8..8c8f9cd 100644
 +    로그인 계정과 암호를있으세요?
    %strong
 -    = link_to "Sign in", new_session_path(resource_name)
-+    = link_to "サインイン", new_session_path(resource_name)
++    = link_to "로그인", new_session_path(resource_name)
 diff --git a/app/views/devise/shared/_signin_box.html.haml b/app/views/devise/shared/_signin_box.html.haml
 index 2c15e2c..751c352 100644
 --- a/app/views/devise/shared/_signin_box.html.haml
@@ -4400,7 +4400,7 @@ index d3692d1..54768cb 100644
 +- page_title "새로운 어플리케이션"
  
 -%h3.page-title New Application
-+%h3.page-title 新しいアプリケーション
++%h3.page-title 새로운 어플리케이션
  
  %hr
  
@@ -5507,7 +5507,7 @@ index 85e188d..f824796 100644
        .dropdown.inline
          %button.dropdown-menu-toggle{type: 'button', data: {toggle: 'dropdown'}}
 -          Dropdown user
-+          Dropdown ユーザ
++          Dropdown 사용자
            = icon('chevron-down')
          .dropdown-menu.dropdown-select.dropdown-menu-selectable.dropdown-menu-user
            .dropdown-title
@@ -5612,7 +5612,7 @@ index 85e188d..f824796 100644
 -          Remember me
 -      %button.btn.btn-default{:type => "submit"} Sign in
 +          비밀번호를 기억
-+      %button.btn.btn-default{:type => "submit"} サインイン
++      %button.btn.btn-default{:type => "submit"} 로그인
  
 -  %h2#file File
 +  %h2#file 파일
@@ -5647,7 +5647,7 @@ index 85e188d..f824796 100644
 +    %li 도움말 페이지
  
 -  You can check how markdown rendered at #{link_to 'Markdown help page', help_page_path("markdown/markdown")}.
-+  You can check how markdown rendered at #{link_to 'Markdown help ページ', help_page_path("markdown/markdown")}.
++  You can check how markdown rendered at #{link_to 'Markdown help 페이지', help_page_path("markdown/markdown")}.
 diff --git a/app/views/import/base/create.js.haml b/app/views/import/base/create.js.haml
 index 804ad88..5412dec 100644
 --- a/app/views/import/base/create.js.haml
@@ -5657,7 +5657,7 @@ index 804ad88..5412dec 100644
    :plain
      job = $("tr#repo_#{@repo_id}")
 -    job.find(".import-actions").html("<p class='alert alert-danger'>Access denied! Please verify you can add deploy keys to this repository.</p>")
-+    job.find(".import-actions").html("<p class='alert alert-danger'>Access denied! Please verify you can add デプロイキー to this repository.</p>")
++    job.find(".import-actions").html("<p class='alert alert-danger'>Access denied! Please verify you can add deploy keys to this repository.</p>")
  - elsif @project.persisted?
    :plain
      job = $("tr#repo_#{@repo_id}")
@@ -5762,7 +5762,7 @@ index 0733873..233e1a1 100644
          the project creator.
      %li
 -      %strong Map a FogBugz account ID to a GitLab user
-+      %strong Map a FogBugz account ID to a GitLab ユーザ
++      %strong Map a FogBugz account ID to a GitLab 사용자
        %p
          Selecting a GitLab user will add a link to the GitLab user in the descriptions
          of issues and comments (e.g. "By <a href="#">@johnsmith</a>"). It will also
@@ -5913,7 +5913,7 @@ index fcfc6fd..6843960 100644
  
  %p.light
 -  Select projects you want to import.
-+  projects you want to import.を選択
++  임포트하고자 하는 프로젝트를 골라 주세요.
  %hr
  %p
    = button_tag class: "btn btn-import btn-success js-import-all" do
@@ -6206,9 +6206,9 @@ index 3d28eec..23e946b 100644
 -        = link_to "Explore", explore_root_path
 -        = link_to "Help", help_path
 -        = link_to "About GitLab", "https://about.gitlab.com/"
-+        = link_to "探索", explore_root_path
-+        = link_to "ヘルプ", help_path
-+        = link_to "GitLabについて", "https://about.gitlab.com/"
++        = link_to "탐색", explore_root_path
++        = link_to "도움말", help_path
++        = link_to "GitLab에 관하여", "https://about.gitlab.com/"
 diff --git a/app/views/layouts/devise_empty.html.haml b/app/views/layouts/devise_empty.html.haml
 index 6bd427b..bb5c8c3 100644
 --- a/app/views/layouts/devise_empty.html.haml
@@ -6222,7 +6222,7 @@ index 6bd427b..bb5c8c3 100644
 -        = link_to "About GitLab", "https://about.gitlab.com/"
 +        = link_to "탐색", explore_root_path
 +        = link_to "도움말", help_path
-+        = link_to "깃랩에 대해", "https://about.gitlab.com/"
++        = link_to "GitLab에 관하여", "https://about.gitlab.com/"
 diff --git a/app/views/layouts/errors.html.haml b/app/views/layouts/errors.html.haml
 index 7fbe065..1e03df1 100644
 --- a/app/views/layouts/errors.html.haml
@@ -6296,7 +6296,7 @@ index 94c5388..a67a9fb 100644
                      = link_to "Profile", current_user, class: 'profile-link', aria: { label: "Profile" }, data: { user: current_user.username }
                    %li
 -                    = link_to "Profile Settings", profile_path, aria: { label: "Profile Settings" }
-+                    = link_to "프로필 설정", profile_path, aria: { label: "프로필 설정 }
++                    = link_to "프로필 설정", profile_path, aria: { label: "프로필 설정" }
                    %li.divider
                    %li
 -                    = link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign-out-link", aria: { label: "Sign out" }
@@ -6427,26 +6427,26 @@ index 67f558c..bc31184 100644
            Koding
    = nav_link(controller: [:groups, 'groups/milestones', 'groups/group_members']) do
 -    = link_to dashboard_groups_path, title: 'Groups' do
-+    = link_to dashboard_groups_path, title: 'グループ' do
++    = link_to dashboard_groups_path, title: '그룹' do
        %span
 -        Groups
 +        그룹
    = nav_link(controller: 'dashboard/milestones') do
 -    = link_to dashboard_milestones_path, title: 'Milestones' do
-+    = link_to dashboard_milestones_path, title: 'マイルストーン' do
++    = link_to dashboard_milestones_path, title: '마일스톤' do
        %span
 -        Milestones
 +        마일스톤
    = nav_link(path: 'dashboard#issues') do
 -    = link_to assigned_issues_dashboard_path, title: 'Issues', class: 'dashboard-shortcuts-issues' do
-+    = link_to assigned_issues_dashboard_path, title: '課題', class: 'dashboard-shortcuts-issues' do
++    = link_to assigned_issues_dashboard_path, title: '이슈', class: 'dashboard-shortcuts-issues' do
        %span
 -        Issues
-+        課題
++        이슈
          %span.count= number_with_delimiter(current_user.assigned_issues.opened.count)
    = nav_link(path: 'dashboard#merge_requests') do
 -    = link_to assigned_mrs_dashboard_path, title: 'Merge Requests', class: 'dashboard-shortcuts-merge_requests' do
-+    = link_to assigned_mrs_dashboard_path, title: 'マージリクエスト', class: 'dashboard-shortcuts-merge_requests' do
++    = link_to assigned_mrs_dashboard_path, title: '머지 요청', class: 'dashboard-shortcuts-merge_requests' do
        %span
 -        Merge Requests
 +        머지 요청
@@ -6617,7 +6617,7 @@ index 6d514f6..a9cbf46 100644
 +      = link_to profile_notifications_path, title: '통지' do
          %span
 -          Notifications
-+          通知
++          알림
  
      = nav_link(controller: :keys) do
 -      = link_to profile_keys_path, title: 'SSH Keys' do
@@ -6773,13 +6773,13 @@ index 52a5bdc..ee69201 100644
          Webhooks
    = nav_link(controller: :services) do
 -    = link_to namespace_project_services_path(@project.namespace, @project), title: 'Services' do
-+    = link_to namespace_project_services_path(@project.namespace, @project), title: 'サービス' do
++    = link_to namespace_project_services_path(@project.namespace, @project), title: '서비스' do
        %span
 -        Services
 +        서비스
    = nav_link(controller: :protected_branches) do
 -    = link_to namespace_project_protected_branches_path(@project.namespace, @project), title: 'Protected Branches' do
-+    = link_to namespace_project_protected_branches_path(@project.namespace, @project), title: '保護ブランチ' do
++    = link_to namespace_project_protected_branches_path(@project.namespace, @project), title: '보호된 브랜치' do
        %span
 -        Protected Branches
 +        브랜치 보호
@@ -7005,7 +7005,7 @@ index c0c07d6..93e8ffb 100644
            = commit.safe_message
  
 -  %h4 #{pluralize @message.diffs_count, "changed file"}:
-+  %h4 #{pluralize @message.diffs_count, "changed 파일"}:
++  %h4 #{pluralize @message.diffs_count, "changed file"}:
  
    %ul
      - @message.diffs.each_with_index do |diff, i|
@@ -7027,7 +7027,7 @@ index 5ac23aa..b840ba1 100644
    \
    \
 -  #{pluralize @message.diffs_count, "changed file"}:
-+  #{pluralize @message.diffs_count, "changed 파일"}:
++  #{pluralize @message.diffs_count, "changed file"}:
    \
    - @message.diffs.each do |diff|
      - if diff.deleted_file
@@ -7160,7 +7160,7 @@ index c80f224..63b894c 100644
 +          계정을 삭제하면 다음과 같은 효과가 있습니다:
          %ul
 -          %li All user content like authored issues, snippets, comments will be removed
-+          % li이 사용자가 작성한 이슈, 스니펫, 코멘트 등 모든 콘텐츠가 삭제됩니다.
++          %li 사용자가 작성한 이슈, 스니펫, 코멘트 등 모든 콘텐츠가 삭제됩니다.
            - rp = current_user.personal_projects.count
            - unless rp.zero?
 -            %li #{pluralize rp, 'personal project'} will be removed and cannot be restored
@@ -7265,7 +7265,7 @@ index 6ea358d..59da57b 100644
 -      = f.label :key, class: 'label-light'
 -      = f.text_area :key, class: "form-control", rows: 8, required: true, placeholder: "Don't paste the private part of the SSH key. Paste the public part, which is usually contained in the file '~/.ssh/id_rsa.pub' and begins with 'ssh-rsa'."
 +      = f.label :key, '키', class: 'label-light'
-+      = f.text_area :key, class: "form-control", rows: 8, required: true, placeholder: "Don't paste the private part of the SSH key. Paste the public part, which is usually contained in the 파일 '~/.ssh/id_rsa.pub' and begins with 'ssh-rsa'."
++      = f.text_area :key, class: "form-control", rows: 8, required: true, placeholder: "Don't paste the private part of the SSH key. Paste the public part, which is usually contained in the file '~/.ssh/id_rsa.pub' and begins with 'ssh-rsa'."
      .form-group
 -      = f.label :title, class: 'label-light'
 +      = f.label :title, '제목', class: 'label-light'
@@ -7483,7 +7483,7 @@ index 05a2ea6..5ac6afa 100644
      %p
        You can also use personal access tokens to authenticate against Git over HTTP.
 -      They are the only accepted password when you have Two-Factor Authentication (2FA) enabled.
-+      They are the only accepted password when you have Two-Factor Authentication (2FA) を利用.
++      They are the only accepted password when you have Two-Factor Authentication (2FA) enabled.
  
    .col-lg-9
  
@@ -7698,7 +7698,7 @@ index d9fa74f..1c8b0aa 100644
        .prepend-top-default.append-bottom-default
 -        = f.submit 'Update profile settings', class: "btn btn-success"
 -        = link_to "Cancel", user_path(current_user), class: "btn btn-cancel"
-+        = f.submit 'profile settingsを 수정', class: "btn btn-success"
++        = f.submit 'Update profile settings', class: "btn btn-success"
 +        = link_to "취소", user_path(current_user), class: "btn btn-cancel"
  
  .modal.modal-profile-crop
@@ -8188,7 +8188,7 @@ index 4bd8506..466fb5d 100644
  
        - if can_remove_branch?(@project, branch.name)
 -        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "Delete branch", method: :delete, data: { confirm: "Deleting the '#{branch.name}' branch cannot be undone. Are you sure?", container: 'body' }, remote: true do
-+        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "ブランチを削除", method: :delete, data: { confirm: "Deleting the '#{branch.name}' ブランチ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
++        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "브랜치 삭제", method: :delete, data: { confirm: "Deleting the '#{branch.name}' ブランチ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
            = icon("trash-o")
  
      - if branch.name != @repository.root_ref
@@ -8943,7 +8943,7 @@ index e751dab..d2a7067 100644
      Showing
      = link_to '#', class: 'js-toggle-button' do
 -      %strong #{pluralize(diff_files.size, "changed file")}
-+      %strong #{pluralize(diff_files.size, "changed 파일")}
++      %strong #{pluralize(diff_files.size, "changed file")}
      with
      %strong.cgreen #{diff_files.sum(&:added_lines)} additions
      and
@@ -9477,13 +9477,13 @@ index a1d79bd..03febb7 100644
 +        = link_to namespace_project_path(current_user, current_user.fork_of(@project)), title: '포크로 이동', class: 'btn btn-new' do
            = custom_icon('icon_fork')
 -          Fork
-+          フォーク
++          포크
        - else
 -        = link_to new_namespace_project_fork_path(@project.namespace, @project), title: "Fork project", class: 'btn btn-new' do
 +        = link_to new_namespace_project_fork_path(@project.namespace, @project), title: "Fork 프로젝트", class: 'btn btn-new' do
            = custom_icon('icon_fork')
 -          Fork
-+          フォーク
++          포크
  
  
  = render 'projects', projects: @forks
@@ -9905,17 +9905,17 @@ index 9f1a046..b55b2f3 100644
          - if can?(current_user, :create_issue, @project)
 -          = link_to new_namespace_project_issue_path(@project.namespace, @project), class: 'hidden-xs hidden-sm btn btn-grouped new-issue-link btn-new btn-inverted', title: 'New issue', id: 'new_issue_link' do
 -            New issue
-+          = link_to new_namespace_project_issue_path(@project.namespace, @project), class: 'hidden-xs hidden-sm btn btn-grouped new-issue-link btn-new btn-inverted', title: '新しい課題', id: 'new_issue_link' do
++          = link_to new_namespace_project_issue_path(@project.namespace, @project), class: 'hidden-xs hidden-sm btn btn-grouped new-issue-link btn-new btn-inverted', title: '새로운 이슈', id: 'new_issue_link' do
 +            새로운 이슈
          - if can?(current_user, :update_issue, @issue)
 -          = link_to 'Reopen issue', issue_path(@issue, issue: { state_event: :reopen }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-reopen #{issue_button_visibility(@issue, false)}", title: 'Reopen issue'
 -          = link_to 'Close issue', issue_path(@issue, issue: { state_event: :close }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-close #{issue_button_visibility(@issue, true)}", title: 'Close issue'
-+          = link_to '이슈 재오픈', issue_path(@issue, issue: { state_event: :reopen }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-reopen #{issue_button_visibility(@issue, false)}", title: 'Reopen 課題'
-+          = link_to '이슈 닫기', issue_path(@issue, issue: { state_event: :close }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-close #{issue_button_visibility(@issue, true)}", title: 'Close 課題'
++          = link_to '이슈 재오픈', issue_path(@issue, issue: { state_event: :reopen }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-reopen #{issue_button_visibility(@issue, false)}", title: '이슈 다시열기'
++          = link_to '이슈 닫기', issue_path(@issue, issue: { state_event: :close }, status_only: true, format: 'json'), data: {no_turbolink: true}, class: "hidden-xs hidden-sm btn btn-grouped btn-close #{issue_button_visibility(@issue, true)}", title: '이슈 닫기'
            - if @issue.submittable_as_spam? && current_user.admin?
--            = link_to '스팸 메일로 제출', mark_as_spam_namespace_project_issue_path(@project.namespace, @project, @issue), method: :post, class: 'hidden-xs hidden-sm btn btn-grouped btn-spam', title: 'Submit as spam'
+-            = link_to 'Submit as spam', mark_as_spam_namespace_project_issue_path(@project.namespace, @project, @issue), method: :post, class: 'hidden-xs hidden-sm btn btn-grouped btn-spam', title: 'Submit as spam'
 -          = link_to 'Edit', edit_namespace_project_issue_path(@project.namespace, @project, @issue), class: 'hidden-xs hidden-sm btn btn-grouped issuable-edit'
-+            = link_to 'as spamを送信', mark_as_spam_namespace_project_issue_path(@project.namespace, @project, @issue), method: :post, class: 'hidden-xs hidden-sm btn btn-grouped btn-spam', title: 'Submit as spam'
++            = link_to '스팸 메일로 제출', mark_as_spam_namespace_project_issue_path(@project.namespace, @project, @issue), method: :post, class: 'hidden-xs hidden-sm btn btn-grouped btn-spam', title: 'Submit as spam'
 +          = link_to '편집', edit_namespace_project_issue_path(@project.namespace, @project, @issue), class: 'hidden-xs hidden-sm btn btn-grouped issuable-edit'
  
  
@@ -10617,7 +10617,7 @@ index cbf1ba0..fc6bfcf 100644
 +        = f.label :due_date, "마감일", class: "control-label"
          .col-sm-10
 -          = f.text_field :due_date, class: "datepicker form-control", placeholder: "Select due date"
-+          = f.text_field :due_date, class: "datepicker form-control", placeholder: "due dateを選択"
++          = f.text_field :due_date, class: "datepicker form-control", placeholder: "due date 선택"
            %a.inline.prepend-top-5.js-clear-due-date{ href: "#" } Clear due date
  
    .form-actions
@@ -10651,7 +10651,7 @@ index be68222..1c0f10c 100644
  
  %h3.page-title
 -  Edit Milestone ##{@milestone.iid}
-+  Milestone ##{@milestone.iid}を編集
++  ##{@milestone.iid} 마일스톤 편집
  
  %hr
  
@@ -11364,7 +11364,7 @@ index a9e27df..d87331c 100644
 -      = link_to '#', title: "New Protected Branch", class: "create-new-protected-branch" do
 -        Create wildcard
 +      = link_to '#', title: "새로운 보호 브랜치", class: "create-new-protected-branch" do
-+        wildcardを作成
++        wildcard 생성
          %code
 diff --git a/app/views/projects/protected_branches/_protected_branch.html.haml b/app/views/projects/protected_branches/_protected_branch.html.haml
 index 0628134..3bb27b6 100644
@@ -11768,18 +11768,18 @@ index 340e159..5286a24 100644
          %li.missing
            = link_to add_special_file_path(@project, file_name: 'CHANGELOG') do
 -            Add Changelog
-+            추가 변경로그
++            변경로그 추가
        - unless @repository.license_blob
          %li.missing
            = link_to add_special_file_path(@project, file_name: 'LICENSE') do
 -            Add License
-+            추가 라이센스
++            라이센스 추가
        - unless @repository.contribution_guide
          %li.missing
 -          = link_to add_special_file_path(@project, file_name: 'CONTRIBUTING.md', commit_message: 'Add contribution guide') do
 -            Add Contribution guide
-+          = link_to add_special_file_path(@project, file_name: 'CONTRIBUTING.md', commit_message: 'contribution guideを追加') do
-+            추가 contribution 가이드
++          = link_to add_special_file_path(@project, file_name: 'CONTRIBUTING.md', commit_message: 'contribution guide 추가') do
++            컨트리뷰션 가이드 추가
        - unless @repository.gitlab_ci_yml
          %li.missing
            = link_to add_special_file_path(@project, file_name: '.gitlab-ci.yml') do
@@ -11792,7 +11792,7 @@ index bdbf3e5..d8a967d 100644
    - if can?(current_user, :create_project_snippet, @project)
 -    = link_to new_namespace_project_snippet_path(@project.namespace, @project), class: 'btn btn-grouped btn-create new-snippet-link', title: "New Snippet" do
 -      New Snippet
-+    = link_to new_namespace_project_snippet_path(@project.namespace, @project), class: 'btn btn-grouped btn-create new-snippet-link', title: "新しいスニペット" do
++    = link_to new_namespace_project_snippet_path(@project.namespace, @project), class: 'btn btn-grouped btn-create new-snippet-link', title: "새로운 스니펫" do
 +      새로운 스니펫
    - if can?(current_user, :update_project_snippet, @snippet)
      = link_to edit_namespace_project_snippet_path(@project.namespace, @project, @snippet), class: "btn btn-grouped snippable-edit" do
@@ -11801,7 +11801,7 @@ index bdbf3e5..d8a967d 100644
    - if can?(current_user, :update_project_snippet, @snippet)
 -    = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-grouped btn-warning", title: 'Delete Snippet' do
 -      Delete
-+    = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "정말 하시겠습니까?" }, class: "btn btn-grouped btn-warning", title: 'スニペットを削除' do
++    = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "정말 하시겠습니까?" }, class: "btn btn-grouped btn-warning", title: '스니펫 삭제' do
 +      삭제
  - if can?(current_user, :create_project_snippet, @project) || can?(current_user, :update_project_snippet, @snippet)
    .visible-xs-block.dropdown
@@ -11812,7 +11812,7 @@ index bdbf3e5..d8a967d 100644
            %li
 -            = link_to new_namespace_project_snippet_path(@project.namespace, @project), title: "New Snippet" do
 -              New Snippet
-+            = link_to new_namespace_project_snippet_path(@project.namespace, @project), title: "新しいスニペット" do
++            = link_to new_namespace_project_snippet_path(@project.namespace, @project), title: "새로운 스니펫" do
 +              새로운 스니펫
          - if can?(current_user, :update_project_snippet, @snippet)
            %li
@@ -11823,7 +11823,7 @@ index bdbf3e5..d8a967d 100644
            %li
 -            = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "Are you sure?" }, title: 'Delete Snippet' do
 -              Delete
-+            = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "정말 하시겠습니까?" }, title: 'スニペットを削除' do
++            = link_to namespace_project_snippet_path(@project.namespace, @project, @snippet), method: :delete, data: { confirm: "정말 하시겠습니까?" }, title: '스니펫 삭제' do
 +              삭제
 diff --git a/app/views/projects/snippets/edit.html.haml b/app/views/projects/snippets/edit.html.haml
 index 216f70f..b599a50 100644
@@ -11904,12 +11904,12 @@ index 2c11c0e..156c4c5 100644
  
        - if can?(current_user, :push_code, @project)
 -        = link_to edit_namespace_project_tag_release_path(@project.namespace, @project, tag.name), class: 'btn has-tooltip', title: "Edit release notes", data: { container: "body" } do
-+        = link_to edit_namespace_project_tag_release_path(@project.namespace, @project, tag.name), class: 'btn has-tooltip', title: "release notesを編集", data: { container: "body" } do
++        = link_to edit_namespace_project_tag_release_path(@project.namespace, @project, tag.name), class: 'btn has-tooltip', title: "release notes 편집", data: { container: "body" } do
            = icon("pencil")
  
        - if can?(current_user, :admin_project, @project)
 -        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "Delete tag", method: :delete, data: { confirm: "Deleting the '#{tag.name}' tag cannot be undone. Are you sure?", container: 'body' }, remote: true do
-+        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "タグを削除", method: :delete, data: { confirm: "Deleting the '#{tag.name}' タグ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
++        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "태그 삭제", method: :delete, data: { confirm: "Deleting the '#{tag.name}' タグ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
            = icon("trash-o")
  
    - if commit
@@ -12120,7 +12120,7 @@ index 1c5f8b3..92fe4f4 100644
                %li
                  - continue_params = { to:         request.fullpath,
 -                                      notice:     edit_in_new_fork_notice + " Try to upload a file again.",
-+                                      notice:     edit_in_new_fork_notice + " Try to upload a ファイル again.",
++                                      notice:     edit_in_new_fork_notice + " Try to upload a file again.",
                                        notice_now: edit_in_new_fork_notice_now }
                  - fork_path = namespace_project_forks_path(@project.namespace, @project, namespace_key:  current_user.namespace.id,
                                                                                          continue:       continue_params)
@@ -12131,7 +12131,7 @@ index 1c5f8b3..92fe4f4 100644
                %li
                  - continue_params = { to:         request.fullpath,
 -                                      notice:     edit_in_new_fork_notice + " Try to create a new directory again.",
-+                                      notice:     edit_in_new_fork_notice + " Try to create a new ディレクトリ again.",
++                                      notice:     edit_in_new_fork_notice + " Try to create a new directory again.",
                                        notice_now: edit_in_new_fork_notice_now }
                  - fork_path = namespace_project_forks_path(@project.namespace, @project, namespace_key:  current_user.namespace.id,
                                                                                          continue:       continue_params)
@@ -12238,7 +12238,7 @@ index 6c43f82..7d48c39 100644
        %col{ width: 100 }
      %thead
 -      %th Key
-+      %th キー
++      %th 키
        %th Value
        %th
      %tbody
@@ -12652,7 +12652,7 @@ index ef1c029..42346d9 100644
          = @project.name_with_namespace
        - else
 -        Any
-+        指定なし
++        지정없음
      = icon("chevron-down")
    .dropdown-menu.dropdown-select.dropdown-menu-selectable.dropdown-menu-align-right
 -    = dropdown_title("Filter results by project")
@@ -12984,7 +12984,7 @@ index bb5fff2..2672563 100644
  - if cookies[:hide_no_ssh_message].blank? && !current_user.hide_no_ssh_key && current_user.require_ssh_key?
    .no-ssh-key-message.alert.alert-warning.hidden-xs
 -    You won't be able to pull or push project code via SSH until you #{link_to 'add an SSH key', profile_keys_path, class: 'alert-link'} to your profile
-+    프로필에 #{link_to 'SSH 키를 추가', profile_keys_path, class : 'alert-link'} 할 때까지 프로젝트의 코드를 SSH를 통해 풀 푸시 할 수 없습니다
++    You won't be able to pull or push project code via SSH until you #{link_to 'add an SSH key', profile_keys_path, class: 'alert-link'} to your profile
  
      .pull-right
 -      = link_to "Don't show again", profile_path(user: {hide_no_ssh_key: true}), method: :put, class: 'alert-link'
@@ -13107,7 +13107,7 @@ index 4f8ea7e..b44b46d 100644
 +                신규 리스트 생성
                .dropdown-menu.dropdown-menu-paging.dropdown-menu-align-right.dropdown-menu-issues-board-new.dropdown-menu-selectable
 -                = render partial: "shared/issuable/label_page_default", locals: { show_footer: true, show_create: true, show_boards_content: true, title: "Create a new list" }
-+                = render partial: "shared/issuable/label_page_default", locals: { show_footer: true, show_create: true, show_boards_content: true, title: "new listを作成" }
++                = render partial: "shared/issuable/label_page_default", locals: { show_footer: true, show_create: true, show_boards_content: true, title: "새로운 리스트 작성" }
                  - if can?(current_user, :admin_label, @project)
                    = render partial: "shared/issuable/label_page_create"
                  = dropdown_loading
@@ -13130,12 +13130,12 @@ index 4f8ea7e..b44b46d 100644
                placeholder: "Search authors", data: { first_user: (current_user.username if current_user), null_user: true, current_user: true, project_id: @project.id, field_name: "update[assignee_id]" } })
            .filter-item.inline
 -            = dropdown_tag("Milestone", options: { title: "Assign milestone", toggle_class: 'js-milestone-select js-extra-options js-filter-submit js-filter-bulk-update', filter: true, dropdown_class: "dropdown-menu-selectable dropdown-menu-milestone", placeholder: "Search milestones", data: { show_no: true, field_name: "update[milestone_id]", project_id: @project.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), use_id: true } })
-+            = dropdown_tag("마일스톤", options: { title: "Assign 마일스톤", toggle_class: 'js-milestone-select js-extra-options js-filter-submit js-filter-bulk-update', filter: true, dropdown_class: "dropdown-menu-selectable dropdown-menu-milestone", placeholder: "Search マイルストーン", data: { show_no: true, field_name: "update[milestone_id]", project_id: @project.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), use_id: true } })
++            = dropdown_tag("마일스톤", options: { title: "Assign 마일스톤", toggle_class: 'js-milestone-select js-extra-options js-filter-submit js-filter-bulk-update', filter: true, dropdown_class: "dropdown-menu-selectable dropdown-menu-milestone", placeholder: "마일스톤 검색", data: { show_no: true, field_name: "update[milestone_id]", project_id: @project.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), use_id: true } })
            .filter-item.inline.labels-filter
              = render "shared/issuable/label_dropdown", classes: ['js-filter-bulk-update', 'js-multiselect'], show_create: false, show_footer: false, extra_options: false, filter_submit: false, data_options: { persist_when_hide: "true", field_name: "update[label_ids][]", show_no: false, show_any: false, use_id: true }
            .filter-item.inline
 -            = dropdown_tag("Subscription", options: { toggle_class: "js-subscription-event", title: "Change subscription", dropdown_class: "dropdown-menu-selectable", data: { field_name: "update[subscription_event]" } } ) do
-+            = dropdown_tag("Subscription", options: { toggle_class: "js-subscription-event", title: "subscriptionを変更", dropdown_class: "dropdown-menu-selectable", data: { field_name: "update[subscription_event]" } } ) do
++            = dropdown_tag("Subscription", options: { toggle_class: "js-subscription-event", title: "subscription 변경", dropdown_class: "dropdown-menu-selectable", data: { field_name: "update[subscription_event]" } } ) do
                %ul
                  %li
                    %a{href: "#", data: {id: "subscribe"}} Subscribe
@@ -13210,7 +13210,7 @@ index 5ea0204..2980206 100644
                  first_user: true, current_user: true, include_blank: true)
            %div
 -            = link_to 'Assign to me', '#', class: 'assign-to-me-link prepend-top-5 inline'
-+            = link_to '自分に割り当てる', '#', class: 'assign-to-me-link prepend-top-5 inline'
++            = link_to '나에게 할당', '#', class: 'assign-to-me-link prepend-top-5 inline'
        .form-group.issue-milestone
 -        = f.label :milestone_id, "Milestone", class: "control-label #{"col-lg-4" if has_due_date}"
 +        = f.label :milestone_id, "마일스톤", class: "control-label #{"col-lg-4" if has_due_date}"
@@ -13435,17 +13435,17 @@ index 1d9b09a..ee5db37 100644
    - if defined?(type) && type == :merge_requests
      %li{class: ("active" if params[:state] == 'merged')}
 -      = link_to page_filter_path(state: 'merged', label: true), title: 'Filter by merge requests that are currently merged.' do
-+      = link_to page_filter_path(state: 'merged', label: true), title: 'Filter by マージリクエスト that are currently merged.' do
++      = link_to page_filter_path(state: 'merged', label: true), title: 'Filter by merge requests that are currently merged.' do
          #{state_filters_text_for(:merged, @project)}
  
      %li{class: ("active" if params[:state] == 'closed')}
 -      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by merge requests that are currently closed and unmerged.' do
-+      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by マージリクエスト that are currently closed and unmerged.' do
++      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by merge requests that are currently closed and unmerged.' do
          #{state_filters_text_for(:closed, @project)}
    - else
      %li{class: ("active" if params[:state] == 'closed')}
 -      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by issues that are currently closed.' do
-+      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by 課題 that are currently closed.' do
++      = link_to page_filter_path(state: 'closed', label: true), title: 'Filter by issues that are currently closed.' do
          #{state_filters_text_for(:closed, @project)}
  
    %li{class: ("active" if params[:state] == 'all')}
@@ -13484,7 +13484,7 @@ index c1b50e6..10c0827 100644
          = sidebar_gutter_toggle_icon
        - if current_user
 -        %button.btn.btn-default.issuable-header-btn.pull-right.js-issuable-todo{ type: "button", aria: { label: (todo.nil? ? "Add Todo" : "Mark Done") }, data: { todo_text: "Add Todo", mark_text: "Mark Done", issuable_id: issuable.id, issuable_type: issuable.class.name.underscore, url: namespace_project_todos_path(@project.namespace, @project), delete_path: (dashboard_todo_path(todo) if todo) } }
-+        %button.btn.btn-default.issuable-header-btn.pull-right.js-issuable-todo{ type: "button", aria: { label: (todo.nil? ? "Todoを追加" : "Mark Done") }, data: { todo_text: "Add ToDo", mark_text: "Mark 完了", issuable_id: issuable.id, issuable_type: issuable.class.name.underscore, url: namespace_project_todos_path(@project.namespace, @project), delete_path: (dashboard_todo_path(todo) if todo) } }
++        %button.btn.btn-default.issuable-header-btn.pull-right.js-issuable-todo{ type: "button", aria: { label: (todo.nil? ? "Todo 추가" : "Mark Done") }, data: { todo_text: "Add ToDo", mark_text: "Mark 完了", issuable_id: issuable.id, issuable_type: issuable.class.name.underscore, url: namespace_project_todos_path(@project.namespace, @project), delete_path: (dashboard_todo_path(todo) if todo) } }
            %span.js-issuable-todo-text
              - if todo
 -              Mark Done
@@ -13522,7 +13522,7 @@ index c1b50e6..10c0827 100644
          .selectbox.hide-collapsed
            = f.hidden_field 'assignee_id', value: issuable.assignee_id, id: 'issue_assignee_id'
 -          = dropdown_tag('Select assignee', options: { toggle_class: 'js-user-search js-author-search', title: 'Assign to', filter: true, dropdown_class: 'dropdown-menu-user dropdown-menu-selectable dropdown-menu-author', placeholder: 'Search users', data: { first_user: (current_user.username if current_user), current_user: true, project_id: (@project.id if @project), author_id: issuable.author_id, field_name: "#{issuable.to_ability_name}[assignee_id]", issue_update: issuable_json_path(issuable), ability_name: issuable.to_ability_name, null_user: true } })
-+          = dropdown_tag('담당자를 선택', options: { toggle_class: 'js-user-search js-author-search', title: 'Assign to', filter: true, dropdown_class: 'dropdown-menu-user dropdown-menu-selectable dropdown-menu-author', placeholder: 'Search ユーザ', data: { first_user: (current_user.username if current_user), current_user: true, project_id: (@project.id if @project), author_id: issuable.author_id, field_name: "#{issuable.to_ability_name}[assignee_id]", issue_update: issuable_json_path(issuable), ability_name: issuable.to_ability_name, null_user: true } })
++          = dropdown_tag('담당자를 선택', options: { toggle_class: 'js-user-search js-author-search', title: 'Assign to', filter: true, dropdown_class: 'dropdown-menu-user dropdown-menu-selectable dropdown-menu-author', placeholder: '사용자 검색', data: { first_user: (current_user.username if current_user), current_user: true, project_id: (@project.id if @project), author_id: issuable.author_id, field_name: "#{issuable.to_ability_name}[assignee_id]", issue_update: issuable_json_path(issuable), ability_name: issuable.to_ability_name, null_user: true } })
  
        .block.milestone
          .sidebar-collapsed-icon
@@ -13544,7 +13544,7 @@ index c1b50e6..10c0827 100644
          .selectbox.hide-collapsed
            = f.hidden_field 'milestone_id', value: issuable.milestone_id, id: nil
 -          = dropdown_tag('Milestone', options: { title: 'Assign milestone', toggle_class: 'js-milestone-select js-extra-options', filter: true, dropdown_class: 'dropdown-menu-selectable', placeholder: 'Search milestones', data: { show_no: true, field_name: "#{issuable.to_ability_name}[milestone_id]", project_id: @project.id, issuable_id: issuable.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), ability_name: issuable.to_ability_name, issue_update: issuable_json_path(issuable), use_id: true }})
-+          = dropdown_tag('마일스톤', options: { title: 'Assign 마일스톤', toggle_class: 'js-milestone-select js-extra-options', filter: true, dropdown_class: 'dropdown-menu-selectable', placeholder: 'Search マイルストーン', data: { show_no: true, field_name: "#{issuable.to_ability_name}[milestone_id]", project_id: @project.id, issuable_id: issuable.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), ability_name: issuable.to_ability_name, issue_update: issuable_json_path(issuable), use_id: true }})
++          = dropdown_tag('마일스톤', options: { title: 'Assign 마일스톤', toggle_class: 'js-milestone-select js-extra-options', filter: true, dropdown_class: 'dropdown-menu-selectable', placeholder: '마일스톤 검색', data: { show_no: true, field_name: "#{issuable.to_ability_name}[milestone_id]", project_id: @project.id, issuable_id: issuable.id, milestones: namespace_project_milestones_path(@project.namespace, @project, :json), ability_name: issuable.to_ability_name, issue_update: issuable_json_path(issuable), use_id: true }})
  
        - if issuable.has_attribute?(:due_date)
          .block.due_date
@@ -13851,7 +13851,7 @@ index b7f8551..58ea5d9 100644
 -      = link_to filter_projects_path(namespace_id: namespace_id, sort: @sort, archived: true), class: ("is-active" if params[:archived].present?) do
 -        Show archived projects
 +      = link_to filter_projects_path(namespace_id: namespace_id, 정렬: @sort, archived: true), class: ("is-active" if params[:archived].present?) do
-+        アーカイブされた프로젝트を表示
++        아카이브된 프로젝트 보기
      - if current_user
        %li.divider
        %li
@@ -14241,7 +14241,7 @@ index 0000000..ca863f7
 +ja:
 +  devise:
 +    confirmations:
-+      confirmed: 'アカウントを登録しました。'
++      confirmed: '계정을 등록했습니다.'
 +#      confirmed: 'Your account was successfully confirmed. You are now signed in.'
 +      send_instructions: '등록 방법을 몇 분 이내에 메일로 보내드립니다.'
 +#      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
@@ -14279,7 +14279,7 @@ index 0000000..ca863f7
 +    omniauth_callbacks:
 +      success: '%{kind} 계정에 의한 개인 인증에 성공했습니다.'
 +#      success: 'Successfully authenticated from %{kind} account.'
-+      failure: '%{kind} 계정에 의한 개인 인증에 실패했습니다%{reason}）。'
++      failure: '%{kind} 계정에 의한 개인 인증에 실패했습니다. 원인:%{reason}）'
 +#      failure: 'Could not authenticate you from %{kind} because "%{reason}".'
 +    passwords:
 +      no_token: "이 페이지에 액세스 할 수 없습니다. 비밀번호 복구 이메일의 링크를 복사 한 경우에는 올바른 URL 여부를 확인하시기 바랍니다."
@@ -14303,7 +14303,7 @@ index 0000000..ca863f7
 +#      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
 +      signed_up_but_unconfirmed: '본인 확인 용 이메일이 귀하의 E 메일 주소로 보냈습니다. 메일의 링크에서 계정 활성화시켜주십시오.'
 +#      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
-+      updated: 'アカウント情報を変更しました。'
++      updated: '계정 정보를 변경했습니다.'
 +#      updated: 'You updated your account successfully.'
 +      update_needs_confirmation: "계정 정보를 변경했지만, E 메일 주소 물어볼 E 메일을 보내 했으므로, 웹 링크를 클릭하여 증명하십시오."
 +#      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
@@ -14332,9 +14332,9 @@ index 0000000..ca863f7
 +      not_locked: "락 되어있지 않습니다."
 +#      not_locked: "was not locked"
 +      not_saved:
-+        one: "1 하나의 오류로 인해 %{resource} は保存されませんでした:"
++        one: "하나의 오류로 인해 %{resource}는 저장되지 않았습니다:"
 +#        one: "1 error prohibited this %{resource} from being saved:"
-+        other: "%{count} 하나의 오류로 인해 %{resource} は保存されませんでした:"
++        other: "%{count}개의 오류로 인해 %{resource}는 저장되지 않았습니다"
 +#        other: "%{count} errors prohibited this %{resource} from being saved:"
 diff --git a/config/locales/ja.yml b/config/locales/ja.yml
 new file mode 100644
@@ -14514,11 +14514,11 @@ index 0000000..cee0bea
 +      storage_units:
 +        format: "%n%u"
 +        units:
-+          byte: 바이트
-+          gb: 기가 바이트
-+          kb: 키로 바이트
-+          mb: 메가 바이트
-+          tb: 테라 바이트
++          byte: Byte
++          gb: GB
++          kb: KB
++          mb: MB
++          tb: TB
 +    percentage:
 +      format:
 +        delimiter: ''
@@ -14597,7 +14597,7 @@ index 452cf1c..48c2b51 100644
  - [Container Registry](container_registry/README.md) Learn how to use GitLab Container Registry.
 -- [GitLab Basics](gitlab-basics/README.md) Find step by step how to start working on your commandline and on GitLab.
 -- [Importing to GitLab](workflow/importing/README.md).
-+- [깃랩의 기본](gitlab-basics/README.md) コマンドラインとGitLabでの作業の始め方をステップバイステップで説明します。
++- [깃랩의 기본](gitlab-basics/README.md) 명령 줄과 GitLab에서 작업 시작 방법을 단계별로 설명합니다.
 +- [깃랩에서 가져 오기](workflow/importing/README.md).
  - [Importing and exporting projects between instances](user/project/settings/import_export.md).
 -- [Markdown](user/markdown.md) GitLab's advanced formatting system.
@@ -15393,7 +15393,7 @@ index 5221d85..eb7ad92 100644
  ![Submit new issue](basicsimages/submit_new_issue.png)
  
 -Your Issue will now be added to the Issue Tracker and will be ready to be reviewed. You can comment on it and mention the people involved. You can also link Issues to the Merge Requests where the Issues are solved. To do this, you can use an [Issue closing pattern](http://docs.gitlab.com/ce/customization/issue_closing.html).
-+Your Issue will now be added to the Issue Tracker and will be ready to be reviewed. You can comment on it and mention the people involved. You can also link Issues to the マージリクエスト where the Issues are solved. To do this, you can use an [Issue closing pattern](http://docs.gitlab.com/ce/customization/issue_closing.html).
++Your Issue will now be added to the Issue Tracker and will be ready to be reviewed. You can comment on it and mention the people involved. You can also link Issues to the Merge Requests where the Issues are solved. To do this, you can use an [Issue closing pattern](http://docs.gitlab.com/ce/customization/issue_closing.html).
 diff --git a/doc/incoming_email/README.md b/doc/incoming_email/README.md
 index 5a9a158..af8c4ec 100644
 --- a/doc/incoming_email/README.md
@@ -15681,7 +15681,7 @@ index b626c74..8bed0e3 100644
  | `Username` | The username of the user created in [configuring JIRA step](#configuring-jira). |
  | `Password` |The password of the user created in [configuring JIRA step](#configuring-jira). |
 -| `JIRA issue transition` | This setting is very important to set up correctly. It is the ID of a transition that moves issues to a closed state. You can find this number under the JIRA workflow administration (**Administration > Issues > Workflows**) by selecting **View** under **Operations** of the desired workflow of your project. The ID of each state can be found inside the parenthesis of each transition name under the **Transitions (id)** column ([see screenshot][trans]). By default, this ID is set to `2`. |
-+| `JIRA issue transition` | This setting is very important to set up correctly. It is the ID of a transition that moves issues to a closed state. You can find this number under the JIRA workflow administration (**Administration > Issues > ワークフローs**) by selecting **View** under **Operations** of the desired workflow of your project. The ID of each state can be found inside the parenthesis of each transition name under the **Transitions (id)** column ([see screenshot][trans]). By default, this ID is set to `2`. |
++| `JIRA issue transition` | This setting is very important to set up correctly. It is the ID of a transition that moves issues to a closed state. You can find this number under the JIRA workflow administration (**Administration > Issues > 워크플로우**) by selecting **View** under **Operations** of the desired workflow of your project. The ID of each state can be found inside the parenthesis of each transition name under the **Transitions (id)** column ([see screenshot][trans]). By default, this ID is set to `2`. |
  
  After saving the configuration, your GitLab project will be able to interact
  with the linked JIRA project.
@@ -16135,16 +16135,16 @@ index 9206699..539ca31 100644
 +1.  깃랩 인스턴스를 다시 시작합니다.
  
 -By default, user sign-in, user sign-up(if enabled) and user password reset is limited to 6 requests per minute. After trying for 6 times, client will have to wait for the next minute to be able to try again. These settings can be found in `config/initializers/rack_attack.rb`
-+또한 제한을 엄격 또는 느슨한 스로틀 규칙을 설정하려면`limit` 또는`period` 값을 변경합니다. 예를 들어, limit : 3, period : 1.second로 설정하면 더 느슨한 스로틀 규칙입니다 (이것은 초 3 요청 제한됩니다). 또 다른 경로를 보호 대상으로하고 싶다면`paths_to_be_protected` 변수에 경로를 추가합니다. 이러한 설정을 변경 한 후에는 GitLab 인스턴스를 다시 시작해야합니다.
++By default, user sign-in, user sign-up(if enabled) and user password reset is limited to 6 requests per minute. After trying for 6 times, client will have to wait for the next minute to be able to try again. These settings can be found in `config/initializers/rack_attack.rb`
  
 -If you want more restrictive/relaxed throttle rule change the `limit` or `period` values. For example, more relaxed throttle rule will be if you set limit: 3 and period: 1.second(this will allow 3 requests per second). You can also add other paths to the protected list by adding to `paths_to_be_protected` variable. If you change any of these settings do not forget to restart your GitLab instance.
-+さらに制限を厳しい、または緩いスロットル・ルールを設定したい場合は、 `limit` または `period` の値を変更します。例えば、 limit: 3 、 period: 1.second と設定するとより緩やかなスロットル・ルールになります(これは秒間 3 リクエストの制限になります)。 さらに他のパスを保護の対象としたい場合は `paths_to_be_protected` 変数にパスを追加します。これらの設定を変更した後は、GitLabインスタンスを再起動する必要があります。
++If you want more restrictive/relaxed throttle rule change the `limit` or `period` values. For example, more relaxed throttle rule will be if you set limit: 3 and period: 1.second(this will allow 3 requests per second). You can also add other paths to the protected list by adding to `paths_to_be_protected` variable. If you change any of these settings do not forget to restart your GitLab instance.
  
 -In case you find throttling is not enough to protect you against abusive clients, rack-attack gem offers IP whitelisting, blacklisting, Fail2ban style filter and tracking.
 +대량 액세스하는 클라이언트로부터 보호하기 위해 스로틀 부족한 경우를 위해 rack-attack gem은 IP 화이트리스트, 블랙리스트, Fail2ban 형식의 필터 및 추적 기능도 갖추고 있습니다.
  
 -For more information on how to use these options check out [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md).
-+이러한 옵션에 대한 더 자세한 정보는 [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md) を参照してください。
++이러한 옵션에 대한 더 자세한 정보는 [rack-attack README](https://github.com/kickstarter/rack-attack/blob/master/README.md) 을 참조하십시오.
 diff --git a/doc/security/two_factor_authentication.md b/doc/security/two_factor_authentication.md
 index c849938..88aff09 100644
 --- a/doc/security/two_factor_authentication.md
@@ -17378,7 +17378,7 @@ index 7fe96e6..3c8f27a 100644
 +## 이미지
  
 -    Here's our logo (hover to see the title text):
-+    우리의 로고입니다 (마우스 오버 제목 문자열을 표시합니다).。
++    우리의 로고입니다 (마우스 오버 제목 문자열을 표시합니다).
  
 -    Inline-style:
 +    인라인 스타일:
@@ -18061,7 +18061,7 @@ index 1b49a5c..7880176 100644
  if they had been mentioned in the original text.
  
 -You won't receive notifications for Issues, Merge Requests or Milestones
-+You won't receive notifications for Issues, マージリクエスト or マイルストーン
++You won't receive notifications for Issues, Merge Requests or Milestones
  created by yourself. You will only receive automatic notifications when
  somebody else comments or adds changes to the ones that you've created or
  mentions you.

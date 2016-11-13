@@ -1593,7 +1593,7 @@ index d929364..f32e909 100644
      .form-group
        .col-sm-offset-2.col-sm-10
 -        = link_to 'Clear all repository checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear repository check states for ALL projects in the database. This cannot be undone. Are you sure?' }, method: :put, class: "btn btn-sm btn-remove"
-+        = link_to 'Clear all 레파지토리 checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear リポジトリ check states for ALL 프로젝트 in the database. This cannot be undone. 정말 하시겠습니까?' }, method: :put, class: "btn btn-sm btn-remove"
++        = link_to 'Clear all 레파지토리 checks', clear_repository_check_states_admin_application_settings_path, data: { confirm: 'This will clear repository check states for ALL 프로젝트 in the database. This cannot be undone. 정말 하시겠습니까?' }, method: :put, class: "btn btn-sm btn-remove"
          .help-block
            If you got a lot of false alarms from repository checks you can choose to clear all repository check information from the database.
  
@@ -3351,7 +3351,7 @@ index 76c9ed0..74b49b0 100644
      .panel.panel-default
        .panel-heading
 -        Account:
-+        アカウント:
++        계정:
        %ul.well-list
          %li
 -          %span.light Name:
@@ -3785,7 +3785,7 @@ index fdea834..300dedf 100644
    %p.blank-state-text
      - if current_user.can_create_project?
 -      You can create up to
-+      あなたは
++      당신은
        %strong= number_with_delimiter(current_user.projects_limit)
 -      = succeed "." do
 -        = "project".pluralize(current_user.projects_limit)
@@ -4018,12 +4018,12 @@ index 9990d1c..b9b1981 100644
      %p
 -      Your GitLab account has been locked due to an excessive amount of unsuccessful
 -      sign in attempts. Your account will automatically unlock in #{time_ago_in_words(Devise.unlock_in.from_now)}
-+      あなたのGitLab account has been locked due to an excessive amount of unsuccessful
-+      sign in attempts. あなたのaccount will automatically unlock in #{time_ago_in_words(Devise.unlock_in.from_now)}
++      Your GitLab account has been locked due to an excessive amount of unsuccessful
++      sign in attempts. Your account will automatically unlock in #{time_ago_in_words(Devise.unlock_in.from_now)}
        or you may click the link below to unlock now.
      #cta
 -      = link_to('Unlock account', unlock_url(@resource, unlock_token: @token))
-+      = link_to('Unlock 계정', unlock_url(@resource, unlock_token: @token))
++      = link_to('Unlock account', unlock_url(@resource, unlock_token: @token))
 diff --git a/app/views/devise/passwords/edit.html.haml b/app/views/devise/passwords/edit.html.haml
 index 56048e9..8ad1082 100644
 --- a/app/views/devise/passwords/edit.html.haml
@@ -6416,7 +6416,7 @@ index 67f558c..bc31184 100644
          %span.count= number_with_delimiter(todos_pending_count)
    = nav_link(path: 'dashboard#activity') do
 -    = link_to activity_dashboard_path, class: 'dashboard-shortcuts-activity', title: 'Activity' do
-+    = link_to activity_dashboard_path, class: 'dashboard-shortcuts-activity', title: 'アクティビティ' do
++    = link_to activity_dashboard_path, class: 'dashboard-shortcuts-activity', title: '활동' do
        %span
 -        Activity
 +        활동
@@ -6459,7 +6459,7 @@ index 67f558c..bc31184 100644
 +        스니펫
    = nav_link(controller: :help) do
 -    = link_to help_path, title: 'Help' do
-+    = link_to help_path, title: 'ヘルプ' do
++    = link_to help_path, title: '도움말' do
        %span
 -        Help
 +        도움말
@@ -7122,7 +7122,7 @@ index c80f224..63b894c 100644
        %label.label-light
 -        Connected Accounts
 -      %p Click on icon to activate signin with one of the following services
-+        Connected アカウント
++        Connected Accounts
 +      %p 다음의 각 서비스를 사용한 로그인을 활성화하려면 아이콘을 클릭하십시오.
        - button_based_providers.each do |provider|
          .provider-btn-group
@@ -7745,7 +7745,7 @@ index 03ac739..ada7452 100644
    .col-lg-9
      - if current_user.two_factor_otp_enabled?
 -      = icon "check inverse", base: "circle", class: "text-success", text: "You've already enabled two-factor authentication using mobile authenticator applications. You can disable it from your account settings page."
-+      = icon "check inverse", base: "circle", class: "text-success", text: "You've already 활성화 two-factor authentication using mobile authenticator applications. You can disable it from your アカウント settings page."
++      = icon "check inverse", base: "circle", class: "text-success", text: "You've already 활성화 two-factor authentication using mobile authenticator applications. You can disable it from your account settings page."
      - else
        %p
          Download the Google Authenticator application from App Store or Google Play Store and scan this code.
@@ -8188,7 +8188,7 @@ index 4bd8506..466fb5d 100644
  
        - if can_remove_branch?(@project, branch.name)
 -        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "Delete branch", method: :delete, data: { confirm: "Deleting the '#{branch.name}' branch cannot be undone. Are you sure?", container: 'body' }, remote: true do
-+        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "브랜치 삭제", method: :delete, data: { confirm: "Deleting the '#{branch.name}' ブランチ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
++        = link_to namespace_project_branch_path(@project.namespace, @project, branch.name), class: 'btn btn-remove remove-row has-tooltip', title: "브랜치 삭제", method: :delete, data: { confirm: "Deleting the '#{branch.name}' branch cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
            = icon("trash-o")
  
      - if branch.name != @repository.root_ref
@@ -9540,7 +9540,7 @@ index 7e34a89..f9a5185 100644
  
    %p.lead
 -    Commit statistics for
-+    statistics for 커밋ト
++    Commit statistics for
      %strong #{@ref}
      #{@commits_graph.start_date.strftime('%b %d')} - #{@commits_graph.end_date.strftime('%b %d')}
  
@@ -10879,7 +10879,7 @@ index 8620f49..1b088bd 100644
 +      = f.submit '댓글 저장', class: 'btn btn-nr btn-save js-comment-button'
        %button.btn.btn-nr.btn-cancel.note-edit-cancel{ type: 'button' }
 -        Cancel
-+        キャンセル
++        취소
 diff --git a/app/views/projects/notes/_form.html.haml b/app/views/projects/notes/_form.html.haml
 index 402f5b5..67924a5 100644
 --- a/app/views/projects/notes/_form.html.haml
@@ -11212,7 +11212,7 @@ index fa8cbf7..3421ccb 100644
 -        Read more about role permissions
 -        %strong= link_to "here", help_page_path("user/permissions"), class: "vlink"
 +        권한에 대한 자세한 내용은
-+        %strong= link_to "こちら", help_page_path("user/permissions"), class: "vlink"
++        %strong= link_to "여기", help_page_path("user/permissions"), class: "vlink"
 +        에서 확인할 수 있습니다.
  
    .form-group
@@ -11353,7 +11353,7 @@ index a9e27df..d87331c 100644
 += dropdown_tag('브랜치 or create wildcard 선택',
                 options: { toggle_class: 'js-protected-branch-select js-filter-submit wide',
 -                          filter: true, dropdown_class: "dropdown-menu-selectable", placeholder: "Search protected branches",
-+                          filter: true, dropdown_class: "dropdown-menu-selectable", placeholder: "Search 保護ブランチ",
++                          filter: true, dropdown_class: "dropdown-menu-selectable", placeholder: "Search protected branches",
                            footer_content: true,
                            data: { show_no: true, show_any: true, show_upcoming: true,
                                    selected: params[:protected_branch_name],
@@ -11909,7 +11909,7 @@ index 2c11c0e..156c4c5 100644
  
        - if can?(current_user, :admin_project, @project)
 -        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "Delete tag", method: :delete, data: { confirm: "Deleting the '#{tag.name}' tag cannot be undone. Are you sure?", container: 'body' }, remote: true do
-+        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "태그 삭제", method: :delete, data: { confirm: "Deleting the '#{tag.name}' タグ cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
++        = link_to namespace_project_tag_path(@project.namespace, @project, tag.name), class: 'btn btn-remove remove-row has-tooltip', title: "태그 삭제", method: :delete, data: { confirm: "Deleting the '#{tag.name}' tag cannot be undone. 정말 하시겠습니까?", container: 'body' }, remote: true do
            = icon("trash-o")
  
    - if commit
@@ -12088,7 +12088,7 @@ index 1c5f8b3..92fe4f4 100644
      %li
        - if !on_top_of_branch?
 -        %span.btn.add-to-tree.disabled.has-tooltip{title: "You can only add files when you are on a branch", data: { container: 'body' }}
-+        %span.btn.add-to-tree.disabled.has-tooltip{title: "You can only add ファイル when you are on a ブランチ", data: { container: 'body' }}
++        %span.btn.add-to-tree.disabled.has-tooltip{title: "You can only add files when you are on a branch", data: { container: 'body' }}
            = icon('plus')
        - else
          %span.dropdown
@@ -12329,7 +12329,7 @@ index 643f7c5..8b9b350 100644
 -      = f.submit 'Save changes', class: "btn-save btn"
 -      = link_to "Cancel", namespace_project_wiki_path(@project.namespace, @project, @page), class: "btn btn-cancel"
 +      = f.submit '변경사항 저장', class: "btn-save btn"
-+      = link_to "キャンセル", namespace_project_wiki_path(@project.namespace, @project, @page), class: "btn btn-cancel"
++      = link_to "취소", namespace_project_wiki_path(@project.namespace, @project, @page), class: "btn btn-cancel"
      - else
 -      = f.submit 'Create page', class: "btn-create btn"
 -      = link_to "Cancel", namespace_project_wiki_path(@project.namespace, @project, :home), class: "btn btn-cancel"
@@ -13469,7 +13469,7 @@ index 186963b..d25a264 100644
 @@ -1,2 +1,2 @@
  = form_tag(path, method: :get, id: "issue_search_form", class: 'issue-search-form') do
 -  = search_field_tag :issue_search, params[:issue_search], { placeholder: 'Filter by name ...', class: 'form-control issue_search search-text-input input-short', spellcheck: false }
-+  = search_field_tag :issue_search, params[:issue_search], { placeholder: '名前で絞り込み ...', class: 'form-control issue_search search-text-input input-short', spellcheck: false }
++  = search_field_tag :issue_search, params[:issue_search], { placeholder: '이름으로 검색 ...', class: 'form-control issue_search search-text-input input-short', spellcheck: false }
 diff --git a/app/views/shared/issuable/_sidebar.html.haml b/app/views/shared/issuable/_sidebar.html.haml
 index c1b50e6..10c0827 100644
 --- a/app/views/shared/issuable/_sidebar.html.haml
@@ -13956,7 +13956,7 @@ index d2ec6c3..224b6dc 100644
 +                %strong 태그 푸시 이벤트
                %p.light
 -                This URL will be triggered when a new tag is pushed to the repository
-+                This URL will be triggered when a new tag is pushed to the リポジトリ
++                This URL will be triggered when a new tag is pushed to the repository
            %li
              = f.check_box :note_events, class: 'pull-left'
              .prepend-left-20
@@ -15172,7 +15172,7 @@ index 047a0b0..53b220f 100644
  
  Make sure that your GitLab Runner is configured to allow building docker images.
 -You have to check the [Using Docker Build documentation](../ci/docker/using_docker_build.md).
-+You have to check the [Docker Buildの利用 documentation](../ci/docker/using_docker_build.md).
++You have to check the [Using Docker Build documentation](../ci/docker/using_docker_build.md).
  Then see the CI documentation on [Using the GitLab Container Registry](../ci/docker/using_docker_build.md#using-the-gitlab-container-registry).
  
  ## Limitations
@@ -16873,7 +16873,7 @@ index 7fe96e6..3c8f27a 100644
  * [Videos](#videos)
  
 -**[Standard Markdown](#standard-markdown)**
-+**[스탠다드 のMarkdown](#standard-markdown)**
++**[Standard Markdown](#standard-markdown)**
  
 -* [Headers](#headers)
 -* [Emphasis](#emphasis)
@@ -16888,7 +16888,7 @@ index 7fe96e6..3c8f27a 100644
 +* [헤더](#headers)
 +* [강조](#emphasis)
 +* 목록(#lists)
-+* [링크リンク](#links)
++* [링크](#links)
 +* [이미지](#images)
 +* [견적](#blockquotes)
 +* [인라인 HTML](#inline-html)
